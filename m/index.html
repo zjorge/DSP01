@@ -4,19 +4,62 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DSP01 — Diseño y Programación Web</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
   <link rel="stylesheet" href="../css/theme-isthmus.css">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
+    :root {
+      --r-background-color: #fafafa;
+      --r-main-color: #1d1d1f;
+      --r-heading-color: #1d1d1f;
+      --color-muted: #86868b;
+      --color-subtle: #d2d2d7;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--r-background-color);
+      color: var(--r-main-color);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .header {
+      text-align: center;
+      padding: 3rem 0 2rem 0;
+    }
+    
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--r-heading-color);
+    }
+    
+    .header p {
+      margin: 0.5rem 0 0 0;
+      color: var(--color-muted);
+      font-size: 1.1rem;
+    }
+    
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
+      margin-bottom: 3rem;
     }
+    
     .menu-item {
       background: var(--r-background-color);
       border: 1px solid var(--color-subtle);
@@ -28,23 +71,27 @@
       color: inherit;
       display: block;
     }
+    
     .menu-item:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
       border-color: var(--r-heading-color);
     }
+    
     .menu-item h3 {
       margin: 0 0 0.5rem 0;
       color: var(--r-heading-color);
       font-size: 1.2rem;
       font-weight: 600;
     }
+    
     .menu-item p {
       margin: 0;
       color: var(--color-muted);
       font-size: 0.9rem;
       line-height: 1.4;
     }
+    
     .menu-item .tag {
       display: inline-block;
       background: var(--color-subtle);
@@ -56,42 +103,54 @@
       margin-bottom: 0.5rem;
       text-transform: uppercase;
     }
-    .header {
-      text-align: center;
-      padding: 3rem 2rem 1rem 2rem;
-    }
-    .header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--r-heading-color);
-    }
-    .header p {
-      margin: 0.5rem 0 0 0;
-      color: var(--color-muted);
-      font-size: 1.1rem;
-    }
+    
     .footer {
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 0;
       color: var(--color-muted);
       font-size: 0.9rem;
     }
-    .reveal.dark-mode .menu-item {
+    
+    .dark-mode {
+      --r-background-color: #181410;
+      --r-main-color: #f5f5f7;
+      --r-heading-color: #f5f5f7;
+      --color-muted: #6e6e73;
+      --color-subtle: #424245;
+    }
+    
+    .dark-mode .menu-item {
       background: #1a1a1a;
       border-color: #333;
     }
-    .reveal.dark-mode .menu-item:hover {
+    
+    .dark-mode .menu-item:hover {
       box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+      
+      .header {
+        padding: 2rem 0 1.5rem 0;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="reveal">
-<div class="slides">
-
-<section>
+<div class="container">
   <div class="header">
     <h1>DSP01</h1>
     <p>Diseño y Programación Web</p>
@@ -162,26 +221,13 @@
   <div class="footer">
     <p>Presiona <kbd>D</kbd> para modo oscuro · Click en cualquier clase para comenzar</p>
   </div>
-</section>
+</div>
 
-</div><!-- /.slides -->
-</div><!-- /.reveal -->
-
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script>
-  Reveal.initialize({
-    width: 1280, height: 720, margin: 0, minScale: 0.2, maxScale: 2.0,
-    hash: false, history: false, controls: false, progress: false,
-    transition: 'none', backgroundTransition: 'none',
-    center: false, viewDistance: 3, mobileViewDistance: 2,
-  });
-
   document.addEventListener('keydown', function(e) {
     if (e.key === 'd' || e.key === 'D') {
       if (e.ctrlKey || e.metaKey || e.altKey) return;
-      var reveal = document.querySelector('.reveal');
-      reveal.classList.toggle('dark-mode');
-      document.body.style.backgroundColor = reveal.classList.contains('dark-mode') ? '#181410' : '#fafafa';
+      document.body.classList.toggle('dark-mode');
     }
   });
 
