@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSP01 · Clase 10 · Teoría</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="../css/theme-isthmus.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<section class="title-slide" data-transition="fade">
+  <div class="tag">Diseño y Programación Web</div>
+  <h1>DSP01</h1>
+  <h3>Clase 10 · Teoría</h3>
+  <aside class="notes">
+    Día 10. Última clase. El tono es de celebración y consolidación, no de presión.
+    Hace 10 sesiones no sabían qué era un criterio de aceptación ni por qué importa el contraste.
+    Hoy entregan un sistema completo con fundamento. Eso es crecimiento real.
+    Vamos a cerrar el ciclo: alcance, publicación, iteración, privacidad, presentación y defensa.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="rocket" class="icon-hero"></i>
+  <h3 class="uppercase">Hoy</h3>
+  <h2>De idea a release</h2>
+  <aside class="notes">
+    4 bloques: cierre de alcance y criterios de éxito, publicación e iteración, privacidad y seguridad, preparación de presentación.
+    Al final: presentaciones del proyecto con defensa de decisiones.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 1: ALCANCE Y CRITERIOS
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 1</div>
+    <h2>Alcance y criterios de éxito</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Realidad</h3>
+  <h2>El diseño no termina cuando se entrega el archivo</h2>
+  <aside class="notes">
+    El ciclo completo: descubrimiento → estructura → diseño → validación → especificación → implementación → lanzamiento → iteración.
+    El diseñador participa en todo el ciclo, no solo en diseño y especificación.
+    Después del lanzamiento, los datos reemplazan a las opiniones.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">El ciclo</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="search" class="icon-inline icon-muted"></i>Descubrimiento</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="network" class="icon-inline icon-muted"></i>Estructura</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="pen-tool" class="icon-inline icon-muted"></i>Diseño</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="check-circle" class="icon-inline icon-muted"></i>Validación</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="file-text" class="icon-inline icon-muted"></i>Especificación</li>
+    <li class="fragment semi-out" data-fragment-index="6"><i data-lucide="code" class="icon-inline icon-muted"></i>Implementación</li>
+    <li class="fragment semi-out" data-fragment-index="7"><i data-lucide="rocket" class="icon-inline icon-muted"></i>Lanzamiento</li>
+    <li class="fragment semi-out" data-fragment-index="8"><i data-lucide="repeat" class="icon-inline icon-muted"></i>Iteración</li>
+  </ul>
+  <aside class="notes">
+    Descubrimiento: entender problema, usuario, contexto (clase 01).
+    Estructura: AI, flujos, navegación (clase 03).
+    Diseño: patrones, componentes, sistema (clases 04-06).
+    Validación: prototipado, heurísticas, accesibilidad (clases 07-08).
+    Especificación: handoff, criterios, documentación (clases 05-07).
+    Implementación: desarrollo construye (fuera del curso, pero el diseñador acompaña).
+    Lanzamiento: publicar, medir, observar.
+    Iteración: analizar datos, mejorar, repetir. El ciclo nunca termina.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Alcance final</h3>
+  <h2>¿Qué se entrega?</h2>
+  <aside class="notes">
+    Antes de entregar, definir con precisión:
+    Lista explícita de pantallas/flujos incluidos.
+    Lista explícita de lo que queda fuera (y por qué).
+    Versión del sistema (v1, con deudas documentadas).
+    Plataforma objetivo y restricciones consideradas.
+    Lo que queda fuera no es vergüenza — es profesionalismo. Documentar qué y por qué.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Criterios de éxito</h3>
+  <h2>SMART</h2>
+  <p class="lead">Específicos · Medibles · Alcanzables · Relevantes · Con tiempo</p>
+  <aside class="notes">
+    Los criterios de éxito deben ser medibles, no vagos.
+    "Que se vea profesional" NO es medible.
+    "Score de Lighthouse ≥ 90" SÍ es medible.
+    "70% completa registro en menos de 3 minutos" — medible con analítica.
+    "Tasa de error en checkout se reduce 30%" — medible con analytics.
+    "El equipo de desarrollo puede implementar sin preguntas" — medible con observación.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Ejemplos</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="timer" class="icon-inline icon-muted"></i>70% completa registro en < 3 min</li>
+    <li class="fragment fade-up"><i data-lucide="gauge" class="icon-inline icon-muted"></i>Lighthouse accesibilidad ≥ 90</li>
+    <li class="fragment fade-up"><i data-lucide="zap" class="icon-inline icon-muted"></i>Carga en 3G < 4 segundos</li>
+    <li class="fragment fade-up"><i data-lucide="trending-down" class="icon-inline icon-muted"></i>Errores en checkout -30%</li>
+  </ul>
+  <aside class="notes">
+    Cada criterio tiene un número, una métrica y una forma de medirlo.
+    No todos son cuantitativos. "El dev puede implementar sin preguntas" también vale.
+    Definir 3-5 criterios por proyecto. Más es difícil de medir; menos es insuficiente.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 2: PUBLICACIÓN E ITERACIÓN
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 2</div>
+    <h2>Publicación e iteración</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Lanzamiento</h3>
+  <h2>No es un evento</h2>
+  <p class="lead">Es un proceso</p>
+  <aside class="notes">
+    El lanzamiento tiene tres fases: antes, durante y después.
+    Cada fase tiene tareas específicas para el diseñador.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Antes</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="file-check" class="icon-inline icon-muted"></i>Spec completa y actualizada</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="image" class="icon-inline icon-muted"></i>Assets exportados</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="check-square" class="icon-inline icon-muted"></i>Criterios compartidos con dev y QA</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="bar-chart-3" class="icon-inline icon-muted"></i>Analítica implementada</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="text" class="icon-inline icon-muted"></i>Contenido real, no lorem ipsum</li>
+  </ul>
+  <aside class="notes">
+    Spec: verificar que está completa y actualizada. No la versión de hace 2 semanas.
+    Assets: íconos SVG, imágenes optimizadas, fuentes. Todo exportado y organizado.
+    Criterios: Dado/Cuando/Entonces escritos y compartidos con desarrollo y QA.
+    Analítica: los eventos deben estar implementados ANTES del lanzamiento, no después.
+    Contenido: las pantallas principales deben tener contenido real. Lorem ipsum no se lanza.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Durante</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="users" class="icon-inline icon-muted"></i>Lanzamiento gradual</li>
+    <li class="fragment fade-up"><i data-lucide="activity" class="icon-inline icon-muted"></i>Monitoreo en tiempo real</li>
+    <li class="fragment fade-up"><i data-lucide="undo" class="icon-inline icon-muted"></i>Plan de rollback</li>
+  </ul>
+  <aside class="notes">
+    Gradual: primero un porcentaje pequeño de usuarios, luego todos. Detectar problemas antes de que afecten a todos.
+    Monitoreo: errores, tiempos de carga, conversión. En tiempo real.
+    Rollback: si algo sale muy mal, poder volver a la versión anterior. Siempre tener plan B.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Después</h3>
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">48h</span>
+      <p class="small muted">monitoreo intensivo</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">1 sem</span>
+      <p class="small muted">análisis inicial</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">1 mes</span>
+      <p class="small muted">evaluación vs criterios</p>
+    </div>
+  </div>
+  <aside class="notes">
+    48 horas: monitoreo intensivo. ¿Hay errores? ¿Los embudos funcionan? ¿Algo se rompió?
+    1 semana: análisis de datos iniciales. ¿Los usuarios hacen lo que esperábamos? ¿Hay patrones inesperados?
+    1 mes: evaluación contra criterios de éxito. ¿Se cumplieron? ¿Qué ajustar? ¿Qué iterar?
+  </aside>
+</section>
+
+<!-- Iteración -->
+<section data-transition="fade">
+  <i data-lucide="repeat" class="icon-hero"></i>
+  <h3 class="uppercase">Proceso</h3>
+  <h2>Iteración basada en datos</h2>
+  <aside class="notes">
+    Después del lanzamiento, el diseño se basa en evidencia, no en intuición.
+    Fuentes: analítica cuantitativa (qué hacen), cualitativa (cómo lo hacen), feedback directo (por qué), pruebas A/B (qué funciona mejor).
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Ciclo de iteración</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="eye" class="icon-inline icon-muted"></i>Observar — ¿qué dicen los datos?</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="lightbulb" class="icon-inline icon-muted"></i>Hipótesis — "si hacemos X, pasará Y"</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="pen-tool" class="icon-inline icon-muted"></i>Diseñar — proponer el cambio</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="bar-chart-3" class="icon-inline icon-muted"></i>Medir — ¿se confirmó?</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="check" class="icon-inline icon-muted"></i>Decidir — adoptar o aprender</li>
+  </ul>
+  <aside class="notes">
+    Observar: ¿dónde se pierden usuarios? ¿Qué genera errores? ¿Qué no se usa?
+    Hipótesis: "Si simplificamos el formulario de 8 a 4 campos, la tasa de completado subirá 20%."
+    Diseñar: proponer el cambio en Figma con spec y criterios.
+    Medir: ¿la hipótesis se confirmó? ¿Subió la tasa?
+    Decidir: si sí, adoptar. Si no, aprender y probar otra cosa.
+    Este ciclo se repite indefinidamente. El producto nunca está "terminado".
+  </aside>
+</section>
+
+<!-- Mantenimiento -->
+<section data-transition="fade">
+  <h3 class="uppercase">Mantenimiento</h3>
+  <h2>El sistema es un producto vivo</h2>
+  <aside class="notes">
+    Un sistema de diseño no es un entregable estático. Requiere mantenimiento.
+    Agregar componentes cuando el producto crece. Deprecar los que ya no se usan.
+    Actualizar tokens si cambia la paleta o tipografía. Resolver deuda según prioridad.
+    Sincronizar con código: verificar que Figma coincide con la implementación.
+    Gobernanza: ¿quién puede agregar componentes? ¿Cómo se proponen cambios? ¿Con qué frecuencia se revisa?
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAUSA
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Hasta ahora: ciclo completo, alcance, criterios SMART, publicación (antes/durante/después), iteración basada en datos, mantenimiento.
+    Después del break: privacidad y seguridad aplicada al proyecto, preparación de presentación, defensa de decisiones.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 3: PRIVACIDAD Y SEGURIDAD
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 3</div>
+    <h2>Privacidad y seguridad</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Auditar el proyecto</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="help-circle" class="icon-inline icon-muted"></i>¿Cada dato tiene justificación?</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="trash-2" class="icon-inline icon-muted"></i>¿El usuario puede eliminar datos?</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="check-square" class="icon-inline icon-muted"></i>¿El consentimiento es honesto?</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="eye-off" class="icon-inline icon-muted"></i>¿Los datos sensibles están protegidos?</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="share-2" class="icon-inline icon-muted"></i>¿Se documentaron terceros?</li>
+  </ul>
+  <aside class="notes">
+    Justificación: cada dato pedido debe tener una razón clara. Si no lo usás, no lo pidas.
+    Eliminación: el usuario debe poder ver, editar y eliminar sus datos. Derecho al olvido.
+    Consentimiento: claro, informado, no manipulativo. En lenguaje humano.
+    Protección: contraseñas enmascaradas, tarjetas con •••• 4242, datos personales ocultos por defecto.
+    Terceros: si se comparten datos con analytics, ads, CRM — el usuario debe saberlo.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Seguridad visual</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="lock" class="icon-inline icon-muted"></i>Contraseñas enmascaradas</li>
+    <li class="fragment fade-up"><i data-lucide="credit-card" class="icon-inline icon-muted"></i>Tarjetas: •••• 4242</li>
+    <li class="fragment fade-up"><i data-lucide="timer" class="icon-inline icon-muted"></i>Timeout por inactividad</li>
+    <li class="fragment fade-up"><i data-lucide="shield" class="icon-inline icon-muted"></i>Mínimo privilegio por rol</li>
+  </ul>
+  <aside class="notes">
+    Contraseñas: nunca en texto plano. Indicador de fortaleza. Requisitos claros.
+    Datos sensibles: tarjetas enmascaradas, datos personales ocultos por defecto con toggle para ver.
+    Sesiones: timeout después de inactividad. Opción de cerrar sesión en todos los dispositivos.
+    Permisos: cada rol ve solo lo que necesita. Admin ≠ editor ≠ viewer.
+    HTTPS: todo el sitio. No es decisión de diseño, pero sí verificable.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 4: PRESENTACIÓN
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 4</div>
+    <h2>Presentación y defensa</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="presentation" class="icon-hero"></i>
+  <h3 class="uppercase">Presentar</h3>
+  <h2>No es mostrar pantallas bonitas</h2>
+  <p class="lead">Es defender decisiones con fundamento</p>
+  <aside class="notes">
+    Presentar un proyecto de diseño es defender decisiones, no hacer un slideshow de mockups.
+    Cada decisión debe tener un "por qué" basado en datos, principios o restricciones — no en opiniones.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Estructura (10-15 min)</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="target" class="icon-inline icon-muted"></i>Problema — ¿qué resuelve?</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="search" class="icon-inline icon-muted"></i>Investigación — ¿qué descubriste?</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="network" class="icon-inline icon-muted"></i>Arquitectura — ¿por qué esta estructura?</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="component" class="icon-inline icon-muted"></i>Sistema — tokens, componentes clave</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="play" class="icon-inline icon-muted"></i>Prototipo — demo del flujo</li>
+    <li class="fragment semi-out" data-fragment-index="6"><i data-lucide="shield-check" class="icon-inline icon-muted"></i>Calidad — auditoría, correcciones</li>
+    <li class="fragment semi-out" data-fragment-index="7"><i data-lucide="globe" class="icon-inline icon-muted"></i>Plataforma — elección y medición</li>
+    <li class="fragment semi-out" data-fragment-index="8"><i data-lucide="arrow-right" class="icon-inline icon-muted"></i>Próximos pasos — qué haría con más tiempo</li>
+  </ul>
+  <aside class="notes">
+    Problema (1-2 min): qué resuelve, para quién, en qué contexto.
+    Investigación (1-2 min): auditoría, casos de estudio, supuestos validados.
+    Arquitectura (1-2 min): sitemap, flujos, decisiones de navegación.
+    Sistema (2-3 min): tokens, componentes clave, variantes. La lógica, no cada componente.
+    Prototipo (2-3 min): demo del flujo principal. Happy path + error. Microcopy y estados.
+    Calidad (1-2 min): hallazgos de auditoría, correcciones, deuda documentada.
+    Plataforma (1 min): elección y por qué. Eventos y embudo. Criterios de éxito.
+    Próximos pasos (1 min): qué haría con 2 semanas más. Riesgos identificados.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Principios de defensa</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="book-open" class="icon-inline icon-muted"></i>Fundamentar, no justificar</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="alert-triangle" class="icon-inline icon-muted"></i>Reconocer limitaciones</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="bar-chart-3" class="icon-inline icon-muted"></i>Conectar con datos</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="message-circle" class="icon-inline icon-muted"></i>Aceptar crítica</li>
+  </ul>
+  <aside class="notes">
+    Fundamentar: "Elegí 4 columnas porque el contenido necesita espacio" > "Me pareció que se veía mejor".
+    Limitaciones: "No diseñé recuperación de contraseña. Está documentado como deuda." Más profesional que pretender que no existe.
+    Datos: "53% del tráfico es móvil, por eso mobile-first" > "Es la tendencia".
+    Crítica: "Buen punto, no lo había considerado. Lo agregaría en la siguiente iteración."
+  </aside>
+</section>
+
+<!-- Crítica constructiva -->
+<section data-transition="fade">
+  <h3 class="uppercase">Crítica constructiva</h3>
+  <h2>Una habilidad profesional</h2>
+  <aside class="notes">
+    Dar y recibir feedback es una habilidad que se entrena.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Al dar feedback</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="target" class="icon-inline icon-muted"></i>Específico — no "no me gusta"</li>
+    <li class="fragment fade-up"><i data-lucide="wrench" class="icon-inline icon-muted"></i>Accionable — qué cambiar</li>
+    <li class="fragment fade-up"><i data-lucide="scale" class="icon-inline icon-muted"></i>Balanceado — qué funciona + qué mejorar</li>
+  </ul>
+  <aside class="notes">
+    Específico: "El contraste del texto secundario no cumple 4.5:1" > "No me gusta el color".
+    Accionable: "Sugiero aumentar el peso a medium" > "Hay que arreglarlo".
+    Balanceado: empezar con algo que funciona bien, luego lo que se puede mejorar.
+    Preguntar antes de asumir: "¿Consideraste el estado de error?" > "Falta el estado de error".
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Al recibir feedback</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="ear" class="icon-inline icon-muted"></i>Escuchar sin defender</li>
+    <li class="fragment fade-up"><i data-lucide="pencil" class="icon-inline icon-muted"></i>Anotar todo</li>
+    <li class="fragment fade-up"><i data-lucide="help-circle" class="icon-inline icon-muted"></i>Preguntar para clarificar</li>
+    <li class="fragment fade-up"><i data-lucide="heart" class="icon-inline icon-muted"></i>No es personal</li>
+  </ul>
+  <aside class="notes">
+    Escuchar: no defender inmediatamente. Dejar que la persona termine.
+    Anotar: todo. Evaluar después con calma. No filtrar en el momento.
+    Preguntar: "¿Podés darme un ejemplo de lo que querés decir?"
+    No personal: el feedback es sobre el trabajo, no sobre vos. Separar ego de oficio.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CIERRE
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Curso completo</div>
+    <h2>Qué entrenamos</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">01</span>
+      <p>Ver el sistema</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">02</span>
+      <p>Entregar explícito</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">03</span>
+      <p>Diseñar con restricciones</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Ver el sistema: no solo pantallas — estructura, estados, tokens, flujos, datos.
+    Entregar explícito: specs, criterios, documentación. Que se pueda implementar sin adivinar.
+    Diseñar con restricciones: accesibilidad, performance, privacidad, plataforma, contenido real.
+    Estos 3 principios aplican a cada proyecto que hagan de aquí en adelante.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Mini-checklist final</h3>
+  <ul class="checklist">
+    <li class="fragment fade-up">¿El archivo Figma está organizado?</li>
+    <li class="fragment fade-up">¿Los criterios son testeables?</li>
+    <li class="fragment fade-up">¿La deuda está documentada?</li>
+    <li class="fragment fade-up">¿La presentación defiende con fundamento?</li>
+  </ul>
+  <aside class="notes">
+    Archivo: páginas claras, componentes con variantes, tokens aplicados, naming consistente.
+    Criterios: Dado/Cuando/Entonces específicos. No "se ve bien" sino "fondo cambia con 150ms ease".
+    Deuda: documentada explícitamente. Qué falta, por qué, cuándo resolverlo.
+    Presentación: cada decisión con un "por qué" basado en datos, principios o restricciones.
+    Ahora a preparar la presentación y la entrega final.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h2>Diseñar para web es negociar entre intención creativa y restricción técnica</h2>
+  <p class="lead">Ahora tienen las herramientas para hacerlo con criterio</p>
+  <aside class="notes">
+    Frase de cierre del curso. Conecta todo lo aprendido.
+    Hace 10 sesiones no sabían qué era un criterio de aceptación ni por qué importa el contraste.
+    Hoy entregan un sistema completo con fundamento. Eso es crecimiento real.
+  </aside>
+</section>
+
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Cierre del bloque teórico. Después: checklist final del archivo, pulido, presentaciones del proyecto y cierre del curso.
+    Recordar: las presentaciones son 10-15 minutos. Timer visible. Preguntas constructivas.
+  </aside>
+</section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1280, height: 720, margin: 0, minScale: 0.2, maxScale: 2.0,
+    hash: true, history: true, controls: true, controlsLayout: 'bottom-right',
+    progress: true, slideNumber: 'c/t', showSlideNumber: 'speaker', center: false,
+    transition: 'fade', transitionSpeed: 'fast', backgroundTransition: 'fade',
+    autoAnimateEasing: 'cubic-bezier(0.25, 0.1, 0.25, 1)', autoAnimateDuration: 0.6, autoAnimateUnmatched: false,
+    fragmentInURL: false, showNotes: false, plugins: [ RevealNotes ], viewDistance: 3, mobileViewDistance: 2,
+  });
+
+  function updateSemiOut() {
+    document.querySelectorAll('.fragment.semi-out').forEach(function(el) {
+      if (el.classList.contains('current-fragment')) {
+        el.style.opacity = '1'; el.style.color = 'var(--r-heading-color)'; el.style.fontWeight = '600';
+      } else if (el.classList.contains('visible')) {
+        el.style.opacity = '1'; el.style.color = 'var(--color-subtle)'; el.style.fontWeight = '';
+      } else {
+        el.style.opacity = '1'; el.style.color = 'var(--color-subtle)'; el.style.fontWeight = '';
+      }
+    });
+  }
+  Reveal.on('fragmentshown', updateSemiOut);
+  Reveal.on('fragmenthidden', updateSemiOut);
+  Reveal.on('slidechanged', updateSemiOut);
+  Reveal.on('ready', function() { updateSemiOut(); lucide.createIcons(); });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'd' || e.key === 'D') {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var reveal = document.querySelector('.reveal');
+      reveal.classList.toggle('dark-mode');
+      document.body.style.backgroundColor = reveal.classList.contains('dark-mode') ? '#0a0a0a' : '#fafafa';
+    }
+  });
+</script>
+</body>
+</html>

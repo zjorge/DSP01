@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSP01 · Clase 04 · Teoría</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="../css/theme-isthmus.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- ════════════════════════════════════════════
+     TÍTULO
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <div class="tag">Diseño y Programación Web</div>
+  <h1>DSP01</h1>
+  <h3>Clase 04 · Teoría</h3>
+  <aside class="notes">
+    Día 4. Hoy pasamos de estructura a componentes visuales.
+    Ayer: sitemap, flujos, wireframes. Hoy: patrones de UI, estados, formularios, vistas de datos.
+    Esta es la clase más "visual" hasta ahora — pero el foco no es estética, es completitud.
+    Un componente bonito sin estados es un componente a medias.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     INTRO
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <i data-lucide="component" class="icon-hero"></i>
+  <h3 class="uppercase">Hoy</h3>
+  <h2>UI: patrones y componentes</h2>
+  <aside class="notes">
+    Vamos a cubrir 4 bloques: patrones de UI (qué soluciones existen), estados y feedback (la otra mitad del diseño), formularios (donde más se pierde al usuario), y vistas de datos + multimodalidad.
+    Al final de la teoría, van a tener el vocabulario para construir su kit de componentes en la práctica.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 1: PATRONES DE UI
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 1</div>
+    <h2>Patrones de UI</h2>
+  </div>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase">Concepto</h3>
+  <h2 data-id="pat">Patrón ≠ Componente</h2>
+  <aside class="notes">
+    Un patrón de UI es una solución recurrente a un problema de interacción. No es un componente — es la lógica detrás del componente.
+    El patrón es el problema que se resuelve. El componente es la implementación visual.
+    Ejemplo: "selección múltiple con filtro" es un patrón. Puede implementarse como checkboxes con búsqueda, chips seleccionables, o dropdown multi-select. El patrón es el mismo; el componente cambia según el contexto.
+    Referencia: Jenifer Tidwell, Designing Interfaces.
+  </aside>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase">Concepto</h3>
+  <h2 data-id="pat">El patrón es el problema</h2>
+  <p class="lead">El componente es la solución</p>
+  <aside class="notes">
+    Cuando elegís un componente, primero identificá el patrón: ¿qué problema de interacción estoy resolviendo?
+    "Necesito que el usuario elija una fecha" → patrón: selección de fecha → componente: date picker, calendario inline, o inputs separados de día/mes/año.
+    La elección del componente depende del contexto: dispositivo, cantidad de datos, frecuencia de uso.
+  </aside>
+</section>
+
+<!-- Patrones de navegación -->
+<section data-transition="fade">
+  <h3 class="uppercase">Navegación</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="layout-list" class="icon-inline icon-muted"></i>Tabs — 2-7 secciones del mismo nivel</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="sidebar" class="icon-inline icon-muted"></i>Sidebar — nav persistente en dashboards</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="chevrons-right" class="icon-inline icon-muted"></i>Breadcrumbs — más de 2 niveles</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="smartphone" class="icon-inline icon-muted"></i>Bottom nav — 3-5 destinos en móvil</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="menu" class="icon-inline icon-muted"></i>Hamburger — último recurso</li>
+  </ul>
+  <aside class="notes">
+    Tabs: para secciones del mismo nivel que no necesitan verse simultáneamente. No usar para pasos secuenciales (eso es un stepper).
+    Sidebar: navegación secundaria persistente. Útil en dashboards y apps con muchas secciones. Se puede colapsar en móvil.
+    Breadcrumbs: rastro de migas para sitios con profundidad. No en SPAs.
+    Bottom nav: 3-5 destinos principales en móvil. Más de 5 = confusión. Menos de 3 = innecesario.
+    Hamburger: oculta opciones = reduce descubrimiento. Usar solo si no caben en bottom nav. Es el último recurso, no el primero.
+  </aside>
+</section>
+
+<!-- Patrones de contenido -->
+<section data-transition="fade">
+  <h3 class="uppercase">Contenido</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="credit-card" class="icon-inline icon-muted"></i>Cards — exploración, heterogéneo</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="list" class="icon-inline icon-muted"></i>Listas — escaneo rápido, homogéneo</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="table" class="icon-inline icon-muted"></i>Tablas — comparación, estructurado</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="image" class="icon-inline icon-muted"></i>Grid de imágenes — visual dominante</li>
+  </ul>
+  <aside class="notes">
+    Cards: contenido heterogéneo con imagen + texto + acción. Buenas para exploración (Airbnb, Pinterest). Malas para comparación — para eso, tablas.
+    Listas: contenido homogéneo, escaneo rápido. Con o sin thumbnail. Ordenables y filtrables. Emails, contactos, tareas.
+    Tablas: datos estructurados que se comparan. Columnas = atributos, filas = ítems. Responsive: colapsar columnas secundarias o convertir a cards en móvil.
+    Grid de imágenes: contenido visual dominante. Portfolio, galería, e-commerce de moda. Lazy loading obligatorio.
+  </aside>
+</section>
+
+<!-- Patrones de acción -->
+<section data-transition="fade">
+  <h3 class="uppercase">Acciones</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="square" class="icon-inline icon-muted"></i>Modales — atención completa</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="panel-right" class="icon-inline icon-muted"></i>Drawers — contenido secundario</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="bell" class="icon-inline icon-muted"></i>Toasts — feedback temporal</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="chevron-down" class="icon-inline icon-muted"></i>Dropdowns — selección de opción</li>
+  </ul>
+  <aside class="notes">
+    Modales: acciones que requieren atención completa y confirmación. No abusar — interrumpen el flujo. Siempre con X, Escape y clic fuera para cerrar.
+    Drawers/Sheets: contenido secundario que no merece página propia. Desde el borde derecho en desktop, inferior en móvil.
+    Toasts/Snackbars: feedback temporal no bloqueante. "Guardado", "Copiado", "Enviado". Auto-dismiss en 3-5 segundos. No para errores críticos.
+    Dropdowns: selección de una opción entre varias. Máximo 10-15 ítems visibles; más = agregar búsqueda dentro del dropdown.
+  </aside>
+</section>
+
+<!-- Filtros -->
+<section data-transition="fade">
+  <h3 class="uppercase">Filtros y búsqueda</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="filter" class="icon-inline icon-muted"></i>Filtros — reducir un conjunto grande</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="search" class="icon-inline icon-muted"></i>Búsqueda — encontrar algo específico</li>
+  </ul>
+  <aside class="notes">
+    Filtros: sidebar en desktop, bottom sheet en móvil. Los más usados siempre visibles. Los demás en "más filtros". Mostrar cantidad de resultados en tiempo real. Siempre mostrar filtros activos y forma de limpiarlos.
+    Búsqueda: autocompletado, sugerencias, resultados recientes. Siempre mostrar qué se buscó y cuántos resultados hay. Estado vacío: "No encontramos resultados para X. Intentá con otros términos."
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 2: ESTADOS Y FEEDBACK
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 2</div>
+    <h2>Estados y feedback</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="toggle-left" class="icon-hero"></i>
+  <h3 class="uppercase">Realidad</h3>
+  <h2>Estados</h2>
+  <p class="lead">La otra mitad del diseño</p>
+  <aside class="notes">
+    Diseñar solo el estado default es como construir un auto sin frenos.
+    Cada componente interactivo tiene múltiples estados. Si solo diseñás el default, estás diseñando una fracción del componente.
+    Vamos a ver los 9 estados que todo componente interactivo debe contemplar.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">9 estados</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="circle" class="icon-inline icon-muted"></i>Default</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="mouse-pointer" class="icon-inline icon-muted"></i>Hover</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="focus" class="icon-inline icon-muted"></i>Focus</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="pointer" class="icon-inline icon-muted"></i>Active / Pressed</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="ban" class="icon-inline icon-muted"></i>Disabled</li>
+    <li class="fragment semi-out" data-fragment-index="6"><i data-lucide="loader" class="icon-inline icon-muted"></i>Loading</li>
+    <li class="fragment semi-out" data-fragment-index="7"><i data-lucide="alert-circle" class="icon-inline icon-muted"></i>Error</li>
+    <li class="fragment semi-out" data-fragment-index="8"><i data-lucide="check-circle" class="icon-inline icon-muted"></i>Success</li>
+    <li class="fragment semi-out" data-fragment-index="9"><i data-lucide="inbox" class="icon-inline icon-muted"></i>Empty</li>
+  </ul>
+  <aside class="notes">
+    Default: estado inicial, sin interacción. La base.
+    Hover: mouse encima (solo desktop). Cambio sutil de fondo o borde. No depender de hover en móvil.
+    Focus: seleccionado con teclado (Tab). Outline visible, alto contraste. NUNCA quitar sin reemplazar.
+    Active/Pressed: durante el clic/tap. Feedback inmediato — escala, color más oscuro.
+    Disabled: no disponible. Gris, opacidad reducida, cursor not-allowed. Explicar POR QUÉ está disabled.
+    Loading: procesando. Spinner o skeleton en el componente, no bloquear toda la UI.
+    Error: algo salió mal. Borde rojo + mensaje descriptivo debajo.
+    Success: acción completada. Confirmación visual temporal.
+    Empty: sin datos. Mensaje útil + CTA para llenar.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Regla de oro</h3>
+  <h2>Focus siempre visible</h2>
+  <aside class="notes">
+    El focus es la única forma en que usuarios de teclado saben dónde están.
+    El outline por defecto del browser es feo pero funcional. Si lo quitás, reemplazalo con algo mejor — nunca con nada.
+    outline: none sin reemplazo = inaccesible. Es como quitar las señales de tránsito porque son feas.
+    Diseñar un focus bonito: outline de 2-3px con color de alto contraste, offset de 2px, consistente en todo el sitio.
+  </aside>
+</section>
+
+<!-- Feedback -->
+<section data-transition="fade">
+  <h3 class="uppercase">Feedback</h3>
+  <h2>El usuario necesita saber que el sistema respondió</h2>
+  <aside class="notes">
+    Sin feedback, el usuario repite la acción: doble clic, doble envío, frustración.
+    Nielsen, Heurística #1: "El sistema debe mantener al usuario informado sobre lo que está pasando."
+    Vamos a ver 4 tipos de feedback.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Tipos de feedback</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="zap" class="icon-inline icon-muted"></i>Inmediato — < 100ms</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="loader" class="icon-inline icon-muted"></i>Progresivo — 1-10s</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="check" class="icon-inline icon-muted"></i>Confirmatorio — completado</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="alert-triangle" class="icon-inline icon-muted"></i>Correctivo — error + instrucción</li>
+  </ul>
+  <aside class="notes">
+    Inmediato: hover, press, toggle. Menos de 100ms. El usuario siente que la interfaz responde.
+    Progresivo: loading bar, skeleton, porcentaje. Para acciones de 1-10 segundos. Muestra que algo está pasando.
+    Confirmatorio: toast, checkmark, cambio de estado. Después de completar una acción. "Guardado", "Enviado".
+    Correctivo: mensaje de error con instrucción. Qué salió mal + cómo arreglarlo. "El email no es válido. Usá el formato nombre@dominio.com."
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAUSA
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Hasta ahora: patrones de UI (navegación, contenido, acciones, filtros), 9 estados de componentes, feedback.
+    Después del break: formularios (donde más se pierde al usuario) y vistas de datos + multimodalidad.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 3: FORMULARIOS
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 3</div>
+    <h2>Formularios</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="text-cursor-input" class="icon-hero"></i>
+  <h3 class="uppercase">Realidad</h3>
+  <h2>Formularios</h2>
+  <p class="lead">Donde más se pierde al usuario</p>
+  <aside class="notes">
+    Los formularios son el punto de conversión: registro, login, checkout, contacto, búsqueda.
+    Cada campo extra reduce la tasa de conversión. Cada error mal manejado genera abandono.
+    Vamos a ver 9 principios que aplican a cualquier formulario.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Principio 1</h3>
+  <h2>Menos campos</h2>
+  <p class="lead">Más conversiones</p>
+  <aside class="notes">
+    Pedir solo lo necesario. ¿Realmente necesitás el teléfono? ¿El apellido por separado? ¿La fecha de nacimiento?
+    Cada campo que quitás aumenta la probabilidad de que el usuario complete el formulario.
+    Expedia eliminó un campo ("Company name") y ganó $12 millones al año. Un campo.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Principio 2</h3>
+  <h2>Labels siempre visibles</h2>
+  <aside class="notes">
+    No usar placeholder como label. El placeholder desaparece al escribir — el usuario olvida qué campo es.
+    Label arriba del campo, alineado a la izquierda. Siempre visible, siempre asociado programáticamente.
+    El placeholder es para ejemplos o hints: "ej: ana@mail.com". No para el nombre del campo.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Principio 3</h3>
+  <h2>Validación progresiva</h2>
+  <p class="lead">Al salir del campo, no al enviar</p>
+  <aside class="notes">
+    Validar al salir del campo (onblur): el usuario corrige en contexto, inmediatamente.
+    Validar al enviar: el usuario llena 10 campos, presiona enviar, y recién ahí ve 3 errores. Frustrante.
+    Validación progresiva es más trabajo de desarrollo pero mucho mejor experiencia.
+    Demo: mostrar un formulario con validación al enviar vs. uno con validación progresiva. La diferencia es obvia.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Principio 4</h3>
+  <h2>Mensajes de error específicos</h2>
+  <aside class="notes">
+    Jerarquía de calidad de mensajes de error:
+    Malo: "Error" (¿qué error?)
+    Regular: "Este campo es obligatorio" (genérico)
+    Bueno: "Ingresá tu email" (específico)
+    Excelente: "El formato debe ser nombre@dominio.com" (instructivo)
+    Siempre debajo del campo, en rojo, con ícono. Asociado con aria-describedby para lectores de pantalla.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Principio 5</h3>
+  <h2>Prevención > Corrección</h2>
+  <aside class="notes">
+    Si el formato es específico, mostrar ejemplo ANTES de que el usuario escriba.
+    Si hay restricciones (mínimo 8 caracteres, solo números), decirlas antes — no después de fallar.
+    Un indicador de fortaleza de contraseña en tiempo real previene más errores que un mensaje de error después.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Principio 6</h3>
+  <h2>Botón de envío claro</h2>
+  <aside class="notes">
+    El label del botón debe decir qué va a pasar al presionarlo.
+    "Crear cuenta" > "Enviar" > "Submit". El usuario debe saber la consecuencia antes de actuar.
+    "Pagar $49.99" es mejor que "Confirmar". "Eliminar cuenta" es mejor que "Aceptar".
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Principio 7</h3>
+  <h2>No perder datos</h2>
+  <aside class="notes">
+    Si el formulario falla, NUNCA borrar lo que el usuario ya escribió. Preservar el estado.
+    Formularios que borran todos los campos cuando hay un error en uno = hostilidad.
+    El usuario ya hizo el trabajo de llenar 8 campos. No lo castigues por un error en el noveno.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Patrones de formulario</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="align-left" class="icon-inline icon-muted"></i>Single column — menos errores</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="list-ordered" class="icon-inline icon-muted"></i>Multi-step — más de 6-8 campos</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="pencil" class="icon-inline icon-muted"></i>Inline editing — configuraciones</li>
+  </ul>
+  <aside class="notes">
+    Single column: un campo por línea. Más lento pero menos errores. Ideal para móvil y formularios largos. El ojo sigue un camino vertical claro.
+    Multi-step: dividir en pasos con indicador de progreso. Para formularios largos (checkout, onboarding). Cada paso tiene un propósito claro.
+    Inline editing: editar directamente en la vista de datos. Para configuraciones y perfiles. Clic en el valor → se convierte en input → guardar.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 4: VISTAS DE DATOS Y MULTIMODALIDAD
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 4</div>
+    <h2>Datos y multimodalidad</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Vistas de datos</h3>
+  <h2>Diseñar para lo dinámico</h2>
+  <aside class="notes">
+    Cuando el contenido viene de una base de datos, API o CMS, no podés controlar cuántos datos hay ni qué tan largos son.
+    Hay que diseñar para todos los escenarios, no solo para el caso ideal con 3 ítems perfectos.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Escenarios</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="inbox" class="icon-inline icon-muted"></i>Vacío — primera vez</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="minus" class="icon-inline icon-muted"></i>Pocos datos — 1-3 ítems</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="database" class="icon-inline icon-muted"></i>Muchos datos — paginación</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="text" class="icon-inline icon-muted"></i>Datos largos — truncado</li>
+  </ul>
+  <aside class="notes">
+    Vacío: primera vez, sin datos. No pantalla en blanco. Mensaje + CTA: "Aún no tenés proyectos. Crear el primero →"
+    Pocos: 1-3 ítems. ¿Se ve raro con tanto espacio vacío? Ajustar layout.
+    Muchos: paginación para datos que se consultan (e-commerce). Infinite scroll para feeds (redes sociales). "Cargar más" como intermedio.
+    Largos: texto que se trunca, nombres de 200 caracteres. Definir reglas: ellipsis después de 2 líneas, "ver más" para descripciones.
+  </aside>
+</section>
+
+<!-- Multimodalidad -->
+<section data-transition="fade">
+  <i data-lucide="sparkles" class="icon-hero"></i>
+  <h3 class="uppercase">Multimodalidad</h3>
+  <h2>IA en UI</h2>
+  <aside class="notes">
+    La IA en interfaces no es magia — es una herramienta con límites.
+    Diseñar con IA requiere honestidad sobre lo que puede y no puede hacer.
+    Vamos a ver los principios clave.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">IA en UI</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="eye" class="icon-inline icon-muted"></i>Transparencia — "Sugerido por IA"</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="hand" class="icon-inline icon-muted"></i>Control — siempre editable</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="alert-triangle" class="icon-inline icon-muted"></i>Límites honestos</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="life-buoy" class="icon-inline icon-muted"></i>Fallback — alternativa manual</li>
+  </ul>
+  <aside class="notes">
+    Transparencia: el usuario debe saber cuándo algo es generado por IA. Label claro: "Sugerido por IA".
+    Control: el usuario siempre puede editar, rechazar o ignorar. Nunca auto-aplicar sin confirmación.
+    Límites: "Puedo equivocarme. Verificá la información." No prometer certeza donde no la hay.
+    Fallback: si la IA no puede responder, ofrecer alternativa humana o manual. La IA es mejora, no dependencia.
+    Ejemplos: Gmail Smart Compose (sugerencia en gris, Tab para aceptar), "¿Quisiste decir...?" en búsqueda.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="mic" class="icon-hero"></i>
+  <h3 class="uppercase">Multimodalidad</h3>
+  <h2>Voz</h2>
+  <aside class="notes">
+    Diseñar para voz es diseñar conversaciones, no pantallas.
+    Principios clave: turnos cortos, confirmación explícita, errores con gracia, fallback a pantalla.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Voz</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="message-circle" class="icon-inline icon-muted"></i>Turnos cortos</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="check" class="icon-inline icon-muted"></i>Confirmación explícita</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="rotate-ccw" class="icon-inline icon-muted"></i>Errores con gracia</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="monitor" class="icon-inline icon-muted"></i>Fallback a pantalla</li>
+  </ul>
+  <aside class="notes">
+    Turnos cortos: el sistema habla poco, pregunta claro, espera respuesta. Si habla más de 15 segundos, el usuario se pierde.
+    Confirmación: "Entendí que querés reservar para 2 personas el viernes. ¿Correcto?" Nunca ejecutar sin confirmar.
+    Errores: "No entendí. ¿Podés repetirlo?" > "Error de reconocimiento". Con gracia, no con jerga técnica.
+    Fallback: si la voz no funciona, ofrecer alternativa visual. "Podés hacerlo desde la app."
+    No profundizar mucho aquí — el objetivo es que sepan que existe y tengan criterio básico.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CIERRE
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Hoy</div>
+    <h2>Qué entrenamos</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">01</span>
+      <p>Patrones con criterio</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">02</span>
+      <p>Estados completos</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">03</span>
+      <p>Formularios que convierten</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Patrones: elegir el componente correcto según el problema, no según la moda.
+    Estados: diseñar los 9 estados, no solo el default. Focus siempre visible.
+    Formularios: menos campos, labels visibles, validación progresiva, mensajes específicos.
+    Ahora a la práctica: construir el kit de componentes del proyecto con estados completos.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Mini-checklist</h3>
+  <ul class="checklist">
+    <li class="fragment fade-up">¿Cada componente tiene estados completos?</li>
+    <li class="fragment fade-up">¿Los formularios tienen labels visibles?</li>
+    <li class="fragment fade-up">¿El focus es visible en todo interactivo?</li>
+    <li class="fragment fade-up">¿Los errores son específicos y accionables?</li>
+  </ul>
+  <aside class="notes">
+    Estados: no solo default — hover, focus, active, disabled, loading, error, success, empty.
+    Labels: visibles siempre, no solo placeholder.
+    Focus: outline visible con contraste suficiente.
+    Errores: debajo del campo, con ícono, texto específico, no genérico.
+    Ahora a construir el kit en Figma.
+  </aside>
+</section>
+
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Cierre del bloque teórico. Después: construir kit de componentes en Figma.
+    Botones (primario, secundario, ghost, destructivo), inputs, selects, cards, alertas, navbar, chips.
+    Foco en estados completos, no en estética perfecta. La estética se pule en clase 5-6.
+  </aside>
+</section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1280, height: 720, margin: 0, minScale: 0.2, maxScale: 2.0,
+    hash: true, history: true, controls: true, controlsLayout: 'bottom-right',
+    progress: true, slideNumber: 'c/t', showSlideNumber: 'speaker', center: false,
+    transition: 'fade', transitionSpeed: 'fast', backgroundTransition: 'fade',
+    autoAnimateEasing: 'cubic-bezier(0.25, 0.1, 0.25, 1)', autoAnimateDuration: 0.6, autoAnimateUnmatched: false,
+    fragmentInURL: false, showNotes: false, plugins: [ RevealNotes ], viewDistance: 3, mobileViewDistance: 2,
+  });
+
+  function updateSemiOut() {
+    document.querySelectorAll('.fragment.semi-out').forEach(function(el) {
+      if (el.classList.contains('current-fragment')) {
+        el.style.opacity = '1'; el.style.color = 'var(--r-heading-color)'; el.style.fontWeight = '600';
+      } else if (el.classList.contains('visible')) {
+        el.style.opacity = '1'; el.style.color = 'var(--color-subtle)'; el.style.fontWeight = '';
+      } else {
+        el.style.opacity = '1'; el.style.color = 'var(--color-subtle)'; el.style.fontWeight = '';
+      }
+    });
+  }
+  Reveal.on('fragmentshown', updateSemiOut);
+  Reveal.on('fragmenthidden', updateSemiOut);
+  Reveal.on('slidechanged', updateSemiOut);
+  Reveal.on('ready', function() { updateSemiOut(); lucide.createIcons(); });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'd' || e.key === 'D') {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var reveal = document.querySelector('.reveal');
+      reveal.classList.toggle('dark-mode');
+      document.body.style.backgroundColor = reveal.classList.contains('dark-mode') ? '#0a0a0a' : '#fafafa';
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,564 @@
+/*──────────────────────────────────────────────
+  ISTHMUS — Custom Reveal.js Theme
+  Apple-like minimalist presentation design
+  Typeface: Montserrat
+──────────────────────────────────────────────*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap');
+
+:root {
+  --r-background-color: #e8e7e6;
+  --r-main-font: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --r-heading-font: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --r-code-font: 'SF Mono', 'Fira Code', 'Fira Mono', monospace;
+
+  --r-main-font-size: 28px;
+  --r-main-color: #1d1d1f;
+  --r-heading-color: #1d1d1f;
+  --r-link-color: #0071e3;
+  --r-link-color-hover: #0077ed;
+  --r-selection-background-color: rgba(0, 113, 227, 0.15);
+  --r-selection-color: #1d1d1f;
+
+  --color-muted: #86868b;
+  --color-accent: #1d1d1f;
+  --color-subtle: #d2d2d7;
+  --color-surface: #f5f5f7;
+  --color-highlight: #0071e3;
+  --color-warm: #e84d3d;
+  --slide-max-width: 1100px;
+}
+
+/* ── Dark variant ───────────────────────── */
+.reveal.dark-mode {
+  --r-background-color: #181410;
+  --r-main-color: #f5f5f7;
+  --r-heading-color: #f5f5f7;
+  --color-muted: #6e6e73;
+  --color-accent: #f5f5f7;
+  --color-subtle: #424245;
+  --color-surface: #161617;
+  --color-highlight: #2997ff;
+}
+
+.reveal.dark-mode .slides {
+  background-color: var(--r-background-color);
+}
+
+.reveal.dark-mode ~ style,
+.dark-mode .reveal .slides section {
+  background-color: var(--r-background-color);
+}
+
+.reveal.dark-mode ul li,
+.reveal.dark-mode ol li {
+  border-bottom-color: var(--color-subtle);
+}
+
+.reveal.dark-mode .stack-diagram .layer {
+  background: var(--color-surface);
+  border-color: var(--color-subtle);
+}
+
+.reveal.dark-mode .tag {
+  border-color: var(--color-subtle);
+  color: var(--color-muted);
+}
+
+/* ── Base reset ─────────────────────────── */
+.reveal {
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: 400;
+  color: var(--r-main-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal .slides section {
+  padding: 60px 80px;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ── Headings ───────────────────────────── */
+.reveal h1 {
+  font-size: 3.2em;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin-bottom: 0.15em;
+  color: var(--r-heading-color);
+}
+
+.reveal h2 {
+  font-size: 2.4em;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 0.2em;
+  color: var(--r-heading-color);
+}
+
+.reveal h3 {
+  font-size: 1.4em;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--color-muted);
+  margin-bottom: 0.3em;
+}
+
+/* ── Body text ──────────────────────────── */
+.reveal p {
+  font-size: 1.15em;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-muted);
+  max-width: var(--slide-max-width);
+  margin-bottom: 0.5em;
+}
+
+.reveal .lead {
+  font-size: 1.8em;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--r-heading-color);
+}
+
+/* ── Big numbers / stats ────────────────── */
+.reveal .big-number {
+  font-size: 6em;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--r-heading-color);
+}
+
+.reveal .big-number-label {
+  font-size: 0.9em;
+  font-weight: 400;
+  color: var(--color-muted);
+  margin-top: 0.2em;
+}
+
+/* ── Lists ──────────────────────────────── */
+.reveal ul,
+.reveal ol {
+  list-style: none;
+  padding: 0;
+  margin: 0.5em 0;
+}
+
+.reveal ul li,
+.reveal ol li {
+  font-size: 1.3em;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0.25em 0;
+  color: var(--r-main-color);
+  border-bottom: 1px solid var(--color-subtle);
+}
+
+.reveal ul li:last-child,
+.reveal ol li:last-child {
+  border-bottom: none;
+}
+
+.reveal ol {
+  counter-reset: item;
+}
+
+.reveal ol li {
+  counter-increment: item;
+}
+
+.reveal ol li::before {
+  content: counter(item, decimal-leading-zero);
+  font-weight: 700;
+  font-size: 0.75em;
+  color: var(--color-muted);
+  margin-right: 0.75em;
+  letter-spacing: 0.02em;
+}
+
+/* ── Fragments — dim / highlight style ─── */
+.reveal .fragment {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: opacity, transform;
+}
+
+.reveal .fragment.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Fade-up fragment */
+.reveal .fragment.fade-up {
+  transform: translateY(24px);
+}
+
+.reveal .fragment.fade-up.visible {
+  transform: translateY(0);
+}
+
+/* Dim style: all items visible but muted, current one bright */
+.reveal .fragment.dim-out {
+  opacity: 1;
+  visibility: visible;
+  color: var(--color-muted);
+  transition: color 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.reveal .fragment.dim-out.current-fragment {
+  color: var(--r-heading-color);
+}
+
+/* Highlight current */
+.reveal .fragment.highlight-current {
+  opacity: 1;
+  visibility: visible;
+  color: var(--color-subtle);
+  transition: color 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.reveal .fragment.highlight-current.current-fragment {
+  color: var(--r-heading-color);
+}
+
+/* Semi-out: all items visible from start, JS handles dimming */
+.reveal .fragment.semi-out {
+  opacity: 1;
+  visibility: visible;
+  color: var(--color-subtle);
+  transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1),
+              color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* ── Accent / utility classes ───────────── */
+.reveal .accent {
+  color: var(--color-highlight);
+}
+
+.reveal .muted {
+  color: var(--color-muted);
+}
+
+.reveal .warm {
+  color: var(--color-warm);
+}
+
+.reveal .thin {
+  font-weight: 200;
+}
+
+.reveal .light {
+  font-weight: 300;
+}
+
+.reveal .medium {
+  font-weight: 500;
+}
+
+.reveal .bold {
+  font-weight: 700;
+}
+
+.reveal .heavy {
+  font-weight: 800;
+}
+
+.reveal .small {
+  font-size: 0.7em;
+}
+
+.reveal .tiny {
+  font-size: 0.55em;
+}
+
+.reveal .uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.65em;
+  font-weight: 600;
+}
+
+/* ── Section divider slide ──────────────── */
+.reveal .section-divider {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.reveal .section-divider h2 {
+  font-size: 3em;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+/* ── Title slide ────────────────────────── */
+.reveal .title-slide {
+  text-align: center;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.reveal .title-slide h1 {
+  font-size: 4em;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-bottom: 0.1em;
+}
+
+.reveal .title-slide h3 {
+  font-weight: 300;
+  font-size: 1.2em;
+  color: var(--color-muted);
+}
+
+/* ── Horizontal rule / divider ──────────── */
+.reveal hr {
+  border: none;
+  height: 2px;
+  background: var(--color-subtle);
+  margin: 1.5em 0;
+  max-width: 120px;
+}
+
+/* ── Code ───────────────────────────────── */
+.reveal code {
+  font-family: var(--r-code-font);
+  font-size: 0.85em;
+  background: var(--color-surface);
+  padding: 0.15em 0.4em;
+  border-radius: 6px;
+  color: var(--r-main-color);
+}
+
+.reveal pre {
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: 1.2em 1.5em;
+  box-shadow: none;
+  border: 1px solid var(--color-subtle);
+  width: 100%;
+  font-size: 0.75em;
+}
+
+.reveal pre code {
+  background: none;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* ── Blockquote ─────────────────────────── */
+.reveal blockquote {
+  background: none;
+  border-left: 3px solid var(--color-highlight);
+  padding: 0 0 0 1.2em;
+  margin: 1em 0;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.3em;
+  color: var(--color-muted);
+  box-shadow: none;
+}
+
+/* ── Grid / layout helpers ──────────────── */
+.reveal .cols {
+  display: flex;
+  gap: 3em;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.reveal .cols > * {
+  flex: 1;
+}
+
+.reveal .cols-center {
+  align-items: center;
+}
+
+/* ── Tag / label ────────────────────────── */
+.reveal .tag {
+  display: inline-block;
+  font-size: 0.6em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  border: 1px solid var(--color-subtle);
+  border-radius: 100px;
+  padding: 0.25em 0.9em;
+  margin-bottom: 0.8em;
+}
+
+/* ── Progress bar ───────────────────────── */
+.reveal .progress {
+  height: 3px;
+  color: var(--color-highlight);
+}
+
+/* ── Slide number ───────────────────────── */
+.reveal .slide-number {
+  font-family: var(--r-main-font);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-muted);
+  background: none;
+  right: 32px;
+  bottom: 24px;
+}
+
+/* ── Controls ───────────────────────────── */
+.reveal .controls {
+  color: var(--color-subtle);
+}
+
+/* ── Wireframe placeholder ──────────────── */
+.reveal .wireframe-box {
+  border: 2px dashed var(--color-subtle);
+  border-radius: 12px;
+  padding: 2em;
+  text-align: center;
+  color: var(--color-muted);
+  font-weight: 300;
+  font-size: 0.85em;
+}
+
+/* ── Diagram: simple stack ──────────────── */
+.reveal .stack-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  max-width: 480px;
+  margin-top: 2vh; 
+}
+
+.reveal .stack-diagram .layer {
+  background: var(--color-surface);
+  border: 1px solid var(--color-subtle);
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-size: 0.9em;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.reveal .stack-diagram .layer.active {
+  background: var(--r-heading-color);
+  color: var(--r-background-color);
+  border-color: var(--r-heading-color);
+}
+
+/* ── Checklist styling ──────────────────── */
+.reveal .checklist li {
+  padding-left: 0;
+  border-bottom: none;
+  font-size: 1.1em;
+  line-height: 2;
+}
+
+.reveal .checklist li::before {
+  content: '□';
+  margin-right: 0.6em;
+  font-weight: 400;
+  color: var(--color-subtle);
+}
+
+/* ── Icons (Lucide) ────────────────────── */
+.reveal .lucide {
+  width: 1em;
+  height: 1em;
+  stroke-width: 1.5;
+  vertical-align: -0.125em;
+  display: inline-block;
+  color: inherit;
+}
+
+.reveal .icon-muted {
+  color: var(--color-muted);
+}
+
+.reveal .icon-subtle {
+  color: var(--color-subtle);
+}
+
+.reveal .icon-highlight {
+  color: var(--color-highlight);
+}
+
+.reveal .icon-lg {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.reveal .icon-xl {
+  width: 2em;
+  height: 2em;
+}
+
+.reveal .icon-hero {
+  width: 3em;
+  height: 3em;
+  stroke-width: 1;
+  color: var(--color-subtle);
+  margin-bottom: 0.4em;
+  display: block;
+}
+
+.reveal .icon-inline {
+  margin-right: 0.35em;
+  stroke-width: 1.5;
+}
+
+.reveal .icon-stack {
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.4em;
+  vertical-align: -0.15em;
+  stroke-width: 1.5;
+}
+
+.reveal.dark-mode .icon-hero,
+.reveal.dark-mode .icon-subtle {
+  color: var(--color-subtle);
+}
+
+/* ── Transition overrides ───────────────── */
+.reveal .slides section[data-transition="none"] {
+  transition: none;
+}
+
+/* ── Responsive polish ──────────────────── */
+@media screen and (max-width: 768px) {
+  .reveal .slides section {
+    padding: 40px 32px;
+  }
+
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.6em; }
+  .reveal .big-number { font-size: 4em; }
+}
+
+/* ── Print styles ───────────────────────── */
+@media print {
+  .reveal .slides section {
+    page-break-after: always;
+  }
+}

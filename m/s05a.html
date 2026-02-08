@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSP01 · Clase 05 · Teoría</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="../css/theme-isthmus.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- ════════════════════════════════════════════
+     TÍTULO
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <div class="tag">Diseño y Programación Web</div>
+  <h1>DSP01</h1>
+  <h3>Clase 05 · Teoría</h3>
+  <aside class="notes">
+    Día 5. Hoy es la clase más técnica en Figma. Vamos a convertir las piezas sueltas de ayer en un sistema.
+    Auto Layout, variables/tokens, variantes, estructura de archivo, handoff.
+    La teoría es breve — la mayor parte del día es práctica en Figma.
+    Objetivo: que al final del día tengan un archivo Figma organizado, con componentes que escalan y tokens aplicados.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     INTRO
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <i data-lucide="figma" class="icon-hero"></i>
+  <h3 class="uppercase">Hoy</h3>
+  <h2>Figma para sistemas</h2>
+  <aside class="notes">
+    Ayer construimos componentes: botones, inputs, cards, alertas. Hoy los convertimos en un sistema.
+    Un sistema = componentes que se adaptan, tokens que se reutilizan, archivo que se entiende.
+    Vamos a cubrir: Auto Layout, constraints y grillas, variables/tokens, variantes, estructura de archivo y handoff.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 1: AUTO LAYOUT
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 1</div>
+    <h2>Auto Layout</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="layout" class="icon-hero"></i>
+  <h3 class="uppercase">Concepto</h3>
+  <h2>Auto Layout</h2>
+  <p class="lead">La feature más importante de Figma</p>
+  <aside class="notes">
+    Auto Layout simula el comportamiento de CSS Flexbox: los elementos hijos se distribuyen automáticamente según reglas.
+    Sin Auto Layout, cambiar "OK" por "Confirmar pedido" rompe el botón. Con Auto Layout, se adapta solo.
+    Es la diferencia entre un mockup estático y un sistema que escala.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Auto Layout</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="arrow-right" class="icon-inline icon-muted"></i>Dirección — row / column</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="space" class="icon-inline icon-muted"></i>Gap — espacio entre hijos</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="square" class="icon-inline icon-muted"></i>Padding — espacio interno</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="align-center" class="icon-inline icon-muted"></i>Alignment — alineación</li>
+  </ul>
+  <aside class="notes">
+    Dirección: horizontal (row) o vertical (column). Como flex-direction en CSS.
+    Gap: espacio entre elementos hijos. Uniforme o independiente. Como gap en CSS.
+    Padding: espacio interno del contenedor. Puede ser uniforme o por lado.
+    Alignment: cómo se alinean los hijos en ambos ejes. Como justify-content y align-items.
+    Estos 4 conceptos son todo lo que necesitás para el 90% de los layouts.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Resizing</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="lock" class="icon-inline icon-muted"></i>Fixed — tamaño fijo</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="minimize-2" class="icon-inline icon-muted"></i>Hug — se ajusta al contenido</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="maximize-2" class="icon-inline icon-muted"></i>Fill — ocupa todo el espacio</li>
+  </ul>
+  <aside class="notes">
+    Fixed: tamaño fijo en píxeles. Útil para íconos, avatares, elementos de tamaño constante.
+    Hug contents: el contenedor se ajusta al contenido. Como width: fit-content en CSS. Un botón que crece con su texto.
+    Fill container: el hijo ocupa todo el espacio disponible. Como flex: 1 en CSS. Un input que llena el ancho del formulario.
+    La diferencia entre Hug y Fill es la confusión más común. Demo en vivo para clarificar.
+  </aside>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase warm">Sin Auto Layout</h3>
+  <h2 data-id="al-demo">Cambiar texto rompe el diseño</h2>
+  <aside class="notes">
+    Sin Auto Layout, todo está posicionado manualmente. Si cambiás el texto de un botón, el padding no se ajusta. Si agregás un campo al formulario, tenés que mover todo manualmente.
+    Es como construir con pegamento: funciona una vez, pero no se puede modificar.
+  </aside>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase">Con Auto Layout</h3>
+  <h2 data-id="al-demo">Se adapta solo</h2>
+  <aside class="notes">
+    Con Auto Layout, el componente se adapta automáticamente. Cambiar "OK" por "Confirmar pedido" → el botón crece. Agregar un campo → el formulario se extiende. Quitar la imagen de un card → el contenido sube.
+    Es como construir con LEGO: las piezas encajan y se reorganizan.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 2: CONSTRAINTS Y GRILLAS
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 2</div>
+    <h2>Constraints y grillas</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Constraints</h3>
+  <h2>Posicionamiento relativo</h2>
+  <aside class="notes">
+    Constraints definen cómo se comporta un elemento cuando su contenedor cambia de tamaño.
+    Útil para elementos que no están en Auto Layout: overlays, íconos fijos, FABs.
+    Left/Right: mantiene distancia a ese borde. Left and Right: se estira. Center: se mantiene centrado. Scale: escala proporcionalmente.
+    Ejemplo: ícono de cerrar (X) siempre en esquina superior derecha del modal → constraint Top + Right.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Grillas responsivas</h3>
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">4</span>
+      <p class="small muted">móvil · 375px</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">8</span>
+      <p class="small muted">tablet · 768px</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">12</span>
+      <p class="small muted">desktop · 1440px</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Columnas por breakpoint: 4 en móvil, 8 en tablet, 12 en desktop.
+    Gutter: 16px en móvil, 24px en tablet y desktop.
+    Margin: 16px en móvil, 32px en tablet, 64px en desktop.
+    Las grillas no son decorativas — son la estructura que garantiza alineación y consistencia.
+    Desarrollo las traduce directamente a CSS Grid o Flexbox.
+    Relación: Figma Auto Layout ≈ CSS Flexbox. Figma Grid ≈ CSS Grid.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 3: VARIABLES Y TOKENS
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 3</div>
+    <h2>Variables y tokens</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="variable" class="icon-hero"></i>
+  <h3 class="uppercase">Concepto</h3>
+  <h2>Design token</h2>
+  <p class="lead">Una decisión de diseño con nombre</p>
+  <aside class="notes">
+    Un design token es una decisión de diseño almacenada como variable reutilizable.
+    En vez de usar #007AFF directamente, usás color/primary. Si cambia el azul, cambia en todo el sistema.
+    Los tokens son el contrato entre diseño y código. El diseñador dice "color/primary", el dev sabe exactamente qué valor usar.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Color</h3>
+  <h2>Primitivos → Semánticos</h2>
+  <aside class="notes">
+    Primitivos: la paleta base. blue/500, gray/100, red/600. Son los "ingredientes".
+    Semánticos: lo que se usa en componentes. color/primary, color/error, color/surface, color/text-primary. Son las "recetas".
+    Regla: los componentes NUNCA usan primitivos directamente. Siempre semánticos.
+    Esto permite temas (light/dark) sin rediseñar: color/primary apunta a blue/500 en light y a blue/400 en dark.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Tokens</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="palette" class="icon-inline icon-muted"></i>Color — primitivos + semánticos</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="type" class="icon-inline icon-muted"></i>Tipografía — 5-7 tamaños</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="space" class="icon-inline icon-muted"></i>Espaciado — base 4px/8px</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="circle" class="icon-inline icon-muted"></i>Radius — none/sm/md/lg/full</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="layers" class="icon-inline icon-muted"></i>Sombra — sm/md/lg</li>
+  </ul>
+  <aside class="notes">
+    Tipografía: text/xs (12), text/sm (14), text/base (16), text/lg (18), text/xl (24), text/2xl (32). Máximo 3-4 pesos.
+    Espaciado: space/1 (4px), space/2 (8px), space/3 (12px), space/4 (16px), space/6 (24px), space/8 (32px). No inventar valores intermedios.
+    Radius: none (0), sm (4px), md (8px), lg (12px), xl (16px), full (9999px para píldoras).
+    Sombra: sm (sutil, cards), md (media, modales), lg (fuerte, elementos flotantes).
+    Todos con nombres semánticos, no descriptivos.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 4: VARIANTES Y ESTRUCTURA
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 4</div>
+    <h2>Variantes y estructura</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Variantes</h3>
+  <h2>Un componente, múltiples configuraciones</h2>
+  <aside class="notes">
+    En Figma, un componente puede tener variantes que representan sus diferentes estados y configuraciones.
+    Esto evita duplicar componentes y mantiene todo sincronizado.
+    Ejemplo botón: hierarchy (primary/secondary/ghost) × size (sm/md/lg) × state (default/hover/focus/disabled).
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Ejemplo: Botón</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="layers" class="icon-inline icon-muted"></i>Hierarchy — primary / secondary / ghost</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="ruler" class="icon-inline icon-muted"></i>Size — sm / md / lg</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="toggle-left" class="icon-inline icon-muted"></i>State — default / hover / focus / disabled</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="image" class="icon-inline icon-muted"></i>Icon — none / left / right / only</li>
+  </ul>
+  <aside class="notes">
+    Esto genera una matriz de combinaciones. No todas son necesarias — diseñar las que se usan realmente (regla 80/20).
+    Component Properties: boolean (mostrar/ocultar ícono), instance swap (cambiar ícono), text (contenido editable).
+    Cuándo variante vs. componente separado: si comparten la misma estructura base → variante. Si son fundamentalmente diferentes → componente separado.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Atomic Design</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="atom" class="icon-inline icon-muted"></i>Átomos — botón, input, ícono</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="combine" class="icon-inline icon-muted"></i>Moléculas — campo de formulario</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="component" class="icon-inline icon-muted"></i>Organismos — header, card completa</li>
+  </ul>
+  <aside class="notes">
+    Brad Frost. Átomos: elementos indivisibles. Moléculas: combinaciones simples (label + input + error). Organismos: secciones completas (header con logo + nav + search + avatar).
+    No es necesario seguirlo al pie de la letra, pero el principio es valioso: construir de lo simple a lo complejo, reutilizando piezas.
+    Templates: layouts con placeholders. Páginas: templates con contenido real.
+  </aside>
+</section>
+
+<!-- Estructura del archivo -->
+<section data-transition="fade">
+  <i data-lucide="folder-open" class="icon-hero"></i>
+  <h3 class="uppercase">Estructura</h3>
+  <h2>El archivo como producto</h2>
+  <aside class="notes">
+    Un archivo Figma bien organizado es un acto de respeto hacia el equipo.
+    Si alguien abre tu archivo por primera vez, debe entender la estructura en 2 minutos sin preguntarte.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Páginas</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="image" class="icon-inline icon-muted"></i>Cover</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="palette" class="icon-inline icon-muted"></i>Tokens / Styles</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="component" class="icon-inline icon-muted"></i>Components</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="monitor" class="icon-inline icon-muted"></i>UI</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="route" class="icon-inline icon-muted"></i>Flows</li>
+    <li class="fragment semi-out" data-fragment-index="6"><i data-lucide="code" class="icon-inline icon-muted"></i>Handoff</li>
+  </ul>
+  <aside class="notes">
+    Cover: nombre del proyecto, fecha, versión, responsable. Primera impresión.
+    Tokens/Styles: paleta de colores, tipografía, espaciado, íconos. La referencia visual.
+    Components: librería organizada por categoría. Átomos, moléculas, organismos.
+    UI: diseño de alta fidelidad por pantalla.
+    Flows: prototipos y flujos conectados.
+    Handoff: pantallas listas para desarrollo con anotaciones.
+    Opcional: Archive para versiones anteriores y exploración descartada.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Naming</h3>
+  <h2>btn/primary/default</h2>
+  <p class="lead muted">No "Frame 847"</p>
+  <aside class="notes">
+    Naming descriptivo: tipo/variante/estado. Siempre el mismo patrón.
+    Sin frames anónimos: cada frame tiene nombre con propósito.
+    Consistente: si un botón es btn/primary/default, no button/main/normal en otro lugar.
+    Esto no es vanidad — es funcionalidad. Dev Mode muestra estos nombres. Si son "Frame 847", el desarrollador no sabe qué es.
+  </aside>
+</section>
+
+<!-- Handoff -->
+<section data-transition="fade">
+  <h3 class="uppercase">Handoff</h3>
+  <h2>¿Se puede implementar sin preguntarte?</h2>
+  <aside class="notes">
+    Handoff es entregar el diseño a desarrollo de forma que puedan implementarlo sin adivinar.
+    Qué debe quedar explícito: medidas, tokens (no hex sueltos), responsive, estados, assets exportables, anotaciones.
+    Lo que desarrollo necesita saber: ¿fijo o adaptable? ¿Qué pasa con texto largo? ¿Orden de tabulación? ¿Animaciones? ¿De dónde vienen los datos?
+    La prueba: si un dev puede implementar tu pantalla sin hacerte una sola pregunta, el handoff está bien.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CIERRE
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">01</span>
+      <p>Auto Layout</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">02</span>
+      <p>Tokens</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">03</span>
+      <p>Archivo limpio</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Auto Layout: todo componente debe usar Auto Layout. No posicionamiento manual.
+    Tokens: variables para color, tipografía, espaciado, radius, sombra. No valores hardcodeados.
+    Archivo limpio: páginas organizadas, capas con nombre, estructura que se entiende en 2 minutos.
+    Ahora a la práctica: refactorizar componentes, crear variables, organizar el archivo.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Mini-checklist</h3>
+  <ul class="checklist">
+    <li class="fragment fade-up">¿Todo usa Auto Layout?</li>
+    <li class="fragment fade-up">¿No hay colores hex sueltos?</li>
+    <li class="fragment fade-up">¿Las capas tienen nombres descriptivos?</li>
+  </ul>
+  <aside class="notes">
+    Si alguna respuesta es "no", hay trabajo por hacer.
+    Ahora a Figma: refactorizar componentes con Auto Layout, crear variables/tokens, organizar el archivo.
+    Recordar: refactorizar es más valioso que rehacer. En el mundo real, siempre heredás archivos ajenos.
+  </aside>
+</section>
+
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Cierre del bloque teórico. Hoy la teoría es corta porque la clase es mayormente práctica.
+    Después: refactorizar kit de componentes con Auto Layout, crear variables, organizar archivo, preparar handoff.
+  </aside>
+</section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1280, height: 720, margin: 0, minScale: 0.2, maxScale: 2.0,
+    hash: true, history: true, controls: true, controlsLayout: 'bottom-right',
+    progress: true, slideNumber: 'c/t', showSlideNumber: 'speaker', center: false,
+    transition: 'fade', transitionSpeed: 'fast', backgroundTransition: 'fade',
+    autoAnimateEasing: 'cubic-bezier(0.25, 0.1, 0.25, 1)', autoAnimateDuration: 0.6, autoAnimateUnmatched: false,
+    fragmentInURL: false, showNotes: false, plugins: [ RevealNotes ], viewDistance: 3, mobileViewDistance: 2,
+  });
+
+  function updateSemiOut() {
+    document.querySelectorAll('.fragment.semi-out').forEach(function(el) {
+      if (el.classList.contains('current-fragment')) {
+        el.style.opacity = '1'; el.style.color = 'var(--r-heading-color)'; el.style.fontWeight = '600';
+      } else if (el.classList.contains('visible')) {
+        el.style.opacity = '1'; el.style.color = 'var(--color-subtle)'; el.style.fontWeight = '';
+      } else {
+        el.style.opacity = '1'; el.style.color = 'var(--color-subtle)'; el.style.fontWeight = '';
+      }
+    });
+  }
+  Reveal.on('fragmentshown', updateSemiOut);
+  Reveal.on('fragmenthidden', updateSemiOut);
+  Reveal.on('slidechanged', updateSemiOut);
+  Reveal.on('ready', function() { updateSemiOut(); lucide.createIcons(); });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'd' || e.key === 'D') {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var reveal = document.querySelector('.reveal');
+      reveal.classList.toggle('dark-mode');
+      document.body.style.backgroundColor = reveal.classList.contains('dark-mode') ? '#0a0a0a' : '#fafafa';
+    }
+  });
+</script>
+</body>
+</html>

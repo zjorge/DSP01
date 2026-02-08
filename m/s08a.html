@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSP01 · Clase 08 · Teoría</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="../css/theme-isthmus.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<section class="title-slide" data-transition="fade">
+  <div class="tag">Diseño y Programación Web</div>
+  <h1>DSP01</h1>
+  <h3>Clase 08 · Teoría</h3>
+  <aside class="notes">
+    Día 8. Hoy el tono cambia: de construir a evaluar y mejorar.
+    Accesibilidad, performance, capacidades del dispositivo, privacidad y diseño con IA.
+    Algunos van a encontrar muchos problemas en su trabajo — eso es bueno. Encontrar problemas es el objetivo.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="shield-check" class="icon-hero"></i>
+  <h3 class="uppercase">Hoy</h3>
+  <h2>Calidad básica de producto</h2>
+  <aside class="notes">
+    4 bloques: accesibilidad práctica, performance desde diseño, capacidades y privacidad, diseño con IA.
+    Al final: preparación para la auditoría práctica de la tarde.
+    Normalizar: un diseñador que no encuentra problemas en su propio trabajo no está mirando bien.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 1: ACCESIBILIDAD
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 1</div>
+    <h2>Accesibilidad práctica</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="accessibility" class="icon-hero"></i>
+  <h3 class="uppercase">Realidad</h3>
+  <h2>Accesibilidad</h2>
+  <p class="lead">No es un extra — es un requisito</p>
+  <aside class="notes">
+    Legal: ADA en EE.UU., EN 301 549 en Europa, Ley 7600 en Costa Rica. No cumplir puede significar demandas.
+    Ético: 15-20% de la población mundial tiene alguna discapacidad.
+    Práctico: un sitio accesible es un sitio mejor para TODOS.
+    Diseñar accesible es diseñar robusto. Si funciona para alguien que navega con teclado, funciona mejor para todos.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Discapacidad</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="infinity" class="icon-inline icon-muted"></i>Permanente — ceguera, sordera</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="timer" class="icon-inline icon-muted"></i>Temporal — brazo roto, cirugía</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="sun" class="icon-inline icon-muted"></i>Situacional — sol, ruido, bebé</li>
+  </ul>
+  <aside class="notes">
+    Permanente: ceguera, sordera, movilidad reducida. Usuarios de lectores de pantalla, teclado, switch.
+    Temporal: brazo roto (no puede usar mouse), infección ocular (necesita alto contraste), cirugía.
+    Situacional: sol en la pantalla (necesita contraste), ambiente ruidoso (necesita subtítulos), una mano ocupada con un bebé (necesita targets grandes).
+    Accesibilidad no es "diseñar para ciegos". Es diseñar para humanos reales en contextos reales.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">WCAG 2.2</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="eye" class="icon-inline icon-muted"></i>Perceptible</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="hand" class="icon-inline icon-muted"></i>Operable</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="brain" class="icon-inline icon-muted"></i>Comprensible</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="shield" class="icon-inline icon-muted"></i>Robusto</li>
+  </ul>
+  <aside class="notes">
+    Perceptible: la información debe poder percibirse. Alt text, subtítulos, contraste.
+    Operable: la interfaz debe poder operarse. Teclado, tiempo suficiente, sin convulsiones.
+    Comprensible: el contenido debe entenderse. Lenguaje claro, comportamiento predecible, ayuda.
+    Robusto: debe funcionar con tecnologías asistivas. HTML semántico, ARIA, compatibilidad.
+    Niveles: A (mínimo), AA (estándar, nuestro objetivo), AAA (ideal pero no siempre alcanzable).
+  </aside>
+</section>
+
+<!-- Contraste -->
+<section data-transition="fade">
+  <h3 class="uppercase">Contraste</h3>
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">4.5:1</span>
+      <p class="small muted">texto normal</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">3:1</span>
+      <p class="small muted">texto grande / UI</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Texto normal (< 18px o < 14px bold): ratio mínimo 4.5:1.
+    Texto grande (≥ 18px o ≥ 14px bold): ratio mínimo 3:1.
+    Elementos de UI (bordes de inputs, íconos funcionales): ratio mínimo 3:1.
+    Herramientas: Stark (Figma), WebAIM Contrast Checker, Chrome DevTools.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase warm">Errores comunes</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="type" class="icon-inline icon-muted"></i>Gris claro sobre blanco</li>
+    <li class="fragment fade-up"><i data-lucide="text-cursor" class="icon-inline icon-muted"></i>Placeholder con bajo contraste</li>
+    <li class="fragment fade-up"><i data-lucide="image" class="icon-inline icon-muted"></i>Texto sobre imagen sin overlay</li>
+    <li class="fragment fade-up"><i data-lucide="ban" class="icon-inline icon-muted"></i>Disabled invisible</li>
+  </ul>
+  <aside class="notes">
+    Gris claro sobre blanco: estéticamente "elegante", funcionalmente ilegible. Muy común en diseño minimalista.
+    Placeholder: el placeholder no reemplaza al label, y suele tener contraste insuficiente.
+    Texto sobre imagen: sin overlay oscuro, el texto se pierde. Solución: overlay semitransparente o sombra de texto.
+    Disabled: botones disabled con contraste tan bajo que no se ven. El usuario no sabe que existe la opción.
+  </aside>
+</section>
+
+<!-- Foco -->
+<section data-transition="fade">
+  <h3 class="uppercase">Foco visible</h3>
+  <h2>Nunca outline: none</h2>
+  <p class="lead">sin reemplazo</p>
+  <aside class="notes">
+    Cuando un usuario navega con teclado (Tab, Shift+Tab, Enter, Escape), necesita ver qué elemento está seleccionado.
+    El outline por defecto del browser es feo pero funcional. Si lo quitás, reemplazalo con algo mejor — nunca con nada.
+    Diseño recomendado: outline de 2-3px, color de alto contraste, offset de 2px, consistente en todo el sitio.
+    outline: none sin reemplazo = inaccesible. Es como quitar las señales de tránsito porque son feas.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Teclado</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="arrow-right" class="icon-inline icon-muted"></i>Tab — siguiente elemento</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="arrow-left" class="icon-inline icon-muted"></i>Shift+Tab — anterior</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="corner-down-left" class="icon-inline icon-muted"></i>Enter/Space — activar</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="x" class="icon-inline icon-muted"></i>Escape — cerrar</li>
+  </ul>
+  <aside class="notes">
+    Todo lo que se puede hacer con mouse debe poder hacerse con teclado.
+    Tab: mover foco al siguiente elemento interactivo. Shift+Tab: al anterior.
+    Enter/Space: activar botones, links, checkboxes.
+    Escape: cerrar modales, dropdowns, tooltips.
+    Flechas: navegar dentro de componentes (tabs, radio groups, menús).
+    Orden de tabulación: debe seguir el orden visual de lectura. Si no coincide, hay un problema.
+    Trampas de teclado: el foco no debe quedar atrapado. Excepción: modales (foco dentro hasta cerrar).
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Labels y alt text</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="tag" class="icon-inline icon-muted"></i>Labels — siempre asociados</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="image" class="icon-inline icon-muted"></i>Alt text — describir o vaciar</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="mouse-pointer-click" class="icon-inline icon-muted"></i>Íconos — aria-label si es funcional</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="link" class="icon-inline icon-muted"></i>Links — describir el destino</li>
+  </ul>
+  <aside class="notes">
+    Labels: cada input con label visible y asociado. Placeholder NO es label.
+    Alt text: imágenes informativas → describir. Decorativas → alt="" (vacío). Con texto → incluir el texto.
+    Íconos funcionales: si un ícono es el único contenido de un botón (papelera), necesita aria-label="Eliminar".
+    Links: "Leer más sobre accesibilidad" > "Clic aquí" > "Más". El texto debe describir el destino.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 2: PERFORMANCE
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 2</div>
+    <h2>Performance desde diseño</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="gauge" class="icon-hero"></i>
+  <h3 class="uppercase">Realidad</h3>
+  <h2>Tus decisiones pesan</h2>
+  <p class="lead">Literalmente</p>
+  <aside class="notes">
+    El diseñador no controla el código, pero toma decisiones que impactan directamente en el rendimiento.
+    Imágenes, tipografías, componentes pesados, layout shifts — todo empieza en diseño.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Imágenes</h3>
+  <div class="cols" style="text-align:center;">
+    <div>
+      <span class="big-number">50-70%</span>
+      <p class="small muted">del peso de una página</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Las imágenes son el mayor peso de cualquier página web.
+    Formato: WebP reduce 30-50% vs PNG/JPEG. AVIF reduce aún más. SVG para íconos y vectores.
+    Tamaño: no servir 4000px para un contenedor de 400px. Definir tamaños por breakpoint.
+    Lazy loading: imágenes fuera del viewport se cargan al hacer scroll.
+    Placeholder: mientras carga, mostrar color sólido, blur o skeleton. No dejar espacio vacío.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Tipografías</h3>
+  <h2>Cada peso cuesta</h2>
+  <p class="lead">Máximo 2-3 pesos</p>
+  <aside class="notes">
+    Cada peso de fuente = ~20-50KB. 6 pesos de Montserrat = ~180KB solo en fuentes.
+    Máximo 2-3 pesos por fuente. Regular + Bold suele ser suficiente. Agregar Medium si es necesario.
+    font-display: swap → muestra texto con fuente del sistema mientras carga la custom. Evita texto invisible.
+    Considerar fuentes variables: un solo archivo con todos los pesos.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Layout shifts</h3>
+  <h2>Definir dimensiones</h2>
+  <aside class="notes">
+    CLS (Cumulative Layout Shift): cuando un elemento cambia de posición después de renderizar.
+    Causa: imágenes sin width/height, anuncios que se insertan, fuentes que cambian tamaño.
+    Solución desde diseño: definir dimensiones exactas para imágenes, reservar espacio para contenido dinámico, usar skeleton screens.
+    Un layout shift es una experiencia terrible: el usuario hace clic en algo y el contenido se mueve.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Pregunta</h3>
+  <h2>¿Esto aporta valor suficiente para su costo?</h2>
+  <aside class="notes">
+    Cada carousel, animación compleja, mapa interactivo o video embebido agrega peso y complejidad.
+    Un carousel de 5 imágenes pesa más y tiene más bugs que una sola imagen bien elegida.
+    Pregunta antes de diseñar algo pesado: ¿esto aporta valor suficiente para justificar su costo?
+    Si la respuesta es "no sé" o "se ve bonito", probablemente no lo justifica.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAUSA
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Hasta ahora: accesibilidad (WCAG, contraste, foco, teclado, labels) y performance (imágenes, fuentes, layout shifts).
+    Después del break: capacidades del dispositivo, privacidad, diseño con IA.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 3: CAPACIDADES, PRIVACIDAD, IA
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 3</div>
+    <h2>Capacidades, privacidad e IA</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Dispositivos</h3>
+  <h2>No todos pueden lo mismo</h2>
+  <aside class="notes">
+    Cámara, micrófono, geolocalización, sensores, red, batería, almacenamiento.
+    Cada capacidad requiere: permiso con contexto, fallback si no está disponible, no depender como única vía.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Capacidades</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="camera" class="icon-inline icon-muted"></i>Cámara — QR, foto, AR</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="mic" class="icon-inline icon-muted"></i>Micrófono — voz, audio</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="map-pin" class="icon-inline icon-muted"></i>Geolocalización — "cerca de mí"</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="wifi" class="icon-inline icon-muted"></i>Red — lenta, intermitente, offline</li>
+  </ul>
+  <aside class="notes">
+    Cámara: escaneo QR, foto de documento, AR. Pedir permiso explícito. Fallback si no hay cámara.
+    Micrófono: búsqueda por voz, notas de audio. Indicador claro de grabación. Fallback a texto.
+    Geo: "Tiendas cerca de mí". Pedir permiso con contexto. Fallback: búsqueda manual por dirección.
+    Red: diseñar para conexiones lentas o intermitentes. Offline-first cuando sea posible.
+    Principio: pedir permiso con contexto, ofrecer fallback siempre, no depender de una sola capacidad.
+  </aside>
+</section>
+
+<!-- Privacidad -->
+<section data-transition="fade">
+  <i data-lucide="lock" class="icon-hero"></i>
+  <h3 class="uppercase">Principio</h3>
+  <h2>Privacidad como diseño</h2>
+  <p class="lead">No es un checkbox legal</p>
+  <aside class="notes">
+    La privacidad es una decisión de diseño que afecta la confianza del usuario.
+    Privacy by Design: mínimo necesario, consentimiento informado, control del usuario, transparencia, seguridad visual.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Privacy by Design</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="minimize-2" class="icon-inline icon-muted"></i>Mínimo necesario</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="check-square" class="icon-inline icon-muted"></i>Consentimiento informado</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="settings" class="icon-inline icon-muted"></i>Control del usuario</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="eye" class="icon-inline icon-muted"></i>Transparencia</li>
+  </ul>
+  <aside class="notes">
+    Mínimo: no pedir datos que no necesitás. Si no usás la fecha de nacimiento, no la pidas.
+    Consentimiento: explicar qué datos, para qué, con quién. En lenguaje humano, no legal.
+    Control: permitir ver, editar y eliminar datos. Derecho al olvido.
+    Transparencia: si usás cookies, tracking o IA, decirlo claramente.
+    Seguridad visual: no mostrar datos sensibles por defecto. Usar máscaras y toggles.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase warm">Dark patterns</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="check-square" class="icon-inline icon-muted"></i>Pre-seleccionar marketing</li>
+    <li class="fragment fade-up"><i data-lucide="maximize-2" class="icon-inline icon-muted"></i>"Aceptar todo" más visible</li>
+    <li class="fragment fade-up"><i data-lucide="lock" class="icon-inline icon-muted"></i>Dificultar eliminación de cuenta</li>
+    <li class="fragment fade-up"><i data-lucide="help-circle" class="icon-inline icon-muted"></i>Lenguaje confuso para consentimiento</li>
+  </ul>
+  <aside class="notes">
+    Dark patterns: técnicas de diseño que manipulan al usuario para que haga algo que no quiere.
+    Pre-seleccionar casillas de marketing: el usuario tiene que desmarcar activamente.
+    "Aceptar todo" grande y colorido, "Configurar" pequeño y gris: manipulación visual.
+    Dificultar eliminación: 15 pasos para borrar cuenta, 1 clic para crearla.
+    Lenguaje confuso: "¿No querés no recibir nuestras ofertas?" Doble negación intencional.
+    Estos son anti-patrones profesionales. Un diseñador ético los reconoce y los evita.
+  </aside>
+</section>
+
+<!-- IA -->
+<section data-transition="fade">
+  <i data-lucide="sparkles" class="icon-hero"></i>
+  <h3 class="uppercase">Diseño con IA</h3>
+  <h2>Control y confianza</h2>
+  <aside class="notes">
+    La IA en productos es poderosa pero imperfecta. Diseñar con IA requiere honestidad sobre sus límites.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Principios de IA</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="info" class="icon-inline icon-muted"></i>Explicar qué hace</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="gauge" class="icon-inline icon-muted"></i>Mostrar confianza del modelo</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="pencil" class="icon-inline icon-muted"></i>Permitir corrección</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="alert-triangle" class="icon-inline icon-muted"></i>No ocultar incertidumbre</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="shield" class="icon-inline icon-muted"></i>Degradación elegante</li>
+  </ul>
+  <aside class="notes">
+    Explicar: "Este resumen fue generado por IA." No ocultar que es IA.
+    Confianza: si es posible, indicar nivel de certeza. "Creemos que esto es spam (95%)."
+    Corrección: el usuario siempre puede editar, rechazar o reportar.
+    Incertidumbre: si la IA no sabe, decirlo. "No tengo suficiente información."
+    Degradación: si la IA falla, el producto sigue funcionando. La IA es mejora, no dependencia.
+    Sesgo: la IA puede amplificar sesgos. Diseñar mecanismos de revisión y feedback.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Patrones de UI para IA</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="text-cursor" class="icon-inline icon-muted"></i>Sugerencia editable</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="replace" class="icon-inline icon-muted"></i>Clasificación con override</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="help-circle" class="icon-inline icon-muted"></i>Explicación bajo demanda</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="thumbs-up" class="icon-inline icon-muted"></i>Feedback loop</li>
+  </ul>
+  <aside class="notes">
+    Sugerencia editable: texto generado que el usuario modifica antes de confirmar.
+    Clasificación con override: la IA clasifica automáticamente, el usuario puede cambiar.
+    Explicación: "¿Por qué me recomiendas esto?" con respuesta clara.
+    Feedback: "¿Fue útil?" para mejorar el modelo.
+    Indicador: badge o label que identifica contenido generado por IA.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CIERRE
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Hoy</div>
+    <h2>Qué entrenamos</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">01</span>
+      <p>Accesibilidad real</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">02</span>
+      <p>Performance consciente</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">03</span>
+      <p>Ética en diseño</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Accesibilidad: contraste, foco, teclado, labels, alt text, orden de lectura.
+    Performance: imágenes, fuentes, layout shifts, costo de componentes pesados.
+    Ética: privacidad sin dark patterns, IA con transparencia y control.
+    Ahora a la práctica: auditoría del prototipo propio.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Mini-checklist</h3>
+  <ul class="checklist">
+    <li class="fragment fade-up">¿Contraste verificado en todos los textos?</li>
+    <li class="fragment fade-up">¿Foco visible en todo interactivo?</li>
+    <li class="fragment fade-up">¿No se piden datos innecesarios?</li>
+    <li class="fragment fade-up">¿La IA indica sus límites?</li>
+  </ul>
+  <aside class="notes">
+    Contraste: 4.5:1 para texto normal, 3:1 para grande y UI.
+    Foco: outline visible con contraste suficiente en todo elemento interactivo.
+    Datos: solo los necesarios, consentimiento claro, sin dark patterns.
+    IA: transparencia, control, corrección, honestidad sobre incertidumbre.
+    Ahora a la auditoría práctica.
+  </aside>
+</section>
+
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Cierre del bloque teórico. Después: auditoría de accesibilidad con Stark, checklist de performance, checklist de privacidad, correcciones en Figma, peer review.
+    Formato de reporte: hallazgo, categoría, severidad, pantalla, ajuste propuesto.
+  </aside>
+</section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1280, height: 720, margin: 0, minScale: 0.2, maxScale: 2.0,
+    hash: true, history: true, controls: true, controlsLayout: 'bottom-right',
+    progress: true, slideNumber: 'c/t', showSlideNumber: 'speaker', center: false,
+    transition: 'fade', transitionSpeed: 'fast', backgroundTransition: 'fade',
+    autoAnimateEasing: 'cubic-bezier(0.25, 0.1, 0.25, 1)', autoAnimateDuration: 0.6, autoAnimateUnmatched: false,
+    fragmentInURL: false, showNotes: false, plugins: [ RevealNotes ], viewDistance: 3, mobileViewDistance: 2,
+  });
+
+  function updateSemiOut() {
+    document.querySelectorAll('.fragment.semi-out').forEach(function(el) {
+      if (el.classList.contains('current-fragment')) {
+        el.style.opacity = '1'; el.style.color = 'var(--r-heading-color)'; el.style.fontWeight = '600';
+      } else if (el.classList.contains('visible')) {
+        el.style.opacity = '1'; el.style.color = 'var(--color-subtle)'; el.style.fontWeight = '';
+      } else {
+        el.style.opacity = '1'; el.style.color = 'var(--color-subtle)'; el.style.fontWeight = '';
+      }
+    });
+  }
+  Reveal.on('fragmentshown', updateSemiOut);
+  Reveal.on('fragmenthidden', updateSemiOut);
+  Reveal.on('slidechanged', updateSemiOut);
+  Reveal.on('ready', function() { updateSemiOut(); lucide.createIcons(); });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'd' || e.key === 'D') {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var reveal = document.querySelector('.reveal');
+      reveal.classList.toggle('dark-mode');
+      document.body.style.backgroundColor = reveal.classList.contains('dark-mode') ? '#0a0a0a' : '#fafafa';
+    }
+  });
+</script>
+</body>
+</html>

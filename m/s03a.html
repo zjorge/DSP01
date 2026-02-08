@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSP01 · Clase 03 · Teoría</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+
+  <!-- Custom Isthmus theme -->
+  <link rel="stylesheet" href="../css/theme-isthmus.css">
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- ════════════════════════════════════════════
+     TÍTULO
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <div class="tag">Diseño y Programación Web</div>
+  <h1>DSP01</h1>
+  <h3>Clase 03 · Teoría</h3>
+  <aside class="notes">
+    Día 3. Hoy pasamos de fundamentos técnicos a estructura de producto.
+    Ayer aprendimos HTML, CSS, responsive. Hoy: ¿cómo se organiza el contenido para que el usuario encuentre lo que busca?
+    Arquitectura de información, sitemaps, flujos, navegación, jerarquía visual, wireframes.
+    Esta clase es el puente entre lo conceptual y lo visual. La estructura viene antes que la estética.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     INTRO
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <i data-lucide="network" class="icon-hero"></i>
+  <h3 class="uppercase">Hoy</h3>
+  <h2>UX y arquitectura de información</h2>
+  <aside class="notes">
+    Antes de abrir Figma y empezar a diseñar pantallas, hay que definir la estructura.
+    ¿Qué páginas hay? ¿Cómo se conectan? ¿Cómo se mueve el usuario? ¿Qué ve primero?
+    Si la estructura está mal, ningún diseño visual lo arregla. Un edificio con mala planta no se salva con pintura bonita.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Principio</h3>
+  <h2>Antes de diseñar</h2>
+  <p class="lead">Organizar</p>
+  <aside class="notes">
+    La tentación es empezar por lo visual: colores, tipografía, componentes. Pero sin estructura, el diseño visual es decoración sin fundamento.
+    Hoy definimos el esqueleto. Mañana le ponemos piel.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 1: ARQUITECTURA DE INFORMACIÓN
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 1</div>
+    <h2>Arquitectura de información</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="folder-tree" class="icon-hero"></i>
+  <h3 class="uppercase">Concepto</h3>
+  <h2>AI</h2>
+  <p class="lead">La estructura invisible</p>
+  <aside class="notes">
+    Arquitectura de información (AI) es el sistema de decisiones que organiza el contenido para que el usuario encuentre lo que busca y entienda dónde está.
+    No es un sitemap — es el sistema detrás del sitemap.
+    Richard Saul Wurman acuñó el término en 1976. Morville y Rosenfeld lo formalizaron.
+    Incluye: organización, rotulado, navegación y búsqueda.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">AI</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="folder" class="icon-inline icon-muted"></i>Organización</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="tag" class="icon-inline icon-muted"></i>Rotulado</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="compass" class="icon-inline icon-muted"></i>Navegación</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="search" class="icon-inline icon-muted"></i>Búsqueda</li>
+  </ul>
+  <aside class="notes">
+    Organización: cómo se agrupan las cosas. ¿Por categoría? ¿Por tarea? ¿Por audiencia?
+    Rotulado: cómo se nombran. ¿"Productos" o "Tienda"? ¿"Contacto" o "Hablemos"?
+    Navegación: cómo se mueve el usuario entre secciones.
+    Búsqueda: cómo encuentra algo específico sin navegar.
+    Las 4 trabajan juntas. Si una falla, la experiencia se rompe.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Cadena de decisiones</h3>
+  <h2>Todo empieza con 3 preguntas</h2>
+  <aside class="notes">
+    Antes de organizar contenido, necesitás responder 3 preguntas encadenadas.
+    Sin estas respuestas, no hay criterio para priorizar.
+  </aside>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number" data-id="q1">01</span>
+      <p>Objetivos del negocio</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number" data-id="q2">02</span>
+      <p>Audiencias</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number" data-id="q3">03</span>
+      <p>Tareas</p>
+    </div>
+  </div>
+  <aside class="notes">
+    01 Objetivos: ¿Qué necesita lograr este sitio? Vender, informar, captar leads, reducir soporte, fidelizar. Si no hay objetivo claro, no hay criterio.
+    02 Audiencias: ¿Quién viene y por qué? No "todo el mundo". Un e-commerce tiene compradores, curiosos y recurrentes. Cada uno necesita caminos diferentes.
+    03 Tareas: ¿Qué hace cada audiencia? Tareas observables: "buscar producto por categoría", "comparar planes". Se priorizan por frecuencia × importancia.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Tareas</h3>
+  <h2>Frecuencia × Importancia</h2>
+  <aside class="notes">
+    No todas las tareas son iguales. "Ver saldo" es frecuente e importante → prominente. "Cambiar dirección de facturación" es infrecuente → puede estar más escondida.
+    La priorización de tareas define la jerarquía de la navegación.
+  </aside>
+</section>
+
+<!-- Modelos mentales -->
+<section data-transition="fade">
+  <i data-lucide="brain" class="icon-hero"></i>
+  <h3 class="uppercase">Concepto</h3>
+  <h2>Modelos mentales</h2>
+  <p class="lead">El usuario piensa diferente al sistema</p>
+  <aside class="notes">
+    El usuario tiene un modelo mental de cómo funciona algo. El sistema tiene su propia lógica.
+    Ejemplo: un banco organiza por tipo de producto (cuentas, tarjetas, préstamos). El usuario piensa en tareas: "pagar factura", "ver saldo", "transferir".
+    Cuando no coinciden, hay fricción. La AI debe acercar el sistema al modelo mental del usuario.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Técnica</h3>
+  <h2>Card sorting</h2>
+  <p class="lead">Que el usuario organice</p>
+  <aside class="notes">
+    Card sorting: pedir a usuarios reales que agrupen y nombren contenidos.
+    Abierto: ellos crean las categorías. Revela cómo piensan.
+    Cerrado: categorías predefinidas, ellos asignan contenido. Valida tu estructura.
+    Herramientas: Optimal Workshop (remoto), Maze, o simplemente post-its en una mesa.
+    Con 5-8 participantes ya se ven patrones claros.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 2: SITEMAP Y NAVEGACIÓN
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 2</div>
+    <h2>Sitemap y navegación</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="git-branch" class="icon-hero"></i>
+  <h3 class="uppercase">Herramienta</h3>
+  <h2>Sitemap</h2>
+  <p class="lead">Mapa de territorio</p>
+  <aside class="notes">
+    Un sitemap es un diagrama jerárquico que muestra las páginas y sus relaciones.
+    No es un wireframe (no muestra contenido). No es un flujo (no muestra secuencia).
+    Es un mapa: muestra qué existe y cómo se conecta.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Reglas del sitemap</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="layout-grid" class="icon-inline icon-muted"></i>Máximo 7±2 ítems en nav</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="layers" class="icon-inline icon-muted"></i>Máximo 3 niveles</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="text" class="icon-inline icon-muted"></i>Naming claro</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="arrow-up" class="icon-inline icon-muted"></i>Lo importante primero</li>
+  </ul>
+  <aside class="notes">
+    7±2 (Miller): la memoria de trabajo humana maneja 5-9 ítems. Mejor 5 claros que 12 confusos.
+    3 niveles máximo: si necesitás más, la estructura está mal. El usuario no debería hacer más de 3 clics para llegar a contenido importante.
+    Naming: verbos para acciones ("Comprar"), sustantivos para secciones ("Productos"). Evitar jerga interna.
+    Prioridad: lo más importante va primero (izquierda en nav horizontal, arriba en vertical).
+    Error común: replicar el organigrama de la empresa. Preguntar: "¿esto es lo que el usuario busca?"
+  </aside>
+</section>
+
+<!-- Navegación -->
+<section data-transition="fade">
+  <h3 class="uppercase">Navegación</h3>
+  <h2>No es solo el menú</h2>
+  <aside class="notes">
+    La navegación es todo el sistema que permite moverse por el sitio: menú, breadcrumbs, links contextuales, búsqueda, filtros, paginación.
+    Vamos a ver los tipos principales.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Tipos de navegación</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="globe" class="icon-inline icon-muted"></i>Global / Primaria</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="sidebar" class="icon-inline icon-muted"></i>Local / Secundaria</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="link" class="icon-inline icon-muted"></i>Contextual</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="settings" class="icon-inline icon-muted"></i>Utilitaria</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="chevrons-right" class="icon-inline icon-muted"></i>Breadcrumbs</li>
+  </ul>
+  <aside class="notes">
+    Global: presente en todas las páginas. Máximo 5-7 ítems. Las tareas más frecuentes.
+    Local: dentro de una sección. Sidebar, tabs, sub-menú. Cambia según la sección.
+    Contextual: links dentro del contenido. "Ver también", "Productos relacionados".
+    Utilitaria: login, idioma, carrito, ayuda. Esquina superior derecha por convención.
+    Breadcrumbs: Home > Categoría > Subcategoría > Actual. Útil en sitios con más de 2 niveles.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="lightbulb" class="icon-hero"></i>
+  <h2>Principio de Krug</h2>
+  <p class="lead">"No me hagas pensar"</p>
+  <aside class="notes">
+    Steve Krug, "Don't Make Me Think". Si el usuario duda sobre dónde hacer clic, la navegación falló.
+    El rotulado debe ser auto-explicativo, no creativo. "Productos" > "Nuestro universo". "Contacto" > "Conectemos".
+    La creatividad va en el diseño visual, no en los labels de navegación.
+    Pregunta test: si le muestro solo la navegación a alguien que nunca vio el sitio, ¿sabe qué hay en cada sección?
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAUSA
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Hasta ahora: AI (organización, rotulado, navegación, búsqueda), cadena objetivos→audiencias→tareas, modelos mentales, card sorting, sitemap, tipos de navegación.
+    Después del break: flujos de usuario, jerarquía visual, patrones de lectura, wireframes.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 3: FLUJOS Y JERARQUÍA
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 3</div>
+    <h2>Flujos y jerarquía</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="route" class="icon-hero"></i>
+  <h3 class="uppercase">Herramienta</h3>
+  <h2>Flujos de usuario</h2>
+  <p class="lead">La secuencia de pasos</p>
+  <aside class="notes">
+    Un flujo es la secuencia de pasos que sigue un usuario para completar una tarea.
+    A diferencia del sitemap (estático), el flujo es dinámico: tiene inicio, decisiones, acciones y fin.
+    Es como un guion: qué pasa primero, qué pasa después, qué pasa si algo sale mal.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Elementos del flujo</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="play" class="icon-inline icon-muted"></i>Inicio</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="list-ordered" class="icon-inline icon-muted"></i>Pasos</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="git-branch" class="icon-inline icon-muted"></i>Decisiones</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="toggle-left" class="icon-inline icon-muted"></i>Estados</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="flag" class="icon-inline icon-muted"></i>Fin</li>
+  </ul>
+  <aside class="notes">
+    Inicio: ¿de dónde viene el usuario? Link, búsqueda, email, directo.
+    Pasos: cada pantalla o acción. Numerados.
+    Decisiones: rombos. "¿Tiene cuenta?" Sí/No. "¿Datos válidos?" Sí/No.
+    Estados: qué pasa en cada paso si hay error, vacío, cargando.
+    Fin: éxito (confirmación + próximo paso) o abandono (¿por qué se fue?).
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase warm">Error común</h3>
+  <h2>Solo diseñar el happy path</h2>
+  <aside class="notes">
+    El happy path es cuando todo sale bien. Pero en la realidad, las cosas fallan constantemente.
+    El 40-60% del diseño real es manejar lo que sale mal: errores de validación, pagos rechazados, timeouts, datos faltantes.
+    Si solo diseñás el happy path, estás diseñando la mitad del producto.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Diseñar también</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="alert-circle" class="icon-inline icon-muted"></i>Error</li>
+    <li class="fragment fade-up"><i data-lucide="inbox" class="icon-inline icon-muted"></i>Vacío</li>
+    <li class="fragment fade-up"><i data-lucide="loader" class="icon-inline icon-muted"></i>Cargando</li>
+    <li class="fragment fade-up"><i data-lucide="log-out" class="icon-inline icon-muted"></i>Abandono</li>
+  </ul>
+  <aside class="notes">
+    Error: ¿qué pasa si el pago falla? ¿Si el email ya existe? ¿Si el servidor no responde?
+    Vacío: primera vez, sin datos. ¿Qué ve el usuario? No una pantalla en blanco.
+    Cargando: procesando pago, verificando email, esperando respuesta. ¿Qué se muestra mientras?
+    Abandono: ¿qué pasa si cierra el browser a mitad del checkout? ¿Se guarda el progreso?
+    Cada uno de estos necesita un diseño explícito.
+  </aside>
+</section>
+
+<!-- Jerarquía visual -->
+<section data-transition="fade">
+  <i data-lucide="eye" class="icon-hero"></i>
+  <h3 class="uppercase">Concepto</h3>
+  <h2>Jerarquía visual</h2>
+  <p class="lead">El orden en que el ojo recorre la página</p>
+  <aside class="notes">
+    Jerarquía visual es la herramienta más poderosa del diseñador. Controla qué ve el usuario primero, segundo y tercero.
+    Se construye con 6 herramientas que vamos a ver ahora.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Herramientas de jerarquía</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="maximize" class="icon-inline icon-muted"></i>Tamaño</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="bold" class="icon-inline icon-muted"></i>Peso</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="contrast" class="icon-inline icon-muted"></i>Contraste</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="move" class="icon-inline icon-muted"></i>Posición</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="expand" class="icon-inline icon-muted"></i>Espacio</li>
+    <li class="fragment semi-out" data-fragment-index="6"><i data-lucide="palette" class="icon-inline icon-muted"></i>Color</li>
+  </ul>
+  <aside class="notes">
+    Tamaño: lo más grande se ve primero. Un título de 48px domina sobre body de 16px.
+    Peso: bold > regular > light. El peso comunica importancia.
+    Contraste: oscuro sobre claro destaca. Gris se percibe como secundario.
+    Posición: arriba-izquierda primero (en culturas LTR). Lo que está arriba se ve antes.
+    Espacio: más espacio alrededor = más importancia percibida. Apple usa esto magistralmente.
+    Color: un acento de color guía la atención. Más de 2-3 colores de acento = ruido visual.
+  </aside>
+</section>
+
+<!-- Patrones de lectura -->
+<section data-transition="fade">
+  <h3 class="uppercase">Patrones de lectura</h3>
+  <h2>Patrón F</h2>
+  <aside class="notes">
+    Nielsen, 2006. El usuario escanea la primera línea horizontal, baja, escanea una segunda línea más corta, y luego baja por el lado izquierdo.
+    Implicación: las primeras palabras de cada línea son críticas. Si la primera palabra es "El" o "Un", desperdiciaste la posición más valiosa.
+    Mejor: empezar con la palabra clave. "Envío gratis en pedidos..." > "Todos nuestros pedidos incluyen envío..."
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Patrones de lectura</h3>
+  <h2>Patrón Z</h2>
+  <aside class="notes">
+    En páginas con poco texto (landing pages, heros): el ojo va arriba-izquierda → arriba-derecha → diagonal → abajo-izquierda → abajo-derecha.
+    Implicación: logo arriba-izquierda, CTA arriba-derecha o abajo-derecha. El contenido principal en la diagonal.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Dato</h3>
+  <div class="cols" style="text-align:center;">
+    <div>
+      <span class="big-number">79%</span>
+      <p class="small muted">escanea</p>
+    </div>
+    <div>
+      <span class="big-number">16%</span>
+      <p class="small muted">lee</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Nielsen Norman Group. El 79% de los usuarios escanea la página; solo el 16% lee palabra por palabra.
+    Implicación directa para diseño: títulos claros, párrafos cortos (máximo 3-4 líneas), listas con bullets, negritas en palabras clave.
+    Si tu diseño depende de que el usuario lea un párrafo de 8 líneas, no va a funcionar.
+  </aside>
+</section>
+
+<!-- Densidad y revelación -->
+<section data-transition="fade">
+  <h3 class="uppercase">Densidad informativa</h3>
+  <h2>¿Cuánta información cabe?</h2>
+  <aside class="notes">
+    La densidad correcta depende del contexto y del usuario.
+    Dashboard para analistas: alta densidad, muchos datos, el usuario es experto y lo usa diario.
+    Landing page para visitantes nuevos: baja densidad, un mensaje claro, una acción principal.
+    E-commerce: densidad media, balance entre exploración y decisión.
+    Regla: la densidad debe coincidir con la experiencia del usuario y la frecuencia de uso.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Técnica</h3>
+  <h2>Revelación progresiva</h2>
+  <p class="lead">No mostrar todo de golpe</p>
+  <aside class="notes">
+    Revelar información según el usuario la necesita. No abrumar con todo de una vez.
+    Acordeones: FAQ, detalles de producto. Tabs: secciones sin recargar. Tooltips: info complementaria.
+    Modales: acciones que requieren atención completa. Drill-down: de lista general a detalle.
+    Principio: cada pantalla debe tener un propósito claro y una acción principal. Si tiene 5 acciones igualmente prominentes, no tiene ninguna.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 4: WIREFRAMES
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 4</div>
+    <h2>Wireframes</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="layout" class="icon-hero"></i>
+  <h3 class="uppercase">Herramienta</h3>
+  <h2>Wireframe</h2>
+  <p class="lead">Qué va dónde, no cómo se ve</p>
+  <aside class="notes">
+    Un wireframe es un boceto estructural de baja fidelidad. Muestra la estructura de la página sin diseño visual.
+    Sin color, sin imágenes reales, sin tipografía final. Solo cajas, líneas y texto.
+    Su propósito: validar la estructura y la jerarquía antes de invertir tiempo en diseño visual.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Niveles</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="pencil" class="icon-inline icon-muted"></i>Baja fidelidad — explorar</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="pen-tool" class="icon-inline icon-muted"></i>Media fidelidad — validar</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="figma" class="icon-inline icon-muted"></i>Alta fidelidad — ya es UI</li>
+  </ul>
+  <aside class="notes">
+    Baja: cajas y líneas. Papel o Figma rápido. Para explorar opciones sin comprometerse.
+    Media: estructura definida, contenido real (o cercano), jerarquía clara. Para validar con el equipo.
+    Alta: ya es diseño de UI, no wireframe. Tiene colores, tipografía, componentes reales.
+    Hoy trabajamos en baja-media. La alta viene en clases 4-6.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Qué debe mostrar</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="layers" class="icon-inline icon-muted"></i>Jerarquía de contenido</li>
+    <li class="fragment fade-up"><i data-lucide="layout" class="icon-inline icon-muted"></i>Estructura de página</li>
+    <li class="fragment fade-up"><i data-lucide="mouse-pointer-click" class="icon-inline icon-muted"></i>Ubicación de CTAs</li>
+    <li class="fragment fade-up"><i data-lucide="smartphone" class="icon-inline icon-muted"></i>Comportamiento responsive</li>
+    <li class="fragment fade-up"><i data-lucide="message-square" class="icon-inline icon-muted"></i>Anotaciones</li>
+  </ul>
+  <aside class="notes">
+    Jerarquía: qué es más importante en la página. Lo grande = importante. Lo chico = secundario.
+    Estructura: header, contenido principal, sidebar, footer. Cómo se organizan las secciones.
+    CTAs: dónde están los botones de acción principal. Son visibles sin scrollear?
+    Responsive: cómo cambia en móvil. Qué se oculta, qué se reorganiza.
+    Anotaciones: notas sobre comportamiento, estados, interacciones. "Este bloque se oculta en móvil", "Este campo muestra error inline".
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase warm">Error común</h3>
+  <h2>Hacer wireframes "bonitos"</h2>
+  <aside class="notes">
+    Un wireframe bonito distrae de su propósito: validar estructura.
+    Si empezás a elegir colores y tipografías en el wireframe, estás diseñando UI — no estructura.
+    Usar gris, cajas y texto real. Si se ve "feo" pero la estructura es clara, el wireframe cumplió su función.
+    Tip: usar papel y marcador grueso. No podés hacer detalles finos con un marcador grueso — te obliga a pensar en grande.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CIERRE
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Hoy</div>
+    <h2>Qué entrenamos</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">01</span>
+      <p>Estructura antes que estética</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">02</span>
+      <p>Flujos completos</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">03</span>
+      <p>Jerarquía con criterio</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Estructura: sitemap, navegación, organización basada en tareas del usuario.
+    Flujos: secuencias completas con errores, vacíos, cargas y abandonos.
+    Jerarquía: controlar qué ve el usuario primero usando tamaño, peso, contraste, posición, espacio y color.
+    Ahora vamos a aplicar todo esto al proyecto.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Mini-checklist</h3>
+  <ul class="checklist">
+    <li class="fragment fade-up">¿La nav prioriza tareas del usuario?</li>
+    <li class="fragment fade-up">¿Los flujos incluyen errores?</li>
+    <li class="fragment fade-up">¿Los wireframes muestran jerarquía sin color?</li>
+    <li class="fragment fade-up">¿Los supuestos están documentados?</li>
+  </ul>
+  <aside class="notes">
+    Nav: ¿refleja lo que el usuario busca o la estructura interna de la empresa?
+    Flujos: ¿qué pasa si el pago falla? ¿Si no hay resultados? ¿Si el usuario retrocede?
+    Wireframes: ¿se entiende la jerarquía solo con tamaño y posición, sin color?
+    Supuestos: ¿documentaste lo que asumís sobre el usuario? "Asumimos que ya tiene cuenta creada."
+    Ahora a la práctica: sitemap, flujos y wireframes del proyecto.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAUSA
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Cierre del bloque teórico. Después: crear sitemap del proyecto, dibujar 2 flujos principales, wireframes de pantallas clave.
+    Recordar: hoy es estructura. Si empiezan a elegir colores, redirigir: "eso es clase 4".
+  </aside>
+</section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<!-- Reveal.js core + plugins -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1280,
+    height: 720,
+    margin: 0,
+    minScale: 0.2,
+    maxScale: 2.0,
+    hash: true,
+    history: true,
+    controls: true,
+    controlsLayout: 'bottom-right',
+    progress: true,
+    slideNumber: 'c/t',
+    showSlideNumber: 'speaker',
+    center: false,
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    backgroundTransition: 'fade',
+    autoAnimateEasing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+    autoAnimateDuration: 0.6,
+    autoAnimateUnmatched: false,
+    fragmentInURL: false,
+    showNotes: false,
+    plugins: [ RevealNotes ],
+    viewDistance: 3,
+    mobileViewDistance: 2,
+  });
+
+  function updateSemiOut() {
+    document.querySelectorAll('.fragment.semi-out').forEach(function(el) {
+      if (el.classList.contains('current-fragment')) {
+        el.style.opacity = '1';
+        el.style.color = 'var(--r-heading-color)';
+        el.style.fontWeight = '600';
+      } else if (el.classList.contains('visible')) {
+        el.style.opacity = '1';
+        el.style.color = 'var(--color-subtle)';
+        el.style.fontWeight = '';
+      } else {
+        el.style.opacity = '1';
+        el.style.color = 'var(--color-subtle)';
+        el.style.fontWeight = '';
+      }
+    });
+  }
+
+  Reveal.on('fragmentshown', updateSemiOut);
+  Reveal.on('fragmenthidden', updateSemiOut);
+  Reveal.on('slidechanged', updateSemiOut);
+  Reveal.on('ready', function() {
+    updateSemiOut();
+    lucide.createIcons();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'd' || e.key === 'D') {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var reveal = document.querySelector('.reveal');
+      reveal.classList.toggle('dark-mode');
+      var isDark = reveal.classList.contains('dark-mode');
+      document.body.style.backgroundColor = isDark ? '#0a0a0a' : '#fafafa';
+    }
+  });
+</script>
+
+</body>
+</html>

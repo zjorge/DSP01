@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSP01 · Clase XX · Teoría</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+
+  <!-- Custom Isthmus theme -->
+  <link rel="stylesheet" href="css/theme-isthmus.css">
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- ════════════════════════════════════════════
+     TÍTULO — Cambiar número de clase y subtítulo
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <div class="tag">Diseño y Programación Web</div>
+  <h1>DSP01</h1>
+  <h3>Clase XX · Teoría</h3>
+  <aside class="notes">
+    Notas del presentador para el slide de título.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EJEMPLO: Slide simple — título + subtítulo
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <i data-lucide="globe" class="icon-hero"></i>
+  <h3 class="uppercase">Etiqueta superior</h3>
+  <h2>Título principal</h2>
+  <p class="lead">Subtítulo o frase complementaria</p>
+  <aside class="notes">
+    Notas del presentador.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EJEMPLO: Section divider — separa bloques
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque</div>
+    <h2>Nombre del bloque</h2>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EJEMPLO: Lista con fade-up (aparecen uno a uno)
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <h3 class="uppercase">Categoría</h3>
+  <h2>Título de la lista</h2>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="circle" class="icon-inline icon-muted"></i>Primer elemento</li>
+    <li class="fragment fade-up"><i data-lucide="circle" class="icon-inline icon-muted"></i>Segundo elemento</li>
+    <li class="fragment fade-up"><i data-lucide="circle" class="icon-inline icon-muted"></i>Tercer elemento</li>
+  </ul>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EJEMPLO: Lista semi-out (actual destaca, previos se atenúan)
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <h3 class="uppercase">Categoría</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="arrow-right" class="icon-inline icon-muted"></i>Primer punto</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="arrow-right" class="icon-inline icon-muted"></i>Segundo punto</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="arrow-right" class="icon-inline icon-muted"></i>Tercer punto</li>
+  </ul>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EJEMPLO: Auto-animate / morph entre slides
+     ════════════════════════════════════════════ -->
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase">Concepto</h3>
+  <h2 data-id="morph-title">Estado A</h2>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase">Concepto</h3>
+  <h2 data-id="morph-title">Estado B</h2>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EJEMPLO: Big number con morph
+     ════════════════════════════════════════════ -->
+<section data-transition="fade" data-auto-animate>
+  <div class="cols">
+    <div>
+      <span class="big-number" data-id="num">01</span>
+      <p data-id="label">Primer concepto</p>
+    </div>
+  </div>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <div class="cols">
+    <div>
+      <span class="big-number" data-id="num">02</span>
+      <p data-id="label">Segundo concepto</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EJEMPLO: 3 columnas con fragments
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">01</span>
+      <p>Columna uno</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">02</span>
+      <p>Columna dos</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">03</span>
+      <p>Columna tres</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EJEMPLO: Stack diagram (capas)
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <h3 class="uppercase">Diagrama</h3>
+  <div class="stack-diagram">
+    <div class="layer fragment fade-up" data-fragment-index="1"><i data-lucide="cloud" class="icon-stack icon-muted"></i>Capa superior</div>
+    <div class="layer fragment fade-up" data-fragment-index="2"><i data-lucide="server" class="icon-stack icon-muted"></i>Capa media</div>
+    <div class="layer fragment fade-up active" data-fragment-index="3"><i data-lucide="hard-drive" class="icon-stack icon-muted"></i>Capa base</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EJEMPLO: Cita / blockquote
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <blockquote>
+    "Una cita relevante que aporta contexto."
+  </blockquote>
+  <p class="small muted">— Autor, Fuente</p>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EJEMPLO: Checklist
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <h3 class="uppercase">Checklist</h3>
+  <h2>Antes de entregar</h2>
+  <ul class="checklist">
+    <li class="fragment fade-up">¿Primer criterio?</li>
+    <li class="fragment fade-up">¿Segundo criterio?</li>
+    <li class="fragment fade-up">¿Tercer criterio?</li>
+  </ul>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EJEMPLO: Wireframe placeholder
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <h3 class="uppercase">Layout</h3>
+  <div class="cols">
+    <div class="wireframe-box">Sidebar</div>
+    <div class="wireframe-box">Contenido principal</div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EJEMPLO: Código
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <h3 class="uppercase">Código</h3>
+  <pre><code>&lt;nav aria-label="Main"&gt;
+  &lt;a href="/"&gt;Inicio&lt;/a&gt;
+  &lt;a href="/about"&gt;Acerca&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAUSA
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+</section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<!-- Reveal.js core + plugins -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1280,
+    height: 720,
+    margin: 0,
+    minScale: 0.2,
+    maxScale: 2.0,
+    hash: true,
+    history: true,
+    controls: true,
+    controlsLayout: 'bottom-right',
+    progress: true,
+    slideNumber: 'c/t',
+    showSlideNumber: 'speaker',
+    center: false,
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    backgroundTransition: 'fade',
+    autoAnimateEasing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+    autoAnimateDuration: 0.6,
+    autoAnimateUnmatched: false,
+    fragmentInURL: false,
+    showNotes: false,
+    plugins: [ RevealNotes ],
+    viewDistance: 3,
+    mobileViewDistance: 2,
+  });
+
+  /* ── Semi-out fragment handler ────────── */
+  function updateSemiOut() {
+    document.querySelectorAll('.fragment.semi-out').forEach(function(el) {
+      if (el.classList.contains('current-fragment')) {
+        el.style.opacity = '1';
+        el.style.color = 'var(--r-heading-color)';
+        el.style.fontWeight = '600';
+      } else if (el.classList.contains('visible')) {
+        el.style.opacity = '1';
+        el.style.color = 'var(--color-subtle)';
+        el.style.fontWeight = '';
+      } else {
+        el.style.opacity = '1';
+        el.style.color = 'var(--color-subtle)';
+        el.style.fontWeight = '';
+      }
+    });
+  }
+
+  Reveal.on('fragmentshown', updateSemiOut);
+  Reveal.on('fragmenthidden', updateSemiOut);
+  Reveal.on('slidechanged', updateSemiOut);
+  Reveal.on('ready', function() {
+    updateSemiOut();
+    lucide.createIcons();
+  });
+
+  /* ── Dark mode toggle (press "D") ─────── */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'd' || e.key === 'D') {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var reveal = document.querySelector('.reveal');
+      reveal.classList.toggle('dark-mode');
+      var isDark = reveal.classList.contains('dark-mode');
+      document.body.style.backgroundColor = isDark ? '#0a0a0a' : '#fafafa';
+    }
+  });
+</script>
+
+</body>
+</html>

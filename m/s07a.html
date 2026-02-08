@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSP01 · Clase 07 · Teoría</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="../css/theme-isthmus.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<section class="title-slide" data-transition="fade">
+  <div class="tag">Diseño y Programación Web</div>
+  <h1>DSP01</h1>
+  <h3>Clase 07 · Teoría</h3>
+  <aside class="notes">
+    Día 7. Punto de inflexión del curso: de construir a evaluar y comunicar.
+    Ayer consolidamos el sistema de UI. Hoy lo ponemos a prueba: prototipar, especificar y evaluar.
+    Prototipos con estados reales, specs de handoff, heurísticas de Nielsen, microcopy.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="play" class="icon-hero"></i>
+  <h3 class="uppercase">Hoy</h3>
+  <h2>Prototipado y comunicación con desarrollo</h2>
+  <aside class="notes">
+    4 bloques: prototipos (concepto y fidelidad), estados de contenido, spec de handoff, heurísticas y microcopy.
+    El objetivo: que al final del día tengan un prototipo navegable con estados reales y una spec que desarrollo pueda implementar sin preguntar.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 1: PROTOTIPOS
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 1</div>
+    <h2>Prototipos</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="smartphone" class="icon-hero"></i>
+  <h3 class="uppercase">Concepto</h3>
+  <h2>Prototipo</h2>
+  <p class="lead">Una pregunta materializada</p>
+  <aside class="notes">
+    Un prototipo no es el producto. Es una simulación que permite probar ideas antes de construirlas.
+    Es una pregunta materializada: "¿esto funciona?" "¿el usuario entiende qué hacer?" "¿falta algún paso?"
+    Lo que puede responder: claridad, eficacia, lógica, completitud, fricción.
+    Lo que NO puede responder: si el producto va a tener éxito, si la tecnología lo soporta, si el rendimiento será bueno.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Puede responder</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="eye" class="icon-inline icon-muted"></i>¿Se entiende qué hacer?</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="check" class="icon-inline icon-muted"></i>¿Se puede completar la tarea?</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="route" class="icon-inline icon-muted"></i>¿El flujo tiene sentido?</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="list-checks" class="icon-inline icon-muted"></i>¿Falta algún estado?</li>
+  </ul>
+  <aside class="notes">
+    Claridad: ¿el usuario entiende qué hacer sin explicación?
+    Eficacia: ¿puede completar la tarea de principio a fin?
+    Lógica: ¿el orden de los pasos tiene sentido?
+    Completitud: ¿hay estados o pasos que faltan?
+    Estas son las preguntas que un prototipo puede responder. Todo lo demás requiere implementación real.
+  </aside>
+</section>
+
+<!-- Fidelidad -->
+<section data-transition="fade">
+  <h3 class="uppercase">Niveles de fidelidad</h3>
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">Lo</span>
+      <p class="small muted">explorar</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">Mid</span>
+      <p class="small muted">validar</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">Hi</span>
+      <p class="small muted">comunicar</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Baja: cajas, texto, flujo básico. Para explorar estructura. Papel, FigJam, Whimsical.
+    Media: componentes reales, contenido cercano al real, sin estilo final. Para validar con usuarios o equipo. Figma wireframes interactivos.
+    Alta: UI final, microinteracciones, contenido real. Para comunicar a desarrollo, testear con usuarios, presentar a stakeholders. Figma prototyping, Framer.
+    Regla: la fidelidad debe coincidir con la pregunta. Si querés saber si el flujo tiene sentido, baja alcanza.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase warm">Error común</h3>
+  <h2>Alta fidelidad demasiado pronto</h2>
+  <aside class="notes">
+    Se invierte tiempo en detalles visuales antes de validar que la estructura funciona.
+    Resultado: cambios costosos porque la estructura estaba mal desde el principio.
+    Mejor: validar con baja fidelidad primero, refinar con media, pulir con alta.
+  </aside>
+</section>
+
+<!-- Figma prototyping -->
+<section data-transition="fade">
+  <h3 class="uppercase">Figma</h3>
+  <h2>Prototipos interactivos</h2>
+  <aside class="notes">
+    Figma permite crear prototipos conectando frames con interacciones.
+    Vamos a ver los tipos de interacción y transición más útiles.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Interacciones</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="mouse-pointer-click" class="icon-inline icon-muted"></i>On click / tap</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="mouse-pointer" class="icon-inline icon-muted"></i>On hover</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="move" class="icon-inline icon-muted"></i>On drag</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="timer" class="icon-inline icon-muted"></i>After delay</li>
+  </ul>
+  <aside class="notes">
+    Click/tap: la más común. Navegar, abrir modal, cambiar estado.
+    Hover: tooltip, cambio de estado de botón. Solo desktop.
+    Drag: sliders, reordenar elementos.
+    After delay: transiciones automáticas. Splash screen, auto-advance en onboarding.
+    While pressing: mantener presionado para acción (eliminar, grabar).
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Transiciones</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="zap" class="icon-inline icon-muted"></i>Instant — sin animación</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="blend" class="icon-inline icon-muted"></i>Dissolve — fade universal</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="wand-2" class="icon-inline icon-muted"></i>Smart Animate — morphing</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="arrow-right" class="icon-inline icon-muted"></i>Move / Push — slide</li>
+  </ul>
+  <aside class="notes">
+    Instant: para cambios de estado rápidos. Toggle, checkbox.
+    Dissolve: fade entre pantallas. La más segura y universal. Funciona siempre.
+    Smart Animate: anima diferencias entre frames con el mismo nombre de capa. Poderoso pero requiere naming consistente — conectar con clase 05.
+    Move in/out: slide desde un borde. Para drawers, sheets, navegación lateral.
+    Push: una pantalla empuja a la otra. Para navegación horizontal (tabs, carousels).
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 2: ESTADOS DE CONTENIDO
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 2</div>
+    <h2>Estados de contenido</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase warm">Error grave</h3>
+  <h2>Solo mostrar el happy path</h2>
+  <aside class="notes">
+    El error más grave en prototipado: mostrar solo el caso ideal. Todo funciona, hay datos perfectos, nada falla.
+    En la realidad, el 40-60% de la experiencia son estados no ideales.
+    Un prototipo sin estados de error es un prototipo incompleto.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">6 estados</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="inbox" class="icon-inline icon-muted"></i>Vacío — primera vez</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="loader" class="icon-inline icon-muted"></i>Cargando — skeleton > spinner</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="alert-circle" class="icon-inline icon-muted"></i>Error — validación, servidor, red</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="check-circle" class="icon-inline icon-muted"></i>Éxito — confirmación + próximo paso</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="minus" class="icon-inline icon-muted"></i>Parcial — datos incompletos</li>
+    <li class="fragment semi-out" data-fragment-index="6"><i data-lucide="maximize" class="icon-inline icon-muted"></i>Extremo — 200 caracteres, 500 ítems</li>
+  </ul>
+  <aside class="notes">
+    Vacío: primera vez, sin datos. Comunicar qué es, qué puede hacer, cómo empezar. "Aún no tenés proyectos. Crear el primero →"
+    Cargando: skeleton screens > spinners. Mostrar la estructura de lo que viene. Para acciones largas: barra de progreso.
+    Error: el más ignorado y el más importante. Validación (campo específico), servidor ("Algo salió mal. Intentá de nuevo."), red ("Sin conexión."), permisos ("No tenés acceso.").
+    Éxito: confirmación clara + próximo paso. "Pedido confirmado. Te enviamos un email."
+    Parcial: solo algunos campos llenos, perfil incompleto, lista con 1 ítem.
+    Extremo: título de 200 caracteres, lista de 500 ítems, imagen muy alta o muy ancha.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAUSA
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Hasta ahora: prototipos (concepto, fidelidad, Figma), estados de contenido (6 estados).
+    Después del break: spec de handoff, heurísticas de Nielsen, microcopy.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 3: SPEC DE HANDOFF
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 3</div>
+    <h2>Spec de handoff</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="file-text" class="icon-hero"></i>
+  <h3 class="uppercase">Handoff</h3>
+  <h2>Que desarrollo no tenga que adivinar</h2>
+  <aside class="notes">
+    La spec de handoff es el documento que le dice a desarrollo exactamente qué construir.
+    Un buen handoff elimina reuniones innecesarias. Un mal handoff genera preguntas infinitas.
+    Vamos a ver los 10 elementos que toda spec debe incluir.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">10 elementos</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="ruler" class="icon-inline icon-muted"></i>Medidas y espaciados</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="variable" class="icon-inline icon-muted"></i>Tokens utilizados</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="smartphone" class="icon-inline icon-muted"></i>Responsive</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="toggle-left" class="icon-inline icon-muted"></i>Estados</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="play" class="icon-inline icon-muted"></i>Interacciones</li>
+  </ul>
+  <aside class="notes">
+    Medidas: Figma Dev Mode las muestra si el archivo está limpio. Verificar que coincidan con tokens.
+    Tokens: no "este azul" sino color/primary/500. No "16px" sino space/4.
+    Responsive: qué cambia en cada breakpoint. Reglas de reflow. Elementos que desaparecen.
+    Estados: todos diseñados, no solo default. Hover, focus, error, loading, disabled.
+    Interacciones: qué pasa al hacer clic, duración de animación, easing.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">10 elementos</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="message-square" class="icon-inline icon-muted"></i>Microcopy</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="image" class="icon-inline icon-muted"></i>Assets</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="git-branch" class="icon-inline icon-muted"></i>Lógica condicional</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="keyboard" class="icon-inline icon-muted"></i>Orden de tabulación</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="check-square" class="icon-inline icon-muted"></i>Criterios de aceptación</li>
+  </ul>
+  <aside class="notes">
+    Microcopy: texto exacto de labels, errores, confirmaciones, tooltips. No "algo como..." sino el texto final.
+    Assets: íconos en SVG, imágenes con formato y tamaño definidos.
+    Lógica: "Si no tiene foto, mostrar iniciales. Si no tiene nombre, mostrar email."
+    Tabulación: en qué orden se navega con Tab. Crítico en formularios.
+    Criterios: Dado/Cuando/Entonces para los flujos principales.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase warm">No incluir</h3>
+  <h2>Cómo implementarlo</h2>
+  <p class="lead">Eso lo decide desarrollo</p>
+  <aside class="notes">
+    No incluir: cómo implementarlo técnicamente, detalles de backend o base de datos (a menos que afecten la UI), opiniones sin fundamento.
+    La spec dice QUÉ construir. Desarrollo decide CÓMO.
+    La línea es clara: diseño define la experiencia, desarrollo define la implementación.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 4: HEURÍSTICAS Y MICROCOPY
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 4</div>
+    <h2>Heurísticas y microcopy</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="search" class="icon-hero"></i>
+  <h3 class="uppercase">Herramienta</h3>
+  <h2>10 heurísticas de Nielsen</h2>
+  <p class="lead">Evaluación rápida de usabilidad</p>
+  <aside class="notes">
+    Las 10 heurísticas de Jakob Nielsen son una herramienta rápida para evaluar interfaces.
+    No reemplazan pruebas con usuarios, pero detectan problemas evidentes.
+    Formato: tabla con heurística violada, pantalla, descripción, severidad (0-4), recomendación.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Heurísticas clave</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="eye" class="icon-inline icon-muted"></i>Visibilidad del estado</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="globe" class="icon-inline icon-muted"></i>Coincidencia con el mundo real</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="undo" class="icon-inline icon-muted"></i>Control y libertad</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="copy" class="icon-inline icon-muted"></i>Consistencia</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="shield" class="icon-inline icon-muted"></i>Prevención de errores</li>
+  </ul>
+  <aside class="notes">
+    1. Visibilidad: ¿el usuario sabe qué está pasando? Loading, progress, confirmaciones.
+    2. Mundo real: ¿el lenguaje es familiar? Palabras del usuario, no jerga técnica.
+    3. Control: ¿puede deshacer? ¿Volver atrás? ¿Hay salida de emergencia? Undo, cancel, back.
+    4. Consistencia: ¿los mismos elementos se comportan igual en todo el sitio?
+    5. Prevención: ¿el diseño evita errores? Confirmaciones antes de acciones destructivas.
+    Las otras 5: reconocimiento sobre recuerdo, flexibilidad, diseño minimalista, recuperación de errores, ayuda.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Severidad</h3>
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">0</span>
+      <p class="small muted">no es problema</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">2</span>
+      <p class="small muted">menor</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">3</span>
+      <p class="small muted">mayor</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="4">
+      <span class="big-number">4</span>
+      <p class="small muted">catastrófico</p>
+    </div>
+  </div>
+  <aside class="notes">
+    0: no es un problema de usabilidad. 1: cosmético, arreglar si hay tiempo.
+    2: menor, dificulta pero no impide. 3: mayor, impide completar tareas. Prioridad alta.
+    4: catastrófico, el usuario no puede usar el producto. Arreglar antes de lanzar.
+    La severidad ayuda a priorizar: no todo se arregla al mismo tiempo.
+  </aside>
+</section>
+
+<!-- Microcopy -->
+<section data-transition="fade">
+  <i data-lucide="message-square" class="icon-hero"></i>
+  <h3 class="uppercase">Concepto</h3>
+  <h2>Microcopy</h2>
+  <p class="lead">Es diseño, no decoración</p>
+  <aside class="notes">
+    Microcopy: labels, placeholders, mensajes de error, confirmaciones, tooltips, botones, estados vacíos.
+    Es el texto pequeño que guía al usuario. Es tan parte del diseño como el color o la tipografía.
+    Un botón que dice "Enviar" vs. "Confirmar pedido" — la diferencia es enorme en claridad.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Principios</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="eye" class="icon-inline icon-muted"></i>Claro antes que creativo</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="target" class="icon-inline icon-muted"></i>Específico</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="arrow-right" class="icon-inline icon-muted"></i>Orientado a la acción</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="heart" class="icon-inline icon-muted"></i>Empático en errores</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="minimize-2" class="icon-inline icon-muted"></i>Breve</li>
+  </ul>
+  <aside class="notes">
+    Claro: "Guardar cambios" > "¡Listo!" > "Persistir modificaciones".
+    Específico: "Ingresá un email válido (nombre@dominio.com)" > "Error en el campo".
+    Acción: "Crear cuenta" > "Enviar" > "Submit".
+    Empático: "No encontramos resultados para 'xyz'. Probá con otros términos." > "0 resultados".
+    Breve: cada palabra extra es fricción. Si podés decirlo en 5 palabras, no uses 15.
+    Consistente: si en un lugar decís "Cancelar", no digas "Descartar" en otro para la misma acción.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Microcopy por contexto</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="text-cursor" class="icon-inline icon-muted"></i>Placeholder — ejemplo del formato</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="info" class="icon-inline icon-muted"></i>Helper — info antes del error</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="alert-circle" class="icon-inline icon-muted"></i>Error — qué pasó + cómo arreglar</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="check-circle" class="icon-inline icon-muted"></i>Éxito — confirmación + próximo paso</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="inbox" class="icon-inline icon-muted"></i>Empty — qué es + qué hacer</li>
+  </ul>
+  <aside class="notes">
+    Placeholder: ejemplo del formato esperado, no repetición del label. "nombre@dominio.com", no "Ingresá tu email".
+    Helper: información adicional antes de que haya error. "Mínimo 8 caracteres, al menos una mayúscula."
+    Error: qué salió mal + cómo arreglarlo. "La contraseña debe tener al menos 8 caracteres."
+    Éxito: confirmación + próximo paso. "Cuenta creada. Revisá tu email para verificar."
+    Empty: qué es esto + qué hacer. "Aún no tenés favoritos. Explorá productos y guardá los que te gusten."
+  </aside>
+</section>
+
+<!-- Contextos -->
+<section data-transition="fade">
+  <h3 class="uppercase">Extra</h3>
+  <h2>Diseño por contexto</h2>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="smartphone" class="icon-inline icon-muted"></i>Plegables — continuidad + bisagra</li>
+    <li class="fragment fade-up"><i data-lucide="mic" class="icon-inline icon-muted"></i>Voz — turnos + confirmación</li>
+    <li class="fragment fade-up"><i data-lucide="scan" class="icon-inline icon-muted"></i>AR — capas sobre el mundo real</li>
+  </ul>
+  <aside class="notes">
+    Plegables: continuidad al cambiar postura, no poner contenido sobre la bisagra, usar segunda pantalla para contenido complementario.
+    Voz: turnos cortos, confirmación explícita, fallback a pantalla. "No entendí. ¿Podés repetirlo?"
+    AR: capas de información sobre el mundo real. Solo si agrega valor que la pantalla sola no puede dar.
+    Estos son ejercicios de claridad conceptual. Si tu diseño funciona en estos contextos, probablemente funciona bien en cualquiera.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CIERRE
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Hoy</div>
+    <h2>Qué entrenamos</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">01</span>
+      <p>Prototipar completo</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">02</span>
+      <p>Especificar sin ambigüedad</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">03</span>
+      <p>Evaluar con criterio</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Prototipar: flujos completos con estados reales, no solo happy path.
+    Especificar: handoff con tokens, responsive, estados, microcopy, criterios.
+    Evaluar: heurísticas de Nielsen como herramienta rápida de detección de problemas.
+    Ahora a la práctica: prototipar el flujo principal, preparar spec de handoff, evaluación heurística.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Mini-checklist</h3>
+  <ul class="checklist">
+    <li class="fragment fade-up">¿El prototipo incluye estados de error?</li>
+    <li class="fragment fade-up">¿El handoff tiene tokens y responsive?</li>
+    <li class="fragment fade-up">¿El microcopy dice qué pasó y cómo arreglarlo?</li>
+    <li class="fragment fade-up">¿La evaluación heurística tiene severidad?</li>
+  </ul>
+  <aside class="notes">
+    Si alguna respuesta es "no", hay trabajo por hacer.
+    Ahora a la práctica: prototipar flujo principal con estados, preparar spec para 2 pantallas, evaluación heurística.
+  </aside>
+</section>
+
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Cierre del bloque teórico. Después: prototipar flujo principal (happy path + errores + empty + loading), spec de handoff para 2 pantallas, ejercicio de diseño por contexto, peer review.
+  </aside>
+</section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1280, height: 720, margin: 0, minScale: 0.2, maxScale: 2.0,
+    hash: true, history: true, controls: true, controlsLayout: 'bottom-right',
+    progress: true, slideNumber: 'c/t', showSlideNumber: 'speaker', center: false,
+    transition: 'fade', transitionSpeed: 'fast', backgroundTransition: 'fade',
+    autoAnimateEasing: 'cubic-bezier(0.25, 0.1, 0.25, 1)', autoAnimateDuration: 0.6, autoAnimateUnmatched: false,
+    fragmentInURL: false, showNotes: false, plugins: [ RevealNotes ], viewDistance: 3, mobileViewDistance: 2,
+  });
+
+  function updateSemiOut() {
+    document.querySelectorAll('.fragment.semi-out').forEach(function(el) {
+      if (el.classList.contains('current-fragment')) {
+        el.style.opacity = '1'; el.style.color = 'var(--r-heading-color)'; el.style.fontWeight = '600';
+      } else if (el.classList.contains('visible')) {
+        el.style.opacity = '1'; el.style.color = 'var(--color-subtle)'; el.style.fontWeight = '';
+      } else {
+        el.style.opacity = '1'; el.style.color = 'var(--color-subtle)'; el.style.fontWeight = '';
+      }
+    });
+  }
+  Reveal.on('fragmentshown', updateSemiOut);
+  Reveal.on('fragmenthidden', updateSemiOut);
+  Reveal.on('slidechanged', updateSemiOut);
+  Reveal.on('ready', function() { updateSemiOut(); lucide.createIcons(); });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'd' || e.key === 'D') {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var reveal = document.querySelector('.reveal');
+      reveal.classList.toggle('dark-mode');
+      document.body.style.backgroundColor = reveal.classList.contains('dark-mode') ? '#0a0a0a' : '#fafafa';
+    }
+  });
+</script>
+</body>
+</html>

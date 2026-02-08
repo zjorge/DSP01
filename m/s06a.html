@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSP01 · Clase 06 · Teoría</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="../css/theme-isthmus.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<section class="title-slide" data-transition="fade">
+  <div class="tag">Diseño y Programación Web</div>
+  <h1>DSP01</h1>
+  <h3>Clase 06 · Teoría</h3>
+  <aside class="notes">
+    Día 6. Inicio de la segunda semana. Semana 1 fue exploración y construcción. Semana 2 es consolidación y calidad.
+    Hoy consolidamos los componentes en un sistema coherente con reglas, documentación y criterios de aceptación.
+    El objetivo: que otra persona pueda usar tu sistema sin preguntarte nada.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="blocks" class="icon-hero"></i>
+  <h3 class="uppercase">Hoy</h3>
+  <h2>Sistema de UI ligero</h2>
+  <aside class="notes">
+    Ayer organizamos piezas en Figma con Auto Layout, tokens y variantes. Hoy las consolidamos en un sistema con reglas, documentación y criterios.
+    Vamos a cubrir: qué es un design system, por qué "ligero", anatomía de componentes, documentación, deuda de diseño y criterios de aceptación.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 1: DESIGN SYSTEMS
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 1</div>
+    <h2>Design systems</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Concepto</h3>
+  <h2>Design system</h2>
+  <p class="lead">No es una librería de componentes</p>
+  <aside class="notes">
+    Un design system no es solo componentes en Figma. Es un conjunto de decisiones compartidas:
+    Principios (por qué diseñamos así), tokens (las constantes), componentes (las piezas), patrones (cómo se combinan) y documentación (cómo se usan).
+    Una librería de componentes sin principios ni documentación es una colección, no un sistema.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Design system</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="compass" class="icon-inline icon-muted"></i>Principios</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="variable" class="icon-inline icon-muted"></i>Tokens</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="component" class="icon-inline icon-muted"></i>Componentes</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="puzzle" class="icon-inline icon-muted"></i>Patrones</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="book-open" class="icon-inline icon-muted"></i>Documentación</li>
+  </ul>
+  <aside class="notes">
+    Principios: las reglas de diseño del producto. "Claridad sobre elegancia", "Mobile-first", "Accesible por defecto".
+    Tokens: las constantes del sistema. Colores, tipografía, espaciado, radius, sombra.
+    Componentes: las piezas reutilizables. Botones, inputs, cards, modales.
+    Patrones: cómo se combinan los componentes para resolver problemas. Formulario de login, flujo de checkout, dashboard.
+    Documentación: cómo se usan correctamente. Nombre, propósito, variantes, do/don't.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Referencia</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="layers" class="icon-inline icon-muted"></i>Material Design — Google</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="apple" class="icon-inline icon-muted"></i>HIG — Apple</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="shopping-bag" class="icon-inline icon-muted"></i>Polaris — Shopify</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="github" class="icon-inline icon-muted"></i>Primer — GitHub</li>
+  </ul>
+  <aside class="notes">
+    Material Design: exhaustivo, opinionado, con guías detalladas por componente. Referencia para Android y web.
+    HIG: principios + componentes nativos, menos prescriptivo. Referencia para iOS y macOS.
+    Polaris: enfocado en e-commerce, con ejemplos de uso y anti-patrones. Excelente documentación.
+    Primer: developer-focused, pragmático. Buena referencia para sistemas ligeros.
+    Carbon (IBM): enterprise, tokens detallados, accesibilidad integrada.
+    Estos son inspiración, no modelos a copiar. Tu sistema debe resolver TUS problemas.
+  </aside>
+</section>
+
+<!-- Por qué ligero -->
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase">Decisión</h3>
+  <h2 data-id="ligero">¿Por qué "ligero"?</h2>
+  <aside class="notes">
+    Un sistema ligero no es un sistema incompleto. Es una decisión consciente de alcance.
+    Cubre el 80% del uso real con el 20% del esfuerzo.
+  </aside>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase">Decisión</h3>
+  <h2 data-id="ligero">80% del uso, 20% del esfuerzo</h2>
+  <aside class="notes">
+    Sistema completo: 50-100+ componentes, documentación exhaustiva, equipo dedicado, meses de desarrollo.
+    Sistema ligero: 8-15 componentes núcleo, documentación mínima suficiente, mismo equipo de producto, semanas.
+    Ideal para: proyectos nuevos, equipos pequeños, MVPs, punto de partida que crece con el producto.
+    Principio: empezar con lo que necesitás hoy, no con lo que podrías necesitar algún día.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Componentes núcleo</h3>
+  <div class="cols" style="text-align:center;">
+    <div>
+      <span class="big-number">8-12</span>
+      <p class="small muted">cubren el 80% de la UI</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Button, Input, Select, Checkbox/Radio, Card, Alert, Toast, Modal, Navbar, Badge, Avatar, Skeleton.
+    No todos los proyectos necesitan los 12. Elegir los que el proyecto realmente usa.
+    Un e-commerce necesita Card y filtros. Un dashboard necesita Table y Charts. Un blog necesita Article y Sidebar.
+    Empezar con los que usás hoy. Agregar cuando los necesités.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 2: ANATOMÍA Y PROPIEDADES
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 2</div>
+    <h2>Anatomía y propiedades</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Anatomía</h3>
+  <h2>Qué debe tener cada componente</h2>
+  <aside class="notes">
+    Cada componente del sistema debe tener una documentación mínima que permita a cualquier persona usarlo correctamente.
+    Vamos a ver los 7 elementos que todo componente documentado necesita.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Anatomía</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="tag" class="icon-inline icon-muted"></i>Nombre claro</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="target" class="icon-inline icon-muted"></i>Propósito en 1 oración</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="layers" class="icon-inline icon-muted"></i>Variantes diseñadas</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="sliders" class="icon-inline icon-muted"></i>Propiedades configurables</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="toggle-left" class="icon-inline icon-muted"></i>Estados completos</li>
+    <li class="fragment semi-out" data-fragment-index="6"><i data-lucide="check-circle" class="icon-inline icon-muted"></i>Do / Don't</li>
+    <li class="fragment semi-out" data-fragment-index="7"><i data-lucide="accessibility" class="icon-inline icon-muted"></i>Accesibilidad</li>
+  </ul>
+  <aside class="notes">
+    Nombre: "Button", no "CTA element" ni "action-box". Claro, consistente, sin ambigüedad.
+    Propósito: "Permite al usuario ejecutar una acción principal o secundaria." Una oración.
+    Variantes: primary, secondary, ghost, destructive. Todas diseñadas visualmente.
+    Propiedades: las perillas. Size (sm/md/lg), con/sin ícono, ancho fijo/fluido.
+    Estados: default, hover, focus, active, disabled, loading. Todos diseñados.
+    Do/Don't: "Do: un solo botón primario por sección. Don't: 3 botones primarios juntos."
+    Accesibilidad: contraste, focus visible, label para screen readers, keyboard interaction.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Propiedades</h3>
+  <h2>Las perillas del componente</h2>
+  <aside class="notes">
+    Las propiedades son las dimensiones configurables de un componente. Deben ser:
+    Ortogonales: cada propiedad controla una dimensión independiente. Size no afecta hierarchy.
+    Exhaustivas: cubrir las combinaciones que se necesitan, no todas las posibles.
+    Claras: size: sm | md | lg, no size: 1 | 2 | 3.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Propiedades</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="split" class="icon-inline icon-muted"></i>Ortogonales — independientes</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="check-square" class="icon-inline icon-muted"></i>Exhaustivas — para el uso real</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="text" class="icon-inline icon-muted"></i>Claras — sm | md | lg</li>
+  </ul>
+  <aside class="notes">
+    Ortogonales: cambiar el size no debería cambiar el color. Cambiar la hierarchy no debería cambiar el tamaño. Cada perilla es independiente.
+    Exhaustivas para el uso real: no diseñar todas las combinaciones posibles. Diseñar las que se usan. Regla 80/20.
+    Claras: nombres que se entienden sin explicación. sm/md/lg > small/medium/large > 1/2/3.
+    Ejemplo Button: hierarchy (primary/secondary/ghost/destructive), size (sm/md/lg), state (default/hover/focus/disabled/loading), iconPosition (none/left/right).
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAUSA
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Hasta ahora: design systems (concepto, por qué ligero, componentes núcleo), anatomía de componentes, propiedades.
+    Después del break: documentación mínima, deuda de diseño, criterios de aceptación para componentes.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 3: DOCUMENTACIÓN Y DEUDA
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 3</div>
+    <h2>Documentación y deuda</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="book-open" class="icon-hero"></i>
+  <h3 class="uppercase">Documentación</h3>
+  <h2>No es un libro</h2>
+  <p class="lead">Es una referencia rápida</p>
+  <aside class="notes">
+    La documentación debe responder 3 preguntas en menos de 30 segundos. Si necesita más, es demasiado compleja.
+    Error común: escribir demasiado. Si tu documentación necesita documentación, es demasiado compleja.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">3 preguntas en 30 segundos</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="help-circle" class="icon-inline icon-muted"></i>¿Qué es esto?</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="hand" class="icon-inline icon-muted"></i>¿Cómo lo uso?</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="x-circle" class="icon-inline icon-muted"></i>¿Qué NO debo hacer?</li>
+  </ul>
+  <aside class="notes">
+    ¿Qué es esto? → Nombre + propósito en una oración. "Button: permite al usuario ejecutar una acción."
+    ¿Cómo lo uso? → Variantes + propiedades + ejemplo visual. "Primary para acción principal, secondary para secundaria."
+    ¿Qué NO debo hacer? → Do/Don't con ejemplos. "Don't: 3 botones primarios juntos."
+    Para este curso: documentación dentro de Figma es suficiente. Página dedicada con componentes organizados.
+  </aside>
+</section>
+
+<!-- Deuda -->
+<section data-transition="fade">
+  <i data-lucide="alert-triangle" class="icon-hero"></i>
+  <h3 class="uppercase">Concepto</h3>
+  <h2>Deuda de diseño</h2>
+  <p class="lead">Decisiones pospuestas conscientemente</p>
+  <aside class="notes">
+    Así como existe deuda técnica, existe deuda de diseño. La clave: que sea consciente y documentada.
+    Tener deuda es profesional. Tener deuda invisible es peligroso.
+    Tipos: componentes faltantes, estados incompletos, responsive pendiente, accesibilidad parcial.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Tipos de deuda</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="component" class="icon-inline icon-muted"></i>Componentes faltantes</li>
+    <li class="fragment fade-up"><i data-lucide="toggle-left" class="icon-inline icon-muted"></i>Estados incompletos</li>
+    <li class="fragment fade-up"><i data-lucide="smartphone" class="icon-inline icon-muted"></i>Responsive pendiente</li>
+    <li class="fragment fade-up"><i data-lucide="accessibility" class="icon-inline icon-muted"></i>Accesibilidad parcial</li>
+  </ul>
+  <aside class="notes">
+    Componentes faltantes: "No tenemos tabla porque el MVP no tiene tablas. Si se agrega, hay que diseñarla."
+    Estados incompletos: "El upload no tiene estado de error de red. Se agrega en v2."
+    Responsive pendiente: "El dashboard solo está para desktop. Móvil es deuda."
+    Accesibilidad parcial: "Contrastes verificados, pero orden de tabulación no."
+    Formato: qué falta + por qué se pospuso + cuándo se debería resolver.
+    Preguntar: "¿Qué decidiste NO hacer y por qué?"
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 4: CRITERIOS DE ACEPTACIÓN
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 4</div>
+    <h2>Criterios de aceptación</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Repaso</h3>
+  <h2>Dado / Cuando / Entonces</h2>
+  <p class="lead">Aplicado a componentes</p>
+  <aside class="notes">
+    En clase 01 vimos criterios de aceptación para flujos. Hoy los aplicamos a componentes individuales.
+    El criterio es el contrato entre diseño y desarrollo. Elimina ambigüedad.
+    Si no está en los criterios, no se puede reclamar que falta.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Ejemplo · Button</h3>
+  <ul>
+    <li class="fragment fade-up"><span class="medium">Dado</span> estado default → <span class="medium">hover</span> → fondo cambia con 150ms ease</li>
+    <li class="fragment fade-up"><span class="medium">Dado</span> estado loading → <span class="medium">clic</span> → no se dispara acción</li>
+    <li class="fragment fade-up"><span class="medium">Dado</span> tipo destructive → <span class="medium">clic</span> → modal de confirmación</li>
+  </ul>
+  <aside class="notes">
+    Primer criterio: define la transición visual exacta. No "cambia de color" sino "fondo cambia a color/primary/hover con transición de 150ms ease".
+    Segundo criterio: previene doble envío. Mientras está en loading, el botón no responde a clics.
+    Tercer criterio: acciones destructivas siempre piden confirmación. No se ejecutan directamente.
+    Estos criterios son específicos y testeables. "El botón se ve bien" NO es un criterio.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Ejemplo · Input</h3>
+  <ul>
+    <li class="fragment fade-up"><span class="medium">Dado</span> error de validación → <span class="medium">corrige y blur</span> → error desaparece</li>
+    <li class="fragment fade-up"><span class="medium">Dado</span> tipo password → <span class="medium">clic en ojo</span> → texto se muestra/oculta</li>
+  </ul>
+  <aside class="notes">
+    Primer criterio: el error desaparece cuando el usuario corrige el valor y sale del campo. No se queda pegado.
+    Segundo criterio: el toggle de visibilidad de contraseña alterna entre mostrar y ocultar el texto.
+    Estos criterios cubren interacciones que un desarrollador podría implementar de muchas formas. El criterio define la forma correcta.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CIERRE
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Hoy</div>
+    <h2>Qué entrenamos</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">01</span>
+      <p>Sistema coherente</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">02</span>
+      <p>Documentación útil</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">03</span>
+      <p>Criterios precisos</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Sistema: 8-12 componentes núcleo con variantes, propiedades y tokens. Ligero pero completo para el 80%.
+    Documentación: 3 preguntas en 30 segundos. Qué es, cómo se usa, qué no hacer.
+    Criterios: Dado/Cuando/Entonces para cada componente. El contrato con desarrollo.
+    Ahora a la práctica: construir el sistema, documentar en Figma, revisión cruzada.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Mini-checklist</h3>
+  <ul class="checklist">
+    <li class="fragment fade-up">¿Cada componente tiene nombre y propósito?</li>
+    <li class="fragment fade-up">¿La doc responde 3 preguntas en 30s?</li>
+    <li class="fragment fade-up">¿La deuda está documentada?</li>
+    <li class="fragment fade-up">¿Los criterios son específicos y testeables?</li>
+  </ul>
+  <aside class="notes">
+    Si alguna respuesta es "no", hay trabajo por hacer en la práctica.
+    Ahora a Figma: construir 8-12 componentes núcleo, crear página de documentación, listar deudas, escribir criterios.
+  </aside>
+</section>
+
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Cierre del bloque teórico. Después: construir sistema de componentes, documentar, revisión cruzada.
+    Recordar: la documentación no es un libro. Si necesita documentación, es demasiado compleja.
+  </aside>
+</section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1280, height: 720, margin: 0, minScale: 0.2, maxScale: 2.0,
+    hash: true, history: true, controls: true, controlsLayout: 'bottom-right',
+    progress: true, slideNumber: 'c/t', showSlideNumber: 'speaker', center: false,
+    transition: 'fade', transitionSpeed: 'fast', backgroundTransition: 'fade',
+    autoAnimateEasing: 'cubic-bezier(0.25, 0.1, 0.25, 1)', autoAnimateDuration: 0.6, autoAnimateUnmatched: false,
+    fragmentInURL: false, showNotes: false, plugins: [ RevealNotes ], viewDistance: 3, mobileViewDistance: 2,
+  });
+
+  function updateSemiOut() {
+    document.querySelectorAll('.fragment.semi-out').forEach(function(el) {
+      if (el.classList.contains('current-fragment')) {
+        el.style.opacity = '1'; el.style.color = 'var(--r-heading-color)'; el.style.fontWeight = '600';
+      } else if (el.classList.contains('visible')) {
+        el.style.opacity = '1'; el.style.color = 'var(--color-subtle)'; el.style.fontWeight = '';
+      } else {
+        el.style.opacity = '1'; el.style.color = 'var(--color-subtle)'; el.style.fontWeight = '';
+      }
+    });
+  }
+  Reveal.on('fragmentshown', updateSemiOut);
+  Reveal.on('fragmenthidden', updateSemiOut);
+  Reveal.on('slidechanged', updateSemiOut);
+  Reveal.on('ready', function() { updateSemiOut(); lucide.createIcons(); });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'd' || e.key === 'D') {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var reveal = document.querySelector('.reveal');
+      reveal.classList.toggle('dark-mode');
+      document.body.style.backgroundColor = reveal.classList.contains('dark-mode') ? '#0a0a0a' : '#fafafa';
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSP01 · Clase 02 · Teoría</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+
+  <!-- Custom Isthmus theme -->
+  <link rel="stylesheet" href="../css/theme-isthmus.css">
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- ════════════════════════════════════════════
+     TÍTULO
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <div class="tag">Diseño y Programación Web</div>
+  <h1>DSP01</h1>
+  <h3>Clase 02 · Teoría</h3>
+  <aside class="notes">
+    Bienvenida al día 2. Hoy es el día más técnico del curso — pero no vamos a programar.
+    Vamos a entender los fundamentos que un diseñador necesita para tomar mejores decisiones y comunicarse con desarrollo.
+    HTML semántico, CSS como modelo mental, JS mínimo, responsive real.
+    Ritmo alto: muchos conceptos cortos, ejemplos rápidos, aplicación inmediata.
+    Recordar: ayer definimos el proyecto. Hoy empezamos a darle estructura técnica.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     INTRO
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <i data-lucide="book-open" class="icon-hero"></i>
+  <h3 class="uppercase">Hoy</h3>
+  <h2>Fundamentos que el diseñador debe dominar</h2>
+  <aside class="notes">
+    No es una clase de programación. Es una clase de alfabetización técnica.
+    Un diseñador que entiende HTML, CSS y JS toma mejores decisiones, entrega specs más claras y colabora mejor con desarrollo.
+    Hoy vamos a cubrir 4 bloques: HTML semántico, CSS como modelo mental, responsive real, y JS mínimo.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 1: HTML SEMÁNTICO
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 1</div>
+    <h2>HTML semántico</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="code" class="icon-hero"></i>
+  <h3 class="uppercase">Concepto</h3>
+  <h2>HTML</h2>
+  <p class="lead">No es código — es estructura</p>
+  <aside class="notes">
+    HTML no es "programar". Es definir qué ES cada cosa en la página.
+    Un título es un h1, no un div con font-size grande. Una lista es un ul, no divs apilados.
+    Cuando usás la etiqueta correcta, el browser, los lectores de pantalla y Google entienden tu contenido.
+    Cuando usás divs para todo, nadie entiende nada — excepto visualmente.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Principio</h3>
+  <h2>Semántico</h2>
+  <p class="lead">Cada etiqueta comunica significado</p>
+  <aside class="notes">
+    Semántico = con significado. Un nav dice "esto es navegación". Un main dice "esto es el contenido principal".
+    Un lector de pantalla usa estas etiquetas para crear un mapa de la página. Sin ellas, el usuario ciego navega a ciegas.
+    SEO también depende de esto: Google lee la estructura semántica para entender tu contenido.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Landmarks</h3>
+  <h2>Las regiones de la página</h2>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="layout" class="icon-inline icon-muted"></i>header</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="compass" class="icon-inline icon-muted"></i>nav</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="square" class="icon-inline icon-muted"></i>main</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="panel-bottom" class="icon-inline icon-muted"></i>footer</li>
+  </ul>
+  <aside class="notes">
+    header: identidad del sitio, logo, navegación principal. No es solo "la parte de arriba".
+    nav: navegación real. No usar nav para cualquier grupo de links — solo para navegación principal o secundaria.
+    main: el contenido principal de la página. Solo uno por página. Todo lo que no es header/footer/nav va aquí.
+    footer: información secundaria, links legales, contacto, redes sociales.
+    Los lectores de pantalla permiten saltar entre landmarks con atajos de teclado. Sin landmarks, el usuario tiene que recorrer todo linealmente.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Landmarks</h3>
+  <h2>Dentro del main</h2>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="layers" class="icon-inline icon-muted"></i>section</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="file-text" class="icon-inline icon-muted"></i>article</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="sidebar" class="icon-inline icon-muted"></i>aside</li>
+  </ul>
+  <aside class="notes">
+    section: grupo temático con heading propio. Ej: "Productos destacados", "Testimonios", "FAQ".
+    article: contenido independiente que tiene sentido por sí solo. Ej: un post de blog, una card de producto, un comentario.
+    aside: contenido relacionado pero secundario. Ej: sidebar, "artículos relacionados", tips.
+    Regla: si podés ponerle un heading, probablemente es un section. Si tiene sentido fuera de contexto, es un article.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Regla</h3>
+  <h2>Un main por página</h2>
+  <aside class="notes">
+    Solo un main por página. Es el contenido principal — lo que cambia entre páginas.
+    El header y footer suelen ser iguales en todas las páginas. El main es lo que varía.
+    En Figma: cuando diseñás, pensá en qué parte de tu layout es el "main". Eso define la estructura.
+  </aside>
+</section>
+
+<!-- Headings -->
+<section data-transition="fade">
+  <h3 class="uppercase">Headings</h3>
+  <h2>Orden lógico</h2>
+  <aside class="notes">
+    Los headings (h1-h6) crean un outline de la página — como un índice de un libro.
+    Un lector de pantalla puede listar todos los headings y saltar entre ellos.
+    Si el outline no tiene sentido, la página no tiene sentido para usuarios de tecnología asistiva.
+  </aside>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase">Headings</h3>
+  <h2 data-id="heading-rule">h1 → h2 → h3</h2>
+  <aside class="notes">
+    h1: título principal de la página. Solo uno. "Zapatillas de running" en una página de categoría.
+    h2: secciones principales. "Más vendidas", "Nuevos lanzamientos", "Por precio".
+    h3: subsecciones. Nombre de cada producto dentro de una sección.
+    Nunca saltar niveles: no ir de h1 a h4. Es como un libro que salta del capítulo 1 al subcapítulo 1.1.3.
+  </aside>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase warm">Headings</h3>
+  <h2 data-id="heading-rule">Nunca saltar niveles</h2>
+  <aside class="notes">
+    Error común: usar h3 porque "se ve del tamaño que quiero". El heading define jerarquía, no tamaño visual.
+    El tamaño se controla con CSS. La jerarquía se define con el número del heading.
+    Si necesitás un texto grande que no es un heading, usá un párrafo con clase. No abusés de los headings.
+  </aside>
+</section>
+
+<!-- Formularios -->
+<section data-transition="fade">
+  <i data-lucide="text-cursor-input" class="icon-hero"></i>
+  <h3 class="uppercase">Formularios</h3>
+  <h2>El punto de fricción</h2>
+  <aside class="notes">
+    Los formularios son donde el usuario trabaja. Registro, login, checkout, búsqueda, contacto.
+    Son el componente más importante y el más ignorado por diseñadores.
+    Un formulario mal diseñado pierde usuarios. Un formulario bien diseñado convierte.
+    Vamos a ver las 3 reglas fundamentales.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Formularios</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="tag" class="icon-inline icon-muted"></i>Label siempre visible</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="keyboard" class="icon-inline icon-muted"></i>Input type correcto</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="alert-circle" class="icon-inline icon-muted"></i>Errores claros y asociados</li>
+  </ul>
+  <aside class="notes">
+    Label visible: cada input necesita un label visible y asociado programáticamente. El placeholder NO es un label — desaparece al escribir y no todos los lectores de pantalla lo leen.
+    Input type: email muestra @ en el teclado móvil. tel muestra números. date muestra selector nativo. number muestra flechas. Usar el type correcto mejora la experiencia sin escribir una línea de JS.
+    Errores: mensaje de texto debajo del campo (no solo borde rojo). Asociado con aria-describedby para que el lector de pantalla lo anuncie. Nunca depender solo de color.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Elementos nativos</h3>
+  <h2>Antes de inventar</h2>
+  <ul>
+    <li class="fragment fade-up">strong · em · code</li>
+    <li class="fragment fade-up">blockquote · ul · ol</li>
+    <li class="fragment fade-up">dl · fieldset · legend</li>
+  </ul>
+  <aside class="notes">
+    Antes de crear una clase CSS para "texto en negrita", usá strong. Antes de hacer un div con borde para una cita, usá blockquote.
+    Los elementos nativos tienen semántica incorporada. Un lector de pantalla sabe que strong es importante, que ul es una lista, que blockquote es una cita.
+    fieldset y legend agrupan campos relacionados en un formulario. Ej: "Dirección de envío" como legend, con campos de calle, ciudad, código postal dentro del fieldset.
+    Regla: si HTML ya tiene un elemento para eso, usalo. No reinventes la rueda con divs y clases.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 2: CSS COMO MODELO MENTAL
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 2</div>
+    <h2>CSS como modelo mental</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="box" class="icon-hero"></i>
+  <h3 class="uppercase">Concepto</h3>
+  <h2>CSS</h2>
+  <p class="lead">No es "estilos" — es un sistema de reglas</p>
+  <aside class="notes">
+    CSS no es una lista de propiedades que memorizás. Es un modelo mental de cómo fluye el contenido en la página.
+    Si entendés el modelo, podés predecir cómo se va a comportar tu diseño sin probarlo.
+    Vamos a ver 4 capas: Caja, Flujo, Flex y Grid. Cada una construye sobre la anterior.
+  </aside>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase">Modelo mental</h3>
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number" data-id="css1">01</span>
+      <p>Caja</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number" data-id="css2">02</span>
+      <p>Flujo</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number" data-id="css3">03</span>
+      <p>Flex</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="4">
+      <span class="big-number" data-id="css4">04</span>
+      <p>Grid</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Estas 4 capas son todo lo que necesitás para entender CSS como diseñador.
+    Caja: cómo se dimensiona cada elemento. Flujo: cómo se apilan. Flex: cómo se alinean en una dirección. Grid: cómo se organizan en dos dimensiones.
+    Si dominás estas 4 capas, podés diseñar cualquier layout y saber si es implementable.
+  </aside>
+</section>
+
+<!-- Caja -->
+<section data-transition="fade">
+  <h3 class="uppercase">01 · Caja</h3>
+  <h2>Todo es una caja</h2>
+  <aside class="notes">
+    En CSS, absolutamente todo es una caja rectangular. Un botón, un párrafo, una imagen, un div — todo.
+    Cada caja tiene 4 capas: contenido (lo que se ve), padding (espacio interno), border (borde), margin (espacio externo).
+    Entender esto es entender CSS.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">01 · Box model</h3>
+  <div class="stack-diagram">
+    <div class="layer fragment fade-up" data-fragment-index="1">margin</div>
+    <div class="layer fragment fade-up" data-fragment-index="2">border</div>
+    <div class="layer fragment fade-up" data-fragment-index="3">padding</div>
+    <div class="layer fragment fade-up active" data-fragment-index="4">contenido</div>
+  </div>
+  <aside class="notes">
+    Contenido: el texto, la imagen, lo que sea. Su tamaño depende del contenido o de width/height.
+    Padding: espacio entre el contenido y el borde. Empuja el contenido hacia adentro.
+    Border: línea visible (o invisible) alrededor del padding.
+    Margin: espacio entre esta caja y las cajas vecinas. Empuja las cajas vecinas hacia afuera.
+    Tip crucial: siempre usar box-sizing: border-box. Hace que padding y border se incluyan en el width declarado. Sin esto, un elemento de 200px con 20px de padding mide 240px. Con border-box, mide 200px.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Regla</h3>
+  <h2>box-sizing: border-box</h2>
+  <p class="lead">Siempre</p>
+  <aside class="notes">
+    Sin border-box: width 200px + padding 20px = 240px reales. Rompe layouts.
+    Con border-box: width 200px incluye padding y border = 200px reales. Predecible.
+    Todo framework moderno lo usa por defecto. Si no lo tenés, agregalo como primera regla CSS.
+  </aside>
+</section>
+
+<!-- Flujo -->
+<section data-transition="fade">
+  <h3 class="uppercase">02 · Flujo</h3>
+  <h2>Bloque vs Inline</h2>
+  <aside class="notes">
+    El flujo normal es cómo el browser organiza los elementos sin que vos hagas nada.
+    Elementos de bloque (div, p, h1, section): ocupan todo el ancho disponible, se apilan verticalmente.
+    Elementos inline (span, a, strong, em): ocupan solo su contenido, fluyen horizontalmente como texto.
+    Entender esto explica por qué a veces las cosas "no se ponen una al lado de la otra" — porque son bloques.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">02 · Flujo</h3>
+  <h2>display</h2>
+  <p class="lead">La propiedad más importante</p>
+  <aside class="notes">
+    display cambia cómo un elemento participa en el flujo.
+    display: block → ocupa todo el ancho, apila vertical.
+    display: inline → ocupa su contenido, fluye horizontal.
+    display: flex → activa Flexbox en sus hijos.
+    display: grid → activa Grid en sus hijos.
+    display: none → desaparece completamente (no ocupa espacio).
+    Cuando un diseñador dice "quiero estos elementos uno al lado del otro", la respuesta técnica es cambiar el display del contenedor.
+  </aside>
+</section>
+
+<!-- Flex -->
+<section data-transition="fade">
+  <h3 class="uppercase">03 · Flex</h3>
+  <h2>Un eje, una dirección</h2>
+  <aside class="notes">
+    Flexbox organiza elementos en un eje principal: horizontal (row) o vertical (column).
+    Es ideal para componentes lineales: barras de navegación, filas de cards, botones agrupados, layouts simples.
+    No es ideal para layouts de página completa con filas Y columnas — para eso está Grid.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">03 · Flex</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="space" class="icon-inline icon-muted"></i>gap</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="wrap-text" class="icon-inline icon-muted"></i>wrap</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="align-vertical-justify-center" class="icon-inline icon-muted"></i>align / justify</li>
+  </ul>
+  <aside class="notes">
+    gap: espacio entre items. Antes se usaban margins — gap es más limpio y predecible.
+    wrap: permite que los items salten de línea cuando no caben. Sin wrap, se comprimen.
+    align-items: alinea en el eje secundario (vertical si row, horizontal si column).
+    justify-content: distribuye en el eje principal. space-between, center, flex-start, flex-end.
+    Con estas 3 propiedades + direction resolvés el 90% de los layouts con Flex.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">03 · Flex</h3>
+  <h2>Casos típicos</h2>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="navigation" class="icon-inline icon-muted"></i>Navbar</li>
+    <li class="fragment fade-up"><i data-lucide="credit-card" class="icon-inline icon-muted"></i>Cards en fila</li>
+    <li class="fragment fade-up"><i data-lucide="panel-top" class="icon-inline icon-muted"></i>Barras de acción</li>
+  </ul>
+  <aside class="notes">
+    Navbar: logo a la izquierda, links al centro o derecha. justify-content: space-between.
+    Cards en fila: 3 cards con gap, wrap para que bajen en móvil.
+    Barras de acción: botones agrupados, alineados a la derecha. justify-content: flex-end, gap: 8px.
+    Flex es para componentes. Si necesitás organizar la página completa, usá Grid.
+  </aside>
+</section>
+
+<!-- Grid -->
+<section data-transition="fade">
+  <h3 class="uppercase">04 · Grid</h3>
+  <h2>Dos ejes, filas y columnas</h2>
+  <aside class="notes">
+    CSS Grid trabaja en dos dimensiones simultáneamente: filas Y columnas.
+    Es ideal para layouts de página completa, rejillas de productos, dashboards, cualquier cosa con estructura bidimensional.
+    Grid es más poderoso que Flex pero también más complejo. Para componentes simples, Flex es suficiente.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">04 · Grid</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="rows-3" class="icon-inline icon-muted"></i>tracks (filas y columnas)</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="ratio" class="icon-inline icon-muted"></i>fr (fracciones)</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="move-horizontal" class="icon-inline icon-muted"></i>minmax</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="space" class="icon-inline icon-muted"></i>gap</li>
+  </ul>
+  <aside class="notes">
+    tracks: las líneas que definen filas y columnas. grid-template-columns: 1fr 1fr 1fr = 3 columnas iguales.
+    fr: fracción del espacio disponible. 1fr 2fr = una columna del tercio, otra de dos tercios.
+    minmax: minmax(250px, 1fr) = mínimo 250px, máximo lo que sobre. Combinado con auto-fit, crea grids responsivas sin media queries.
+    gap: espacio entre celdas. Igual que en Flex.
+    Ejemplo mágico: grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)). Esto crea una grilla que se adapta sola al ancho disponible.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Flex vs Grid</h3>
+  <h2>No compiten</h2>
+  <aside class="notes">
+    Flex: una dimensión. Ideal para componentes (navbar, grupo de botones, fila de cards).
+    Grid: dos dimensiones. Ideal para layouts (página completa, rejilla de productos, dashboard).
+    Se pueden combinar: Grid para el layout de la página, Flex para los componentes dentro de cada celda.
+    Analogía: Grid es el plano del edificio (dónde van las habitaciones). Flex es cómo organizás los muebles dentro de cada habitación.
+  </aside>
+</section>
+
+<!-- Escalas -->
+<section data-transition="fade">
+  <i data-lucide="ruler" class="icon-hero"></i>
+  <h3 class="uppercase">Escalas</h3>
+  <h2>No inventar medidas</h2>
+  <aside class="notes">
+    El error más común de diseñadores: inventar medidas al azar. 13px aquí, 17px allá, 22px más allá.
+    Un sistema coherente usa escalas predefinidas. Todo múltiplo de 4 u 8. Tipografía en steps definidos.
+    Esto no es rigidez — es consistencia. El ojo humano detecta inconsistencias de 1-2px aunque no las pueda nombrar.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Espaciado</h3>
+  <h2>Base 4px u 8px</h2>
+  <p class="lead">4 · 8 · 12 · 16 · 24 · 32 · 48 · 64</p>
+  <aside class="notes">
+    Escala de 4px: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96.
+    Escala de 8px: 8, 16, 24, 32, 48, 64, 96.
+    Elegí una y usala para todo: padding, margin, gap, border-radius.
+    Si todo usa múltiplos de 4, el diseño se siente coherente sin esfuerzo consciente.
+    En Figma: configurar nudge a 4px (Preferences → Nudge amount).
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Tipografía</h3>
+  <h2>Steps coherentes</h2>
+  <p class="lead">12 · 14 · 16 · 18 · 24 · 32 · 48</p>
+  <aside class="notes">
+    No inventar tamaños. Definir una escala y usarla.
+    12px: caption, labels pequeños. 14px: texto secundario, metadata. 16px: body (mínimo para móvil).
+    18px: body grande, subtítulos. 24px: títulos de sección. 32px: títulos de página. 48px: hero.
+    Cada step tiene un propósito. Si no sabés para qué es un tamaño, probablemente no lo necesitás.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Tokens</h3>
+  <h2>Nombres, no valores</h2>
+  <aside class="notes">
+    Un token es un nombre semántico para un valor de diseño.
+    No "16px" sino "spacing-md". No "#333" sino "color-text-primary". No "Montserrat 600" sino "font-heading".
+    Los tokens son el contrato entre diseño y código. Si el diseñador dice "spacing-md" y el dev sabe que es 16px, no hay ambigüedad.
+    En Figma: usar variables (Figma Variables) para definir tokens. En código: CSS custom properties (--spacing-md: 16px).
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAUSA INTERMEDIA
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Mitad del bloque teórico. Hasta ahora: HTML semántico (landmarks, headings, formularios) y CSS (caja, flujo, flex, grid, escalas).
+    Después del break: responsive real y JavaScript mínimo para diseño.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 3: RESPONSIVE
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 3</div>
+    <h2>Responsive real</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Responsive</h3>
+  <h2>No es "se achica"</h2>
+  <p class="lead">Es adaptación al contexto</p>
+  <aside class="notes">
+    Error común: diseñar en desktop y después "achicar" para móvil. Eso no es responsive — es lazy.
+    Responsive significa que el diseño se ADAPTA. A veces eso implica quitar elementos, reorganizar prioridades, cambiar la interacción.
+    Un menú de 8 items en desktop puede ser un hamburger en móvil. Una tabla de datos puede ser una lista de cards.
+    No es el mismo diseño más chico — es un diseño diferente para un contexto diferente.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Breakpoints</h3>
+  <h2>Definidos por contenido</h2>
+  <aside class="notes">
+    No por dispositivo. No "iPhone 15" ni "iPad Pro". Los dispositivos cambian cada año — tu contenido no.
+    Método: abrí tu diseño, achicá la ventana lentamente. Donde el contenido se rompe → ahí va un breakpoint.
+    Los breakpoints son decisiones de diseño, no números mágicos.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Referencias</h3>
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">480</span>
+      <p class="small muted">móvil</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">768</span>
+      <p class="small muted">tablet</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">1024</span>
+      <p class="small muted">desktop</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="4">
+      <span class="big-number">1280</span>
+      <p class="small muted">wide</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Estos son puntos de referencia, no reglas absolutas. Siempre validar con tu contenido.
+    A veces necesitás un breakpoint a 600px porque tu sidebar no cabe. O a 900px porque tu grid de 3 columnas se aprieta.
+    Lo importante: documentar cada breakpoint con qué cambia. "A 768px: grid pasa de 3 a 2 columnas, sidebar se oculta."
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Estrategia</h3>
+  <h2>Mobile-first</h2>
+  <p class="lead">Priorizar primero, expandir después</p>
+  <aside class="notes">
+    Mobile-first: empezar diseñando para la pantalla más pequeña. Esto te obliga a decidir qué es esencial.
+    Después expandir para tablet y desktop — agregar columnas, mostrar más contenido, aprovechar el espacio.
+    La alternativa (desktop-first) tiende a generar diseños que se "recortan" mal en móvil.
+    Si funciona bien en 375px, en desktop solo tenés que expandir — no recortar.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Reflow</h3>
+  <h2>3 → 2 → 1</h2>
+  <aside class="notes">
+    El patrón más común de responsive: columnas que colapsan.
+    Desktop: 3 columnas de productos. Tablet: 2 columnas. Móvil: 1 columna.
+    Navbar horizontal → hamburger. Tabla de datos → lista de cards. Sidebar + contenido → contenido solo (sidebar en drawer).
+    Cada transición debe sentirse natural, no forzada. Si algo se ve apretado, probablemente necesita un breakpoint.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Assets</h3>
+  <h2>Imágenes y fuentes</h2>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="image" class="icon-inline icon-muted"></i>WebP/AVIF · srcset · lazy</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="type" class="icon-inline icon-muted"></i>2-3 pesos máximo</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="weight" class="icon-inline icon-muted"></i>Cada KB cuenta</li>
+  </ul>
+  <aside class="notes">
+    Imágenes: 50-70% del peso de una página. WebP reduce 30-50% vs PNG/JPEG. AVIF aún más.
+    srcset: servir diferentes tamaños según el viewport. No servir una imagen de 2000px para un contenedor de 300px.
+    Lazy loading: imágenes fuera del viewport se cargan cuando el usuario hace scroll. Reduce tiempo de carga inicial.
+    Fuentes: cada peso = ~20-50KB. Si usás Montserrat en 6 pesos = ~180KB solo en fuentes. Elegí 2-3 pesos máximo.
+    font-display: swap → muestra texto con fuente del sistema mientras carga la custom. Evita texto invisible.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 4: JS MÍNIMO
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 4</div>
+    <h2>JavaScript mínimo</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="zap" class="icon-hero"></i>
+  <h3 class="uppercase">JS para diseño</h3>
+  <h2>No vamos a programar</h2>
+  <p class="lead">Vamos a entender</p>
+  <aside class="notes">
+    No necesitás saber programar en JavaScript. Pero sí necesitás entender 4 conceptos para comunicarte con desarrollo y tomar mejores decisiones de diseño.
+    Eventos: qué hace el usuario. Estados: qué muestra el sistema. Validación: cómo se previenen errores. JSON: cómo se comunican frontend y backend.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Eventos</h3>
+  <h2>Lo que el usuario hace</h2>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="mouse-pointer-click" class="icon-inline icon-muted"></i>click</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="text-cursor" class="icon-inline icon-muted"></i>input · change</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="send" class="icon-inline icon-muted"></i>submit</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="focus" class="icon-inline icon-muted"></i>focus · blur</li>
+  </ul>
+  <aside class="notes">
+    click: el usuario toca un botón, un link, una card. Es el evento más básico.
+    input: el usuario escribe en un campo. Se dispara con cada tecla. Útil para búsqueda en tiempo real.
+    change: el usuario cambia un select, un checkbox, un radio. Se dispara al confirmar el cambio.
+    submit: el usuario envía un formulario. Es donde se valida todo antes de enviar al servidor.
+    focus/blur: el usuario entra o sale de un campo. Útil para mostrar/ocultar ayuda contextual.
+    Para el diseñador: cada evento es un momento donde algo puede cambiar en la interfaz. Diseñá qué pasa en cada uno.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Estados</h3>
+  <h2>Lo que el sistema muestra</h2>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="loader" class="icon-inline icon-muted"></i>isLoading</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="alert-triangle" class="icon-inline icon-muted"></i>hasError</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="check-circle" class="icon-inline icon-muted"></i>isSuccess</li>
+  </ul>
+  <aside class="notes">
+    En código, los estados son variables booleanas (true/false) que controlan qué se muestra.
+    isLoading = true → mostrar skeleton o spinner. isLoading = false → mostrar contenido.
+    hasError = true → mostrar mensaje de error. hasError = false → ocultar error.
+    isSuccess = true → mostrar confirmación.
+    Para el diseñador: cada estado necesita un diseño. Si solo diseñás el estado "todo bien", estás diseñando la mitad.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Validación</h3>
+  <h2>Nativa primero</h2>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="asterisk" class="icon-inline icon-muted"></i>required</li>
+    <li class="fragment fade-up"><i data-lucide="regex" class="icon-inline icon-muted"></i>pattern</li>
+    <li class="fragment fade-up"><i data-lucide="type" class="icon-inline icon-muted"></i>type</li>
+  </ul>
+  <aside class="notes">
+    El browser ya sabe validar muchas cosas sin JavaScript:
+    required: el campo no puede estar vacío. El browser muestra un mensaje nativo.
+    pattern: expresión regular para formatos específicos. Ej: código postal, teléfono.
+    type="email": el browser valida que tenga @ y dominio.
+    Usar validación nativa primero, JS custom solo cuando la nativa no alcanza.
+    Para el diseñador: definir qué campos son obligatorios y qué formato esperan. Eso va en la spec.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">JSON</h3>
+  <h2>El contrato front-back</h2>
+  <aside class="notes">
+    JSON es el formato en que el frontend y el backend se comunican.
+    Es básicamente un objeto con claves y valores. El frontend pide datos, el backend responde en JSON.
+    Para el diseñador: si sabés qué datos existen en el JSON, sabés qué podés mostrar en la interfaz.
+    Si el JSON tiene "name" con máximo 100 caracteres, diseñás para 100 caracteres — no para "Juan".
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Ejemplo</h3>
+  <pre><code>{
+  "name": "Ana López",
+  "email": "ana@mail.com",
+  "plan": "pro",
+  "avatar": null
+}</code></pre>
+  <aside class="notes">
+    Esto es lo que el frontend recibe del backend cuando pide los datos de un usuario.
+    name: string, puede ser largo. Diseñá para el caso largo.
+    email: string, formato predecible.
+    plan: string con valores fijos ("free", "pro", "enterprise"). Diseñá para cada valor.
+    avatar: puede ser null (no tiene foto). Diseñá el fallback (iniciales, ícono genérico).
+    Cada campo del JSON es una decisión de diseño. Si un campo puede ser null, necesitás un empty state.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CONTEXTOS ESPECIALES
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <h3 class="uppercase">Extra</h3>
+  <h2>Contextos especiales</h2>
+  <aside class="notes">
+    Más allá de desktop/tablet/móvil, hay contextos emergentes que un diseñador debe conocer.
+    Vamos a ver dos brevemente: dispositivos plegables y voz.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Plegables</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="smartphone" class="icon-inline icon-muted"></i>Continuidad al cambiar postura</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="split" class="icon-inline icon-muted"></i>Bisagra como divisor</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="layout" class="icon-inline icon-muted"></i>Dual screen: nav + contenido</li>
+  </ul>
+  <aside class="notes">
+    Plegables (Samsung Fold, Surface Duo): la app debe mantener continuidad al cambiar de postura (cerrado → abierto).
+    La bisagra divide la pantalla — no poner contenido importante sobre ella. Usar como separador natural.
+    Dual screen: una pantalla para navegación/lista, otra para contenido/detalle. Como un libro abierto.
+    Safe areas: respetar las zonas seguras alrededor de la bisagra y los bordes curvos.
+    No es mainstream todavía, pero crece. Conocerlo te prepara.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Voz</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="mic" class="icon-inline icon-muted"></i>Intents simples</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="check" class="icon-inline icon-muted"></i>Confirmación explícita</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="rotate-ccw" class="icon-inline icon-muted"></i>Error con fallback</li>
+  </ul>
+  <aside class="notes">
+    Diseño de voz: el usuario dice algo (intent), el sistema interpreta, confirma y ejecuta.
+    Intent simple: "Agendá una cita para el martes a las 3." Claro, específico, accionable.
+    Confirmación: "Voy a agendar una cita el martes 15 a las 3pm. ¿Confirmo?" Nunca ejecutar sin confirmar.
+    Error: "No entendí. ¿Podés repetir?" Si sigue fallando: "Podés hacerlo desde la app." Siempre fallback a interfaz visual.
+    Regla: los diálogos de voz deben ser breves. Si el sistema habla más de 15 segundos, el usuario se pierde.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CIERRE
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Hoy</div>
+    <h2>Qué entrenamos</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">01</span>
+      <p>Estructura semántica</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">02</span>
+      <p>Modelo mental CSS</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">03</span>
+      <p>Restricciones reales</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Estructura semántica: landmarks, headings, formularios accesibles. El esqueleto invisible de tu diseño.
+    Modelo mental CSS: caja, flujo, flex, grid, escalas. Cómo predecir el comportamiento de tu layout.
+    Restricciones reales: breakpoints por contenido, peso de assets, estados, contextos especiales.
+    Estos fundamentos aplican a CADA proyecto que hagan. No son teóricos — son herramientas diarias.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Mini-checklist</h3>
+  <h2>Antes de entregar</h2>
+  <aside class="notes">
+    Checklist rápida para verificar que los fundamentos están cubiertos en tu entrega.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <ul class="checklist">
+    <li class="fragment fade-up">¿Los headings siguen orden lógico?</li>
+    <li class="fragment fade-up">¿Hay landmarks claros?</li>
+    <li class="fragment fade-up">¿Los formularios tienen labels?</li>
+    <li class="fragment fade-up">¿Los breakpoints están escritos?</li>
+  </ul>
+  <aside class="notes">
+    Headings: h1 → h2 → h3, sin saltos. Un h1 por página.
+    Landmarks: header, nav, main, footer identificables en tu diseño.
+    Labels: cada input con label visible. No solo placeholder.
+    Breakpoints: documentados con ancho + qué cambia en cada uno.
+    Si alguna respuesta es "no", la entrega no está lista.
+    Ahora vamos a la práctica: mapear una pantalla del proyecto a estructura semántica y definir grilla + breakpoints.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAUSA
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Cierre del bloque teórico. Luego viene la parte práctica.
+    Después del break: mapear una pantalla clave del proyecto a HTML semántico, definir grilla y breakpoints, redactar tokens básicos.
+    Recordar que deben salir con breakpoints escritos y estructura semántica clara.
+  </aside>
+</section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<!-- Reveal.js core + plugins -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    // Presentation
+    width: 1280,
+    height: 720,
+    margin: 0,
+    minScale: 0.2,
+    maxScale: 2.0,
+
+    // Behavior
+    hash: true,
+    history: true,
+    controls: true,
+    controlsLayout: 'bottom-right',
+    progress: true,
+    slideNumber: 'c/t',
+    showSlideNumber: 'speaker',
+    center: false,
+
+    // Transitions
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    backgroundTransition: 'fade',
+
+    // Auto-animate (morph)
+    autoAnimateEasing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+    autoAnimateDuration: 0.6,
+    autoAnimateUnmatched: false,
+
+    // Fragments
+    fragmentInURL: false,
+
+    // Speaker notes
+    showNotes: false,
+
+    // Plugins
+    plugins: [ RevealNotes ],
+
+    // View
+    viewDistance: 3,
+    mobileViewDistance: 2,
+  });
+
+  /* ── Semi-out fragment handler ──────────────
+     All .semi-out items start visible. As you advance,
+     the current one is full opacity; past ones dim.
+     ──────────────────────────────────────────── */
+  function updateSemiOut() {
+    var root = getComputedStyle(document.documentElement);
+    document.querySelectorAll('.fragment.semi-out').forEach(function(el) {
+      if (el.classList.contains('current-fragment')) {
+        el.style.opacity = '1';
+        el.style.color = 'var(--r-heading-color)';
+        el.style.fontWeight = '600';
+      } else if (el.classList.contains('visible')) {
+        el.style.opacity = '1';
+        el.style.color = 'var(--color-subtle)';
+        el.style.fontWeight = '';
+      } else {
+        el.style.opacity = '1';
+        el.style.color = 'var(--color-subtle)';
+        el.style.fontWeight = '';
+      }
+    });
+  }
+
+  Reveal.on('fragmentshown', updateSemiOut);
+  Reveal.on('fragmenthidden', updateSemiOut);
+  Reveal.on('slidechanged', updateSemiOut);
+  Reveal.on('ready', function() {
+    updateSemiOut();
+    lucide.createIcons();
+  });
+
+  /* ── Dark mode toggle (press "D") ────────── */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'd' || e.key === 'D') {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var reveal = document.querySelector('.reveal');
+      reveal.classList.toggle('dark-mode');
+      var isDark = reveal.classList.contains('dark-mode');
+      document.body.style.backgroundColor = isDark ? '#0a0a0a' : '#fafafa';
+    }
+  });
+</script>
+
+</body>
+</html>

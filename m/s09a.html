@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSP01 · Clase 09 · Teoría</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="../css/theme-isthmus.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<section class="title-slide" data-transition="fade">
+  <div class="tag">Diseño y Programación Web</div>
+  <h1>DSP01</h1>
+  <h3>Clase 09 · Teoría</h3>
+  <aside class="notes">
+    Día 9. Cambio de perspectiva: de "cómo se ve" a "dónde vive y cómo se mide".
+    Plataformas web, e-commerce, CMS headless, contenido como sistema, dashboards, analítica.
+    Elegir la plataforma correcta y definir el contenido ES diseño.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="globe" class="icon-hero"></i>
+  <h3 class="uppercase">Hoy</h3>
+  <h2>Contenido y plataformas</h2>
+  <aside class="notes">
+    4 bloques: ecosistema de plataformas, e-commerce y CMS headless, contenido como sistema, analítica.
+    Al final del día: plataforma elegida con justificación, mapa de contenido, eventos de analítica, embudo principal.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 1: PLATAFORMAS
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 1</div>
+    <h2>Ecosistema de plataformas</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Realidad</h3>
+  <h2>No todo se construye desde cero</h2>
+  <aside class="notes">
+    La mayoría de proyectos web usan alguna plataforma o framework como base.
+    Elegir bien ahorra meses de trabajo. Elegir mal genera deuda técnica y frustración.
+    No hay plataforma "mejor" — hay plataformas más adecuadas para cada contexto.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">5 categorías</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="layout" class="icon-inline icon-muted"></i>Builders — Webflow, Framer, Squarespace</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="shopping-cart" class="icon-inline icon-muted"></i>E-commerce — Shopify, WooCommerce</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="database" class="icon-inline icon-muted"></i>CMS headless — Sanity, Contentful</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="code" class="icon-inline icon-muted"></i>Frameworks — Next.js, Nuxt, Astro</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="wand-2" class="icon-inline icon-muted"></i>No-code — Bubble, Retool</li>
+  </ul>
+  <aside class="notes">
+    Builders: sitios informativos, portfolios, landing pages. Personalización limitada pero rápidos.
+    E-commerce: tiendas online, catálogos, checkout. Restricciones en checkout y temas.
+    CMS headless: contenido dinámico, multi-canal. Requiere desarrollo frontend.
+    Frameworks: apps complejas, SaaS, dashboards. Requiere equipo de desarrollo.
+    No-code: MVPs rápidos, herramientas internas. Escalabilidad y performance limitadas.
+    Cada categoría resuelve problemas diferentes. La elección depende del contexto.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Criterios de selección</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="file-text" class="icon-inline icon-muted"></i>Tipo de contenido</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="layers" class="icon-inline icon-muted"></i>Complejidad de interacción</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="users" class="icon-inline icon-muted"></i>Equipo disponible</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="wallet" class="icon-inline icon-muted"></i>Presupuesto y tiempo</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="trending-up" class="icon-inline icon-muted"></i>Escalabilidad</li>
+  </ul>
+  <aside class="notes">
+    Contenido: ¿estático o dinámico? ¿Quién lo actualiza y con qué frecuencia?
+    Complejidad: ¿informativo (leer) o transaccional (comprar, reservar, gestionar)?
+    Equipo: ¿hay desarrolladores? ¿Solo diseñadores? ¿El cliente lo mantiene solo?
+    Presupuesto: builders baratos al inicio, caros al escalar. Custom caro al inicio, flexible después.
+    Tiempo: builder en 2 semanas, custom en 2-3 meses.
+    Escalabilidad: ¿va a crecer? ¿La plataforma lo soporta?
+    También: SEO/performance e integraciones necesarias.
+  </aside>
+</section>
+
+<!-- Builders -->
+<section data-transition="fade">
+  <h3 class="uppercase">Builders</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="pen-tool" class="icon-inline icon-muted"></i>Webflow — código limpio, CMS integrado</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="sparkles" class="icon-inline icon-muted"></i>Framer — animaciones, integración Figma</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="grid-3x3" class="icon-inline icon-muted"></i>Squarespace/Wix — templates, drag-and-drop</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="book-open" class="icon-inline icon-muted"></i>ReadyMag — editorial, creativo</li>
+  </ul>
+  <aside class="notes">
+    Webflow: diseño visual con output de código limpio. CMS integrado. Ideal para diseñadores que quieren control sin código. Limitación: lógica compleja requiere integraciones.
+    Framer: enfocado en interacciones y animaciones. Integración con Figma. Bueno para landing pages. CMS básico.
+    Squarespace/Wix: templates prediseñados, editor drag-and-drop. Ideal para clientes no técnicos. Personalización limitada, código pesado.
+    ReadyMag: diseño editorial y creativo. Portfolios, revistas digitales. No para apps ni e-commerce.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 2: E-COMMERCE Y CMS
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 2</div>
+    <h2>E-commerce y CMS headless</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="shopping-bag" class="icon-hero"></i>
+  <h3 class="uppercase">Caso práctico</h3>
+  <h2>Shopify</h2>
+  <aside class="notes">
+    Shopify es la plataforma de e-commerce más usada para tiendas pequeñas y medianas.
+    Entender sus restricciones es clave para diseñar dentro de lo posible.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Páginas clave</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="home" class="icon-inline icon-muted"></i>Home — hero, categorías, propuesta</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="grid-3x3" class="icon-inline icon-muted"></i>Colección — grid + filtros</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="package" class="icon-inline icon-muted"></i>Producto — imágenes, variantes, CTA</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="shopping-cart" class="icon-inline icon-muted"></i>Carrito → Checkout → Confirmación</li>
+  </ul>
+  <aside class="notes">
+    Home: hero, categorías destacadas, productos populares, propuesta de valor.
+    Colección: grid de productos con filtros (precio, talla, color) y ordenamiento.
+    Producto: imágenes, título, precio, variantes, descripción, reviews, "Agregar al carrito".
+    Carrito: lista de productos, cantidades editables, subtotal, botón de checkout.
+    Checkout: datos de envío, pago, resumen. En Shopify estándar, el checkout tiene diseño fijo (solo Plus permite cambios profundos).
+    Cuenta: pedidos, direcciones, wishlist. Búsqueda: resultados, filtros, sugerencias.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase warm">Restricción</h3>
+  <h2>El checkout estándar tiene diseño fijo</h2>
+  <aside class="notes">
+    En Shopify estándar, el checkout solo permite cambiar colores y logo, no el layout.
+    Solo Shopify Plus (plan enterprise) permite personalización profunda del checkout.
+    Los temas usan Liquid (lenguaje de templates propio). Las secciones son modulares.
+    Performance depende del tema: temas pesados con muchas apps = sitio lento.
+    Estas restricciones deben documentarse y considerarse en el diseño.
+  </aside>
+</section>
+
+<!-- CMS headless -->
+<section data-transition="fade">
+  <i data-lucide="unplug" class="icon-hero"></i>
+  <h3 class="uppercase">Concepto</h3>
+  <h2>CMS headless</h2>
+  <p class="lead">Contenido separado de presentación</p>
+  <aside class="notes">
+    Un CMS headless separa el contenido (backend) de la presentación (frontend).
+    El contenido se gestiona en el CMS y se consume vía API desde cualquier frontend.
+    Ventajas: contenido reutilizable multi-canal, libertad total de diseño, mejor performance, escalabilidad.
+    Desventajas: requiere desarrollo frontend, más complejidad inicial.
+    Ejemplos: Sanity (flexible, real-time), Contentful (enterprise), Strapi (open source), Payload (TypeScript-first).
+  </aside>
+</section>
+
+<!-- Arquitectura -->
+<section data-transition="fade">
+  <h3 class="uppercase">Arquitectura conceptual</h3>
+  <div class="stack-diagram">
+    <div class="layer fragment fade-up" data-fragment-index="1">Usuario → Browser</div>
+    <div class="layer fragment fade-up" data-fragment-index="2">Frontend (lo que se ve)</div>
+    <div class="layer fragment fade-up" data-fragment-index="3">API / Backend (la lógica)</div>
+    <div class="layer fragment fade-up active" data-fragment-index="4">Base de datos + CMS</div>
+  </div>
+  <aside class="notes">
+    Frontend: lo que el usuario ve. HTML, CSS, JS. React, Vue, Svelte. Next.js, Nuxt, Astro.
+    Backend/API: la lógica del negocio. Autenticación, permisos, pagos, emails. El frontend le pide datos vía API.
+    Base de datos: donde se guardan los datos. Usuarios, productos, pedidos. El diseñador debe saber qué datos existen.
+    CMS: donde el equipo edita contenido. Puede ser parte del backend (WordPress, Shopify) o separado (headless).
+    CDN: sirve archivos estáticos desde servidores cercanos al usuario.
+    El diseñador no programa, pero debe entender cómo se conectan las piezas.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAUSA
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Hasta ahora: ecosistema de plataformas (5 categorías, criterios de selección), builders, Shopify, CMS headless, arquitectura conceptual.
+    Después del break: contenido como sistema, dashboards, analítica.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 3: CONTENIDO COMO SISTEMA
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 3</div>
+    <h2>Contenido como sistema</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="file-text" class="icon-hero"></i>
+  <h3 class="uppercase">Concepto</h3>
+  <h2>Contenido no es "lo que va en la página"</h2>
+  <p class="lead">Es un sistema con estructura y reglas</p>
+  <aside class="notes">
+    El contenido tiene tipos, campos, fuentes, responsables, frecuencia de cambio y restricciones.
+    Si no definís esto, diseñás para "Lorem ipsum" y después el contenido real rompe todo.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Mapa de contenido</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="tag" class="icon-inline icon-muted"></i>Tipo — Producto, Artículo, Evento</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="list" class="icon-inline icon-muted"></i>Campos — título, descripción, imagen</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="user" class="icon-inline icon-muted"></i>Responsable — quién lo actualiza</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="clock" class="icon-inline icon-muted"></i>Frecuencia — diario, semanal, mensual</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="ruler" class="icon-inline icon-muted"></i>Restricciones — máx 80 chars, 16:9</li>
+  </ul>
+  <aside class="notes">
+    Para cada tipo de contenido, definir todos estos campos.
+    Ejemplo Producto: título (máx 80 chars), descripción (máx 500 chars), precio, imágenes (mín 1), categoría, variantes, SKU, stock. Fuente: equipo de producto. Frecuencia: semanal.
+    Ejemplo Artículo: título (máx 100 chars), autor, fecha, cuerpo, imagen destacada (16:9), categoría, tags. Fuente: content manager. Frecuencia: 2-3 por semana.
+    Si sabés que el título puede tener 80 caracteres, diseñás para 80 caracteres — no para "Producto X".
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Regla</h3>
+  <h2>Si el título puede tener 200 caracteres</h2>
+  <p class="lead">Diseñá para 200 caracteres</p>
+  <aside class="notes">
+    El error más común: diseñar con datos ideales. "iPhone 15 Pro" cabe perfecto en la card.
+    Pero el contenido real puede ser: "Funda protectora de silicona premium para iPhone 15 Pro Max con soporte magnético MagSafe - Color Azul Medianoche".
+    Si no definís restricciones de longitud, el contenido real rompe el diseño.
+    El mapa de contenido es el contrato entre diseño y contenido.
+  </aside>
+</section>
+
+<!-- Dashboards -->
+<section data-transition="fade">
+  <h3 class="uppercase">Vistas complejas</h3>
+  <h2>Dashboards</h2>
+  <p class="lead">Alta densidad + claridad</p>
+  <aside class="notes">
+    Un dashboard muestra datos agregados y permite tomar decisiones.
+    Es la interfaz más compleja: combina alta densidad con necesidad de claridad.
+    Principios: priorizar por acción, KPIs arriba, filtros visibles, tablas bien diseñadas.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Principios de dashboard</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="arrow-up" class="icon-inline icon-muted"></i>Lo accionable arriba</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="filter" class="icon-inline icon-muted"></i>Filtros visibles</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="table" class="icon-inline icon-muted"></i>Tablas con alineación correcta</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="users" class="icon-inline icon-muted"></i>Permisos por rol</li>
+  </ul>
+  <aside class="notes">
+    Accionable arriba: KPIs grandes, datos que requieren acción inmediata. Detalles en tablas abajo.
+    Filtros: los más usados siempre visibles. Los demás en "más filtros". Mostrar filtros activos.
+    Tablas: texto a la izquierda, números a la derecha, fechas consistentes. Columnas ordenables. Hover highlight. Acciones por fila al final.
+    Responsive: colapsar columnas secundarias o convertir a cards en móvil.
+    Permisos: admin ve todo, editor ve su contenido, viewer solo lee. Diseñar las variaciones.
+    Estados: vacío, loading (skeleton de tabla), error ("No pudimos cargar los datos. Reintentar.").
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     BLOQUE 4: ANALÍTICA
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque 4</div>
+    <h2>Analítica</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="bar-chart-3" class="icon-hero"></i>
+  <h3 class="uppercase">Principio</h3>
+  <h2>Diseñar sin medir es adivinar</h2>
+  <aside class="notes">
+    La analítica permite saber si las decisiones de diseño funcionan.
+    Sin datos, estás adivinando. Con datos, estás iterando con fundamento.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Tipos de eventos</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="eye" class="icon-inline icon-muted"></i>Pageview — llegó a una página</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="mouse-pointer-click" class="icon-inline icon-muted"></i>Click — interactuó con algo</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="send" class="icon-inline icon-muted"></i>Form submit — envió formulario</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="alert-circle" class="icon-inline icon-muted"></i>Error — algo falló</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="trophy" class="icon-inline icon-muted"></i>Conversión — completó tarea clave</li>
+  </ul>
+  <aside class="notes">
+    Pageview: básico pero esencial. Qué páginas se visitan y cuánto.
+    Click: clic en CTA, link, botón específico. Mide intención.
+    Form submit: envío de formulario. Mide conversión de formularios.
+    Scroll depth: hasta dónde scrolleó (25%, 50%, 75%, 100%). Mide engagement.
+    Error: formulario con error, 404, timeout. Mide fricción.
+    Conversión: compra, registro, reserva. La métrica más importante.
+    Engagement: tiempo en página, interacciones, vistas de contenido.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Embudo</h3>
+  <h2>Dónde se pierden los usuarios</h2>
+  <aside class="notes">
+    Un embudo es la secuencia de pasos hacia una conversión.
+    Ejemplo e-commerce: Home → Categoría → Producto → Agregar al carrito → Checkout → Confirmación.
+    En cada paso se pierde un porcentaje. Medir dónde se pierden más indica dónde mejorar el diseño.
+    Definir 8-10 eventos clave del flujo principal. Para cada uno: nombre, cuándo se dispara, qué datos incluye, por qué importa.
+    Error común: eventos vagos. "El usuario interactúa" no es un evento. "Clic en Agregar al carrito en página de producto" sí lo es.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CIERRE
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Hoy</div>
+    <h2>Qué entrenamos</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">01</span>
+      <p>Plataforma con criterio</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">02</span>
+      <p>Contenido como sistema</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">03</span>
+      <p>Medir para iterar</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Plataforma: elegir según contexto, no según moda. Documentar restricciones.
+    Contenido: mapa con tipos, campos, responsables, restricciones. Diseñar para datos reales.
+    Medir: eventos de analítica, embudos, dónde se pierden usuarios.
+    Ahora a la práctica: elegir plataforma, diseñar dashboard, crear mapa de contenido, definir eventos.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Mini-checklist</h3>
+  <ul class="checklist">
+    <li class="fragment fade-up">¿La plataforma coincide con el alcance?</li>
+    <li class="fragment fade-up">¿El mapa de contenido tiene restricciones?</li>
+    <li class="fragment fade-up">¿Los eventos cubren el flujo completo?</li>
+  </ul>
+  <aside class="notes">
+    Plataforma: ¿es realista para el equipo, presupuesto y tiempo?
+    Contenido: ¿cada tipo tiene campos, responsable, frecuencia y restricciones de longitud?
+    Eventos: ¿cubren desde la llegada hasta la conversión? ¿Son específicos y medibles?
+    Ahora a la práctica.
+  </aside>
+</section>
+
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Cierre del bloque teórico. Después: elegir plataforma con justificación, diseñar vista tipo SaaS/dashboard, completar mapa de contenido, definir eventos de analítica y embudo principal.
+  </aside>
+</section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1280, height: 720, margin: 0, minScale: 0.2, maxScale: 2.0,
+    hash: true, history: true, controls: true, controlsLayout: 'bottom-right',
+    progress: true, slideNumber: 'c/t', showSlideNumber: 'speaker', center: false,
+    transition: 'fade', transitionSpeed: 'fast', backgroundTransition: 'fade',
+    autoAnimateEasing: 'cubic-bezier(0.25, 0.1, 0.25, 1)', autoAnimateDuration: 0.6, autoAnimateUnmatched: false,
+    fragmentInURL: false, showNotes: false, plugins: [ RevealNotes ], viewDistance: 3, mobileViewDistance: 2,
+  });
+
+  function updateSemiOut() {
+    document.querySelectorAll('.fragment.semi-out').forEach(function(el) {
+      if (el.classList.contains('current-fragment')) {
+        el.style.opacity = '1'; el.style.color = 'var(--r-heading-color)'; el.style.fontWeight = '600';
+      } else if (el.classList.contains('visible')) {
+        el.style.opacity = '1'; el.style.color = 'var(--color-subtle)'; el.style.fontWeight = '';
+      } else {
+        el.style.opacity = '1'; el.style.color = 'var(--color-subtle)'; el.style.fontWeight = '';
+      }
+    });
+  }
+  Reveal.on('fragmentshown', updateSemiOut);
+  Reveal.on('fragmenthidden', updateSemiOut);
+  Reveal.on('slidechanged', updateSemiOut);
+  Reveal.on('ready', function() { updateSemiOut(); lucide.createIcons(); });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'd' || e.key === 'D') {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var reveal = document.querySelector('.reveal');
+      reveal.classList.toggle('dark-mode');
+      document.body.style.backgroundColor = reveal.classList.contains('dark-mode') ? '#0a0a0a' : '#fafafa';
+    }
+  });
+</script>
+</body>
+</html>

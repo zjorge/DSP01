@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSP01 · Clase 01 · Teoría</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+
+  <!-- Custom Isthmus theme -->
+  <link rel="stylesheet" href="../css/theme-isthmus.css">
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<!-- ════════════════════════════════════════════
+     TÍTULO
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <div class="tag">Diseño y Programación Web</div>
+  <h1>DSP01</h1>
+  <h3>Clase 01 · Teoría</h3>
+  <aside class="notes">
+    Bienvenida. Presentarte brevemente: quién sos, qué hacés, por qué te importa esto.
+    Contexto del curso: 10 sesiones, proyecto real de principio a fin.
+    Hoy es el día más conceptual — después todo será más práctico.
+    Ritmo alto: muchos slides cortos, no se asusten.
+    Regla: preguntas en cualquier momento, no hay preguntas tontas.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     WEB = MÁQUINA DE DECISIONES
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <i data-lucide="globe" class="icon-hero"></i>
+  <h3 class="uppercase">Concepto</h3>
+  <h2>Web</h2>
+  <p class="lead">Una máquina de decisiones</p>
+  <aside class="notes">
+    La web no es un lienzo en blanco. Es un sistema con reglas, restricciones técnicas, usuarios reales y objetivos de negocio.
+    Cada decisión visual tiene consecuencias: peso, tiempo de carga, accesibilidad, mantenimiento.
+    Ejemplo: elegir una tipografía custom de 6 pesos vs. usar system fonts. Parece estético, pero impacta performance.
+    La web es una máquina donde cada pieza afecta a las demás.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="pen-tool" class="icon-hero"></i>
+  <h3 class="uppercase">Principio</h3>
+  <h2>Diseño</h2>
+  <p class="lead">No es decoración</p>
+  <aside class="notes">
+    Error común: pensar que diseñar es "hacer bonito". Diseño es tomar decisiones informadas.
+    Jerarquía: qué ve primero el usuario. Estructura: cómo se organiza la información.
+    Interacción: qué pasa cuando el usuario hace algo. Criterio: por qué esta solución y no otra.
+    Ejemplo: un botón grande y rojo no es "diseño". Un botón que comunica la acción principal, tiene contraste suficiente, es alcanzable con el pulgar y tiene un estado de loading — eso es diseño.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="flask-conical" class="icon-hero"></i>
+  <h3 class="uppercase">Mentalidad</h3>
+  <h2>Producto</h2>
+  <p class="lead">Una hipótesis</p>
+  <aside class="notes">
+    Un producto digital es una apuesta: creemos que cierto grupo de personas tiene un problema, y que nuestra solución les aporta valor.
+    Esa apuesta se valida o se descarta con datos, no con opiniones.
+    Ejemplo: "Creemos que los freelancers necesitan una forma rápida de generar facturas desde el celular." Eso es una hipótesis. Se puede testear.
+    "Hagamos una app bonita" no es una hipótesis. No se puede medir.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PREGUNTAS GUÍA
+     ════════════════════════════════════════════ -->
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase">Preguntas guía</h3>
+  <h2 data-id="pregunta">¿Qué problema resolvemos?</h2>
+  <aside class="notes">
+    Antes de abrir Figma, antes de elegir colores: ¿cuál es el problema?
+    Si no podés articular el problema en una oración, no estás listo para diseñar.
+    Ejemplo malo: "Necesitamos un sitio web." Ejemplo bueno: "Nuestros clientes no encuentran cómo agendar una cita y llaman por teléfono, lo que satura la línea."
+  </aside>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase">Preguntas guía</h3>
+  <h2 data-id="pregunta">¿Para quién?</h2>
+  <aside class="notes">
+    No es "para todos". Siempre hay un usuario primario.
+    Edad, contexto, nivel técnico, dispositivo más probable, motivación.
+    Un e-commerce para adolescentes no se diseña igual que uno para contadores.
+    Ejercicio mental: ¿podés describir a tu usuario en 2 oraciones sin decir "cualquier persona"?
+  </aside>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase">Preguntas guía</h3>
+  <h2 data-id="pregunta">¿En qué contexto?</h2>
+  <aside class="notes">
+    El contexto cambia todo. ¿Está en el bus con una mano? ¿En la oficina con doble monitor?
+    ¿Tiene prisa? ¿Está comparando con 3 pestañas abiertas?
+    El mismo usuario se comporta diferente en contextos diferentes.
+    Diseñar sin pensar en contexto es diseñar para un mundo que no existe.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CONTEXTO
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <h3 class="uppercase">Contexto real</h3>
+  <h2>Restricciones del usuario</h2>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="smartphone" class="icon-inline icon-muted"></i>Pantalla pequeña</li>
+    <li class="fragment fade-up"><i data-lucide="wifi-off" class="icon-inline icon-muted"></i>Red inestable</li>
+    <li class="fragment fade-up"><i data-lucide="clock" class="icon-inline icon-muted"></i>Tiempo limitado</li>
+  </ul>
+  <aside class="notes">
+    Pantalla pequeña: más del 60% del tráfico web global es móvil. Tu diseño de escritorio es el caso secundario.
+    Red inestable: en Latinoamérica, muchos usuarios navegan con 3G o WiFi compartido. Una imagen de 2MB puede tardar 8 segundos.
+    Tiempo limitado: el usuario promedio decide en 3-5 segundos si se queda o se va. No tenés tiempo para impresionar — tenés tiempo para ser claro.
+    Dato: Google encontró que el 53% de visitas móviles se abandonan si la página tarda más de 3 segundos.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     TU TRABAJO
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <h3 class="uppercase">Tu trabajo</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="move-horizontal" class="icon-inline icon-muted"></i>Reducir fricción</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="eye" class="icon-inline icon-muted"></i>Aumentar claridad</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="shield-alert" class="icon-inline icon-muted"></i>Evitar errores</li>
+  </ul>
+  <aside class="notes">
+    Fricción: cada clic extra, cada campo innecesario, cada página de más es fricción. Amazon patentó el "1-Click" por algo.
+    Claridad: si el usuario tiene que pensar "¿esto qué es?", fallaste. El diseño debe ser auto-explicativo.
+    Errores: no solo prevenirlos — cuando ocurren, el sistema debe guiar al usuario de vuelta. Un formulario que dice "Error" sin explicar qué pasó es hostil.
+    Tu trabajo como diseñador es ser abogado del usuario dentro del equipo.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EQUIPO WEB
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <h3 class="uppercase">Equipo web</h3>
+  <h2>No es lineal</h2>
+  <aside class="notes">
+    El modelo "cascada" (diseño → desarrollo → QA) está muerto en la mayoría de equipos modernos.
+    Hoy se trabaja en ciclos cortos, iterativos. El diseñador no "termina" y pasa la pelota.
+    Vas a estar en conversación constante con desarrollo, producto y QA.
+    Esto significa que tu entrega no puede ser ambigua — porque la van a leer personas técnicas que necesitan precisión.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Roles</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="compass" class="icon-inline icon-muted"></i>Producto</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="figma" class="icon-inline icon-muted"></i>Diseño</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="code" class="icon-inline icon-muted"></i>Desarrollo</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="bug" class="icon-inline icon-muted"></i>QA</li>
+    <li class="fragment semi-out" data-fragment-index="5"><i data-lucide="file-text" class="icon-inline icon-muted"></i>Contenido</li>
+    <li class="fragment semi-out" data-fragment-index="6"><i data-lucide="bar-chart-3" class="icon-inline icon-muted"></i>Analítica</li>
+  </ul>
+  <aside class="notes">
+    Producto: define el qué y el por qué. Prioriza features, habla con stakeholders, mide resultados.
+    Diseño: define el cómo se ve, se siente y se usa. Traduce necesidades en interfaces.
+    Desarrollo: construye. Frontend (lo visible), backend (la lógica), infraestructura.
+    QA: verifica que lo construido funcione como se especificó. Encuentra bugs, edge cases.
+    Contenido: escribe el copy, define el tono, estructura la información. El texto ES interfaz.
+    Analítica: mide qué pasa después del lanzamiento. Funnels, conversión, retención.
+    En equipos pequeños, una persona puede cubrir 2-3 roles. En startups es lo normal.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Realidad</h3>
+  <h2>Todo se mezcla</h2>
+  <p>Un diseñador que entiende flujo y restricciones<br>colabora mejor.</p>
+  <aside class="notes">
+    En la práctica, el diseñador termina haciendo un poco de todo: escribir copy, pensar en edge cases, negociar con desarrollo.
+    Los mejores diseñadores que he visto no son los que hacen los mockups más lindos — son los que entienden las restricciones del equipo y proponen soluciones viables.
+    Pregunta al grupo: ¿alguien ha trabajado en un equipo así? ¿Cómo fue la experiencia?
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     SISTEMA
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <h3 class="uppercase">Ecosistema</h3>
+  <h2>Tu interfaz vive en un sistema</h2>
+  <aside class="notes">
+    Tu diseño en Figma existe en un vacío perfecto. En la realidad, vive dentro de capas que no controlás.
+    Cada capa puede fallar, ser lenta, o comportarse diferente de lo esperado.
+    Un diseñador que ignora esto entrega cosas que se ven bien en el mockup y se rompen en producción.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Ecosistema</h3>
+  <div class="stack-diagram">
+    <div class="layer fragment fade-up" data-fragment-index="1"><i data-lucide="cloud" class="icon-stack icon-muted"></i>Servicios</div>
+    <div class="layer fragment fade-up" data-fragment-index="2"><i data-lucide="wifi" class="icon-stack icon-muted"></i>Red</div>
+    <div class="layer fragment fade-up" data-fragment-index="3"><i data-lucide="tablet-smartphone" class="icon-stack icon-muted"></i>Dispositivo</div>
+    <div class="layer fragment fade-up" data-fragment-index="4"><i data-lucide="cpu" class="icon-stack icon-muted"></i>OS</div>
+    <div class="layer fragment fade-up active" data-fragment-index="5"><i data-lucide="chrome" class="icon-stack icon-muted"></i>Browser</div>
+  </div>
+  <aside class="notes">
+    Servicios: APIs, bases de datos, CDNs. Si el servidor está lento, tu interfaz espera.
+    Red: WiFi, 4G, 3G. La velocidad varía segundo a segundo.
+    Dispositivo: desde un iPhone 15 Pro hasta un Android de $80 con 2GB de RAM.
+    OS: iOS, Android, Windows, macOS — cada uno renderiza diferente.
+    Browser: Chrome, Safari, Firefox — cada uno interpreta CSS y JS con matices distintos.
+    Tu diseño tiene que sobrevivir a todas estas capas. Por eso diseñamos con restricciones, no a pesar de ellas.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="alert-triangle" class="icon-hero"></i>
+  <h2>Si falla</h2>
+  <p class="lead">También es diseño</p>
+  <aside class="notes">
+    ¿Qué pasa si no hay internet? ¿Si el servidor tarda 10 segundos? ¿Si el usuario tiene JavaScript desactivado?
+    Diseñar solo el "happy path" es diseñar la mitad. Los estados de falla son tan importantes como los de éxito.
+    Ejemplo: Spotify offline muestra tu biblioteca descargada. No muestra un error — muestra una versión degradada útil.
+    Eso es diseño de falla bien hecho.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     ENTREGA
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Bloque</div>
+    <h2>Entregables</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Entrega</h3>
+  <h2>No es "un pantallazo bonito"</h2>
+  <aside class="notes">
+    El error más común de diseñadores junior: entregar una imagen estática y decir "ya está".
+    Un desarrollador necesita saber: ¿qué pasa al hacer hover? ¿Y en móvil? ¿Y si el texto es más largo? ¿Y si no hay imagen?
+    Si tu entrega no responde esas preguntas, el desarrollador va a adivinar. Y va a adivinar mal.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Entrega real</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="ruler" class="icon-inline icon-muted"></i>Especificación</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="check-square" class="icon-inline icon-muted"></i>Criterios de aceptación</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="image" class="icon-inline icon-muted"></i>Activos listos</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="mouse-pointer-click" class="icon-inline icon-muted"></i>Comportamiento definido</li>
+  </ul>
+  <aside class="notes">
+    Especificación: medidas, colores, tipografías, espaciados. En Figma esto se puede extraer con Dev Mode o plugins.
+    Criterios de aceptación: condiciones que definen cuándo algo está "terminado". Lo veremos en detalle más adelante.
+    Activos listos: imágenes exportadas en los formatos correctos (WebP, SVG), íconos, fuentes. No "después te los paso".
+    Comportamiento definido: hover, focus, active, disabled, loading, error, empty, overflow. Cada estado documentado.
+    Si entregás esto completo, el desarrollador te va a amar. En serio.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     FIGMA
+     ════════════════════════════════════════════ -->
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase">Herramienta</h3>
+  <h2 data-id="figma-title">Figma</h2>
+  <p class="lead" data-id="figma-sub">No es el fin</p>
+  <aside class="notes">
+    Figma es una herramienta, no el producto final. El producto final es lo que el usuario ve en el browser.
+    Muchos diseñadores optimizan para que el archivo de Figma se vea bien. Eso es vanidad.
+    Lo que importa es que lo que se construya a partir de ese archivo funcione bien.
+  </aside>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase">Herramienta</h3>
+  <h2 data-id="figma-title">Figma</h2>
+  <p class="lead" data-id="figma-sub">Es un contrato visual</p>
+  <aside class="notes">
+    Pensá en Figma como un plano arquitectónico. El albañil no adivina dónde van las ventanas — lo lee del plano.
+    Tu archivo de Figma es ese plano. Debe ser preciso, organizado y legible para alguien que no es diseñador.
+    Páginas bien nombradas, componentes con variantes, auto-layout consistente, notas donde haga falta.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Contrato</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="help-circle" class="icon-inline icon-muted"></i>Qué es esto</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="hand" class="icon-inline icon-muted"></i>Cómo se usa</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="alert-circle" class="icon-inline icon-muted"></i>Qué pasa si algo sale mal</li>
+  </ul>
+  <aside class="notes">
+    "Qué es esto": nombre del componente, su propósito, dónde se usa. Un card no es solo un rectángulo con sombra.
+    "Cómo se usa": interacciones, estados, variantes. ¿Es clickeable? ¿Tiene hover? ¿Se expande?
+    "Qué pasa si algo sale mal": ¿y si no hay imagen? ¿Si el título tiene 200 caracteres? ¿Si la API no responde?
+    Estas tres preguntas aplican a CADA componente que diseñés.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     EVALUACIÓN
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <i data-lucide="clipboard-check" class="icon-hero"></i>
+  <h2>Evaluación</h2>
+  <p class="lead">Se evalúa lo que se puede implementar</p>
+  <aside class="notes">
+    En este curso, no voy a evaluar qué tan "lindo" se ve tu diseño. Voy a evaluar si se puede construir a partir de lo que entregás.
+    ¿Están los estados? ¿Los breakpoints? ¿Los criterios de aceptación? ¿Los assets?
+    Un diseño simple pero completo vale más que uno espectacular pero ambiguo.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Señal de madurez</h3>
+  <h2>Menos ambigüedad</h2>
+  <aside class="notes">
+    La diferencia entre un diseñador junior y uno senior no es el talento visual — es la cantidad de ambigüedad que dejan en su entrega.
+    Junior: "el botón es azul". Senior: "el botón primario es #0071E3, tiene 44px de altura mínima para cumplir touch targets, estado hover oscurece 10%, disabled baja opacidad a 0.4, loading muestra spinner de 16px centrado."
+    Eso es madurez profesional.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     ENTREGABLES TÍPICOS
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Entregables típicos</div>
+    <h2>3 cosas</h2>
+  </div>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <div class="cols">
+    <div>
+      <span class="big-number" data-id="num">01</span>
+      <p data-id="label">Estructura</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Estructura = la arquitectura de la información. ¿Qué páginas hay? ¿Cómo se conectan? ¿Cuál es la jerarquía?
+    Pensá en un sitemap + wireframes de baja fidelidad.
+  </aside>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <div class="cols">
+    <div>
+      <span class="big-number" data-id="num">02</span>
+      <p data-id="label">Componentes</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Componentes = las piezas reutilizables. Botones, cards, inputs, modales, navegación.
+    Un buen sistema de componentes reduce inconsistencias y acelera el desarrollo.
+    En Figma: componentes con variantes y auto-layout. En código: design system o librería de componentes.
+  </aside>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <div class="cols">
+    <div>
+      <span class="big-number" data-id="num">03</span>
+      <p data-id="label">Flujos</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Flujos = las tareas completas del usuario de principio a fin.
+    Ejemplo: flujo de compra (buscar → ver producto → agregar al carrito → checkout → confirmación).
+    Cada paso tiene decisiones, posibles errores y caminos alternativos.
+    Un flujo bien diseñado anticipa qué puede salir mal en cada paso.
+  </aside>
+</section>
+
+<!-- Detail: Estructura -->
+<section data-transition="fade">
+  <h3 class="uppercase">01 · Estructura</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="layers" class="icon-inline icon-muted"></i>Jerarquía</li>
+    <li class="fragment fade-up"><i data-lucide="text" class="icon-inline icon-muted"></i>Contenido</li>
+    <li class="fragment fade-up"><i data-lucide="navigation" class="icon-inline icon-muted"></i>Navegación</li>
+  </ul>
+  <aside class="notes">
+    Jerarquía: ¿qué es lo más importante en cada página? El ojo sigue un orden. Si todo grita, nada comunica.
+    Contenido: ¿qué texto, imágenes y datos necesita cada sección? El contenido real, no "lorem ipsum".
+    Navegación: ¿cómo se mueve el usuario entre secciones? Menú principal, breadcrumbs, links internos, CTAs.
+    Tip: diseñá con contenido real desde el día 1. El lorem ipsum esconde problemas de layout.
+  </aside>
+</section>
+
+<!-- Detail: Componentes -->
+<section data-transition="fade">
+  <h3 class="uppercase">02 · Componentes</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="copy" class="icon-inline icon-muted"></i>Reuso</li>
+    <li class="fragment fade-up"><i data-lucide="toggle-left" class="icon-inline icon-muted"></i>Estados</li>
+    <li class="fragment fade-up"><i data-lucide="book-open" class="icon-inline icon-muted"></i>Reglas</li>
+  </ul>
+  <aside class="notes">
+    Reuso: si un elemento aparece en 3 lugares, debería ser un componente. No copies y pegues — creá una instancia.
+    Estados: default, hover, active, focus, disabled, loading, error, empty. Cada componente interactivo necesita al menos 4-5 estados.
+    Reglas: ¿cuándo se usa este componente y cuándo no? ¿Cuál es el ancho mínimo? ¿Qué pasa con texto largo?
+    Ejemplo: un botón primario se usa para la acción principal de la página. Solo uno por vista. Nunca dos primarios juntos.
+  </aside>
+</section>
+
+<!-- Detail: Flujos -->
+<section data-transition="fade">
+  <h3 class="uppercase">03 · Flujos</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="list-checks" class="icon-inline icon-muted"></i>Tareas</li>
+    <li class="fragment fade-up"><i data-lucide="git-branch" class="icon-inline icon-muted"></i>Decisiones</li>
+    <li class="fragment fade-up"><i data-lucide="x-circle" class="icon-inline icon-muted"></i>Errores</li>
+  </ul>
+  <aside class="notes">
+    Tareas: acciones concretas que el usuario quiere completar. "Quiero pagar mi pedido", no "quiero navegar el sitio".
+    Decisiones: puntos donde el usuario elige un camino. ¿Envío estándar o express? ¿Pagar con tarjeta o transferencia?
+    Errores: qué pasa cuando algo sale mal en cada paso. Tarjeta rechazada, dirección inválida, producto agotado.
+    Un flujo completo documenta el camino feliz Y todos los caminos de error.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     LO QUE NO SIRVE / SÍ SIRVE
+     ════════════════════════════════════════════ -->
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase warm">Lo que no sirve</h3>
+  <h2 data-id="noserve">"Se entiende"</h2>
+  <aside class="notes">
+    "Se entiende" es la frase más peligrosa en un equipo. Si se entiende, ¿por qué no lo escribiste?
+    Lo que es obvio para vos no es obvio para el desarrollador que lo va a implementar a las 11pm.
+    Regla: si algo "se entiende", documentalo. Si realmente se entiende, no te cuesta nada escribirlo.
+  </aside>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <h3 class="uppercase warm">Lo que no sirve</h3>
+  <h2 data-id="noserve">"Después lo vemos"</h2>
+  <aside class="notes">
+    "Después lo vemos" = nunca lo vemos. O peor: lo vemos cuando ya está construido y hay que rehacerlo.
+    Cada decisión pospuesta es deuda de diseño. Se acumula y explota en la fase de QA.
+    Si no tenés la respuesta ahora, está bien — pero anotalo como pregunta abierta, no lo ignores.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Lo que sí sirve</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="file-check" class="icon-inline icon-muted"></i>Explícito</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="target" class="icon-inline icon-muted"></i>Medible</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="repeat" class="icon-inline icon-muted"></i>Repetible</li>
+  </ul>
+  <aside class="notes">
+    Explícito: cada decisión documentada. Nada implícito, nada "obvio".
+    Medible: ¿cómo sabés si funcionó? Definí métricas antes de diseñar. Tasa de completación, tiempo en tarea, tasa de error.
+    Repetible: si otro diseñador agarra tu archivo, ¿puede seguir trabajando sin preguntarte? Eso es un sistema maduro.
+    Estos tres criterios aplican a cualquier entregable profesional, no solo diseño.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CRITERIOS DE ACEPTACIÓN
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Práctica</div>
+    <h2>Criterios de aceptación</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <h2>Definen "terminado"</h2>
+  <aside class="notes">
+    Sin criterios de aceptación, "terminado" es subjetivo. El diseñador dice "ya está", el dev dice "falta", QA dice "no funciona".
+    Los criterios de aceptación eliminan esa ambigüedad. Son el contrato entre diseño, desarrollo y QA.
+    Si algo no está en los criterios, no se puede reclamar que falta.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Fórmula</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><span class="medium">Dado</span> un estado inicial</li>
+    <li class="fragment semi-out" data-fragment-index="2"><span class="medium">Cuando</span> hago una acción</li>
+    <li class="fragment semi-out" data-fragment-index="3"><span class="medium">Entonces</span> obtengo un resultado</li>
+  </ul>
+  <aside class="notes">
+    Esto viene del mundo de testing (BDD — Behavior Driven Development), pero es perfectamente útil para diseño.
+    Dado: el contexto. "Dado que el usuario está en la página de login."
+    Cuando: la acción. "Cuando ingresa un email inválido y presiona Enviar."
+    Entonces: el resultado esperado. "Entonces se muestra un mensaje de error debajo del campo email."
+    Es simple, preciso y no deja lugar a interpretación. Practiquemos con ejemplos.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Ejemplo · Login</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="at-sign" class="icon-inline icon-muted"></i>Si el email es inválido → muestro error</li>
+    <li class="fragment fade-up"><i data-lucide="lock" class="icon-inline icon-muted"></i>Si falta contraseña → bloqueo envío</li>
+    <li class="fragment fade-up"><i data-lucide="x" class="icon-inline icon-muted"></i>Si credenciales fallan → explico qué hacer</li>
+  </ul>
+  <aside class="notes">
+    Ejemplo concreto de un login:
+    1. Email inválido: el borde del campo se pone rojo, aparece "Ingresá un email válido" debajo. No un alert, no un popup.
+    2. Falta contraseña: el botón de envío está deshabilitado (gris, no clickeable). Al hacer focus en el campo, aparece el hint.
+    3. Credenciales incorrectas: "Email o contraseña incorrectos. ¿Olvidaste tu contraseña?" con link a recuperación.
+    Noten que cada criterio define QUÉ se muestra, DÓNDE y CUÁNDO. No deja nada a la imaginación.
+    Pregunta al grupo: ¿qué otros casos de error se les ocurren para un login?
+    (Posibles respuestas: cuenta bloqueada, demasiados intentos, email no registrado, problemas de servidor.)
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     COSTO DEL DISEÑO
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <i data-lucide="coins" class="icon-hero"></i>
+  <h3 class="uppercase">Realidad</h3>
+  <h2>Diseño tiene costo</h2>
+  <aside class="notes">
+    Cada decisión de diseño tiene un precio. No solo en horas de diseño — en horas de desarrollo, en bugs potenciales, en carga de soporte.
+    Un diseñador responsable pregunta: "¿cuánto cuesta implementar esto?" antes de proponerlo.
+    No para limitarse — para priorizar. Si tenés 2 semanas, ¿qué da más valor?
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Costo</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="clock" class="icon-inline icon-muted"></i>Tiempo de dev</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="bug" class="icon-inline icon-muted"></i>Bugs</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="headphones" class="icon-inline icon-muted"></i>Soporte</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="trending-down" class="icon-inline icon-muted"></i>Conversión</li>
+  </ul>
+  <aside class="notes">
+    Tiempo de dev: una animación custom puede tomar 2 días. ¿Vale la pena? A veces sí, a veces no.
+    Bugs: más complejidad visual = más superficie de error. Un carousel tiene más bugs que una lista estática.
+    Soporte: si el usuario no entiende la interfaz, llama a soporte. Cada llamada cuesta dinero.
+    Conversión: un checkout confuso pierde ventas. Amazon estima que 100ms de latencia extra les cuesta 1% de ventas.
+    El diseño no es gratis. Cada pixel tiene consecuencias económicas.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     RESTRICCIONES
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Restricciones</div>
+    <h2>Básicas</h2>
+  </div>
+</section>
+
+<section data-transition="fade" data-auto-animate>
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number" data-id="r1">01</span>
+      <p>Performance</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number" data-id="r2">02</span>
+      <p>Accesibilidad</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number" data-id="r3">03</span>
+      <p>Responsive</p>
+    </div>
+  </div>
+</section>
+
+<!-- Performance -->
+<section data-transition="fade">
+  <h3 class="uppercase">01 · Performance</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="weight" class="icon-inline icon-muted"></i>Peso</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="image" class="icon-inline icon-muted"></i>Imágenes</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="type" class="icon-inline icon-muted"></i>Tipografías</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="sparkles" class="icon-inline icon-muted"></i>Animaciones</li>
+  </ul>
+  <aside class="notes">
+    Peso: una página web promedio pesa ~2.5MB. En 3G eso tarda 8-12 segundos. Cada KB cuenta.
+    Imágenes: son el 50-70% del peso de una página. Usar WebP en vez de PNG puede reducir 30-50%. Lazy loading para imágenes fuera del viewport.
+    Tipografías: cada peso de fuente son ~20-50KB. Si usás Montserrat en 6 pesos = 200KB solo en fuentes. Elegí 2-3 pesos máximo.
+    Animaciones: CSS animations son baratas. JavaScript animations pueden bloquear el hilo principal. Lottie es pesado. Elegí con criterio.
+    Herramienta: PageSpeed Insights de Google. Prueben cualquier sitio y vean el score.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Señal</h3>
+  <h2>Si pesa, cuesta</h2>
+  <aside class="notes">
+    Regla simple: si tu decisión de diseño agrega peso a la página, tiene que justificarse con valor para el usuario.
+    Un hero image de 1MB que nadie mira más de 1 segundo no se justifica.
+    Un video explicativo de 30 segundos que reduce llamadas a soporte en 40% sí se justifica.
+    Siempre preguntá: ¿esto aporta valor proporcional a su costo?
+  </aside>
+</section>
+
+<!-- Accesibilidad -->
+<section data-transition="fade">
+  <h3 class="uppercase">02 · Accesibilidad</h3>
+  <h2>No es opcional</h2>
+  <aside class="notes">
+    El 15% de la población mundial tiene alguna discapacidad. Eso es más de mil millones de personas.
+    Accesibilidad no es "un extra para ciegos". Es diseñar para humanos reales: gente con artritis, daltonismo, baja visión, TDAH, conexión lenta, pantalla rota.
+    Además, en muchos países es ley (ADA en EEUU, EN 301 549 en Europa). No cumplir puede significar demandas.
+    Y lo mejor: un sitio accesible es un sitio mejor para TODOS.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">02 · Accesibilidad</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="keyboard" class="icon-inline icon-muted"></i>Teclado</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="contrast" class="icon-inline icon-muted"></i>Contraste</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="scan-eye" class="icon-inline icon-muted"></i>Lectura</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="focus" class="icon-inline icon-muted"></i>Foco visible</li>
+  </ul>
+  <aside class="notes">
+    Teclado: todo lo que se puede hacer con mouse debe poder hacerse con Tab, Enter y Escape. Probá tu sitio sin mouse.
+    Contraste: ratio mínimo 4.5:1 para texto normal, 3:1 para texto grande (WCAG AA). Herramienta: Stark plugin en Figma.
+    Lectura: tamaño mínimo 16px en móvil. Líneas de 45-75 caracteres. Interlineado de 1.5. Sin texto en imágenes.
+    Foco visible: cuando navegás con Tab, ¿se ve claramente qué elemento está seleccionado? Si no, es inaccesible.
+    Ejercicio rápido: abran cualquier sitio y naveguen solo con Tab. ¿Funciona?
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h2>Si no se puede usar,<br>no existe</h2>
+  <aside class="notes">
+    Esta frase es el resumen de accesibilidad. No importa qué tan bonito sea tu diseño si alguien no puede usarlo.
+    Un botón sin label es invisible para un screen reader. Un formulario sin validación accesible es una trampa.
+    Accesibilidad no es caridad — es profesionalismo.
+  </aside>
+</section>
+
+<!-- Responsive -->
+<section data-transition="fade">
+  <h3 class="uppercase">03 · Responsive</h3>
+  <h2>No es "se achica"</h2>
+  <aside class="notes">
+    Error común: diseñar en desktop y después "achicar" para móvil. Eso no es responsive — es lazy.
+    Responsive significa que el diseño se ADAPTA al contexto. A veces eso implica quitar elementos, reorganizar, cambiar la interacción.
+    Un menú de 8 items en desktop puede ser un hamburger en móvil. Una tabla de datos puede ser una lista de cards.
+    No es el mismo diseño más chico — es un diseño diferente para un contexto diferente.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">03 · Responsive</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="columns" class="icon-inline icon-muted"></i>Reflow</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="arrow-up-down" class="icon-inline icon-muted"></i>Prioridad</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="scissors" class="icon-inline icon-muted"></i>Cortes</li>
+  </ul>
+  <aside class="notes">
+    Reflow: cómo se reorganiza el contenido. 3 columnas → 2 → 1. Grid → stack. Horizontal → vertical.
+    Prioridad: en móvil hay menos espacio. ¿Qué se queda y qué se va? ¿Qué sube y qué baja?
+    Cortes (breakpoints): los puntos donde el layout cambia. No son arbitrarios — se definen donde el contenido se rompe.
+    Tip: no diseñés para "iPhone" o "iPad". Diseñá para rangos de ancho donde tu contenido funciona bien.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Breakpoints</h3>
+  <h2>Son decisiones</h2>
+  <aside class="notes">
+    Los breakpoints no son 320, 768, 1024 porque sí. Son decisiones basadas en tu contenido.
+    Método: abrí tu diseño en el browser, achicá la ventana lentamente. Donde se rompe → ahí va un breakpoint.
+    Breakpoints comunes como referencia: ~480 (móvil), ~768 (tablet), ~1024 (desktop chico), ~1280 (desktop).
+    Pero siempre validá con TU contenido. A veces necesitás uno a 600px porque tu sidebar no cabe.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Micro-ejemplo</h3>
+  <h2>¿Qué cambia al pasar a móvil?</h2>
+  <aside class="notes">
+    Ejercicio mental rápido. Pensá en cualquier sitio que usen seguido. ¿Qué cambia entre desktop y móvil?
+    No solo el tamaño — la experiencia completa.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="menu" class="icon-inline icon-muted"></i>Navegación</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="align-left" class="icon-inline icon-muted"></i>Jerarquía</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="file-minus" class="icon-inline icon-muted"></i>Contenido</li>
+  </ul>
+  <aside class="notes">
+    Navegación: menú horizontal → hamburger. Tabs → dropdown. Sidebar → bottom sheet.
+    Jerarquía: en desktop podés tener 3 columnas compitiendo. En móvil, una cosa a la vez. El orden vertical importa mucho más.
+    Contenido: textos más cortos, imágenes más livianas, menos opciones visibles. "Progressive disclosure" — mostrar lo esencial, ocultar lo secundario detrás de un tap.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Regla práctica</h3>
+  <h2>Menos en móvil</h2>
+  <p class="lead">Más claro</p>
+  <aside class="notes">
+    "Menos" no es "peor". Es "más enfocado".
+    La versión móvil debería ser la versión más clara y directa de tu producto.
+    De hecho, muchos diseñadores recomiendan empezar por móvil (mobile-first) porque te obliga a priorizar.
+    Si funciona bien en una pantalla de 375px, en desktop solo tenés que expandir — no recortar.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     ESTADOS
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <h3 class="uppercase">Otra realidad</h3>
+  <h2>Diseñas para estados</h2>
+  <aside class="notes">
+    Un diseño no es una foto fija. Es un sistema con múltiples estados.
+    La mayoría de diseñadores solo diseñan el estado "ideal" — con datos perfectos, conexión rápida, todo funcionando.
+    Pero el usuario real vive en un mundo de estados intermedios, errores y esperas.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Estados</h3>
+  <ul>
+    <li class="fragment semi-out" data-fragment-index="1"><i data-lucide="inbox" class="icon-inline icon-muted"></i>Vacío</li>
+    <li class="fragment semi-out" data-fragment-index="2"><i data-lucide="loader" class="icon-inline icon-muted"></i>Cargando</li>
+    <li class="fragment semi-out" data-fragment-index="3"><i data-lucide="alert-circle" class="icon-inline icon-muted"></i>Error</li>
+    <li class="fragment semi-out" data-fragment-index="4"><i data-lucide="check-circle" class="icon-inline icon-muted"></i>Éxito</li>
+  </ul>
+  <aside class="notes">
+    Vacío (empty state): primera vez que el usuario entra. No hay datos. ¿Qué ve? Un mensaje útil, un CTA, una ilustración. No una pantalla en blanco.
+    Cargando: skeleton screens > spinners. Mostrar la estructura de lo que viene reduce la percepción de espera.
+    Error: el más ignorado y el más importante. Un buen estado de error convierte frustración en confianza.
+    Éxito: confirmación clara. "Tu pedido fue enviado" con número de seguimiento y próximos pasos.
+    Referencia: el artículo "The Nine States of Design" de Vince Speelman. Búsquenlo.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <h3 class="uppercase">Error</h3>
+  <ul>
+    <li class="fragment fade-up"><i data-lucide="lightbulb" class="icon-inline icon-muted"></i>Debe enseñar</li>
+    <li class="fragment fade-up"><i data-lucide="undo" class="icon-inline icon-muted"></i>Debe permitir corregir</li>
+  </ul>
+  <aside class="notes">
+    Enseñar: "Tu contraseña debe tener al menos 8 caracteres" es mejor que "Contraseña inválida".
+    Permitir corregir: no borres lo que el usuario escribió. No lo mandes a otra página. Mostrá el error inline, junto al campo, y dejá que corrija sin perder su progreso.
+    Ejemplo terrible: formularios que borran todos los campos cuando hay un error en uno. Eso es hostilidad.
+    Ejemplo bueno: Stripe. Sus formularios de pago son un masterclass en manejo de errores.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <i data-lucide="message-square" class="icon-hero"></i>
+  <h2>Copy</h2>
+  <p class="lead">Es parte del diseño</p>
+  <aside class="notes">
+    El texto de tu interfaz no es responsabilidad "de alguien más". Es diseño.
+    Un botón que dice "Enviar" vs. uno que dice "Confirmar pedido" — la diferencia es enorme en claridad.
+    Microcopy: los textos pequeños que guían (placeholders, tooltips, mensajes de error, confirmaciones).
+    Si tu diseño funciona sin leer el texto, excelente. Pero el texto debe reforzar, no confundir.
+    Recomendación: "Microcopy: The Complete Guide" de Kinneret Yifrah.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CIERRE
+     ════════════════════════════════════════════ -->
+<section class="section-divider" data-transition="fade">
+  <div>
+    <div class="tag">Hoy</div>
+    <h2>Qué vamos a entrenar</h2>
+  </div>
+</section>
+
+<section data-transition="fade">
+  <div class="cols" style="text-align:center;">
+    <div class="fragment fade-up" data-fragment-index="1">
+      <span class="big-number">01</span>
+      <p>Ver el sistema</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="2">
+      <span class="big-number">02</span>
+      <p>Entregar explícito</p>
+    </div>
+    <div class="fragment fade-up" data-fragment-index="3">
+      <span class="big-number">03</span>
+      <p>Diseñar con restricciones</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     CHECKLIST
+     ════════════════════════════════════════════ -->
+<section data-transition="fade">
+  <h3 class="uppercase">Mini-checklist</h3>
+  <h2>Antes de entregar</h2>
+  <aside class="notes">
+    Esta checklist es su filtro mínimo antes de considerar cualquier entrega como "lista".
+    Si alguna respuesta es "no" o "no sé", la entrega no está terminada.
+  </aside>
+</section>
+
+<section data-transition="fade">
+  <ul class="checklist">
+    <li class="fragment fade-up">¿Se entiende el flujo?</li>
+    <li class="fragment fade-up">¿Existen estados de error?</li>
+    <li class="fragment fade-up">¿Se puede implementar sin adivinar?</li>
+  </ul>
+  <aside class="notes">
+    ¿Se entiende el flujo? → ¿Alguien que no participó en el diseño puede seguir el camino del usuario de principio a fin?
+    ¿Existen estados de error? → ¿Diseñaste qué pasa cuando algo sale mal en cada paso?
+    ¿Se puede implementar sin adivinar? → ¿Un desarrollador puede construir esto sin hacerte preguntas?
+    Si las tres respuestas son sí, tu entrega está en buen camino.
+    Esto lo vamos a usar como criterio de evaluación durante todo el curso.
+  </aside>
+</section>
+
+<!-- ════════════════════════════════════════════
+     PAUSA
+     ════════════════════════════════════════════ -->
+<section class="title-slide" data-transition="fade">
+  <h2>Pausa</h2>
+  <p class="lead muted">10 minutos</p>
+  <aside class="notes">
+    Cierre del bloque teórico. Luego viene la parte práctica.
+    En la pausa: que revisen sus celulares, tomen café, estiren.
+    Después del break: setup de Figma, ejercicio de auditoría de interfaz, y definición del proyecto del curso.
+    Recordarles que el proyecto se define hoy — es importante que lleguen con una idea clara.
+  </aside>
+</section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<!-- Reveal.js core + plugins -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    // Presentation
+    width: 1280,
+    height: 720,
+    margin: 0,
+    minScale: 0.2,
+    maxScale: 2.0,
+
+    // Behavior
+    hash: true,
+    history: true,
+    controls: true,
+    controlsLayout: 'bottom-right',
+    progress: true,
+    slideNumber: 'c/t',
+    showSlideNumber: 'speaker',
+    center: false,
+
+    // Transitions
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    backgroundTransition: 'fade',
+
+    // Auto-animate (morph)
+    autoAnimateEasing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+    autoAnimateDuration: 0.6,
+    autoAnimateUnmatched: false,
+
+    // Fragments
+    fragmentInURL: false,
+
+    // Speaker notes
+    showNotes: false,
+
+    // Plugins
+    plugins: [ RevealNotes ],
+
+    // View
+    viewDistance: 3,
+    mobileViewDistance: 2,
+  });
+
+  /* ── Semi-out fragment handler ──────────────
+     All .semi-out items start visible. As you advance,
+     the current one is full opacity; past ones dim.
+     ──────────────────────────────────────────── */
+  function updateSemiOut() {
+    var root = getComputedStyle(document.documentElement);
+    document.querySelectorAll('.fragment.semi-out').forEach(function(el) {
+      if (el.classList.contains('current-fragment')) {
+        el.style.opacity = '1';
+        el.style.color = 'var(--r-heading-color)';
+        el.style.fontWeight = '600';
+      } else if (el.classList.contains('visible')) {
+        el.style.opacity = '1';
+        el.style.color = 'var(--color-subtle)';
+        el.style.fontWeight = '';
+      } else {
+        el.style.opacity = '1';
+        el.style.color = 'var(--color-subtle)';
+        el.style.fontWeight = '';
+      }
+    });
+  }
+
+  Reveal.on('fragmentshown', updateSemiOut);
+  Reveal.on('fragmenthidden', updateSemiOut);
+  Reveal.on('slidechanged', updateSemiOut);
+  Reveal.on('ready', function() {
+    updateSemiOut();
+    lucide.createIcons();
+  });
+
+  /* ── Dark mode toggle (press "D") ────────── */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'd' || e.key === 'D') {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var reveal = document.querySelector('.reveal');
+      reveal.classList.toggle('dark-mode');
+      var isDark = reveal.classList.contains('dark-mode');
+      document.body.style.backgroundColor = isDark ? '#0a0a0a' : '#fafafa';
+    }
+  });
+</script>
+
+</body>
+</html>
