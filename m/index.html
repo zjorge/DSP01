@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSP01 — Diseño y Programación Web</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="../css/theme-isthmus.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .menu-item {
+      background: var(--r-background-color);
+      border: 1px solid var(--color-subtle);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .menu-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      border-color: var(--r-heading-color);
+    }
+    .menu-item h3 {
+      margin: 0 0 0.5rem 0;
+      color: var(--r-heading-color);
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .menu-item p {
+      margin: 0;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .menu-item .tag {
+      display: inline-block;
+      background: var(--color-subtle);
+      color: var(--r-heading-color);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .header {
+      text-align: center;
+      padding: 3rem 2rem 1rem 2rem;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--r-heading-color);
+    }
+    .header p {
+      margin: 0.5rem 0 0 0;
+      color: var(--color-muted);
+      font-size: 1.1rem;
+    }
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+    .reveal.dark-mode .menu-item {
+      background: #1a1a1a;
+      border-color: #333;
+    }
+    .reveal.dark-mode .menu-item:hover {
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+<section>
+  <div class="header">
+    <h1>DSP01</h1>
+    <p>Diseño y Programación Web</p>
+  </div>
+
+  <div class="menu-grid">
+    <a href="s01a.html" class="menu-item">
+      <div class="tag">Clase 01</div>
+      <h3>El web como máquina de decisiones</h3>
+      <p>Introducción al curso, rol del diseñador, entregables profesionales, restricciones básicas (performance, accesibilidad, responsive)</p>
+    </a>
+
+    <a href="s02a.html" class="menu-item">
+      <div class="tag">Clase 02</div>
+      <h3>HTML semántico y CSS mental model</h3>
+      <p>Estructura HTML5, CSS como modelo mental (box, flow, flex, grid), JavaScript mínimo para diseñadores, responsive con contexts reales</p>
+    </a>
+
+    <a href="s03a.html" class="menu-item">
+      <div class="tag">Clase 03</div>
+      <h3>UX y arquitectura de información</h3>
+      <p>Construir AI desde business goals, sitemaps, user flows, navegación, mental models, card sorting, jerarquía visual, patrones de lectura</p>
+    </a>
+
+    <a href="s04a.html" class="menu-item">
+      <div class="tag">Clase 04</div>
+      <h3>UI: Patrones y componentes</h3>
+      <p>Identificar patrones comunes, definir estados de componentes, diseñar formularios y vistas de datos, introducción a UI multimodal</p>
+    </a>
+
+    <a href="s05a.html" class="menu-item">
+      <div class="tag">Clase 05</div>
+      <h3>Figma para sistemas de diseño</h3>
+      <p>Auto Layout, constraints, responsive grids, organizar styles y variables, handoff best practices, evitar inconsistencias</p>
+    </a>
+
+    <a href="s06a.html" class="menu-item">
+      <div class="tag">Clase 06</div>
+      <h3>Sistema de UI ligero</h3>
+      <p>Consolidar sistema mínimo y coherente, definir componentes y variantes, documentar tokens y nomenclatura, deuda de diseño</p>
+    </a>
+
+    <a href="s07a.html" class="menu-item">
+      <div class="tag">Clase 07</div>
+      <h3>Prototipado y comunicación con desarrollo</h3>
+      <p>Niveles de fidelidad, prototipar flujos con estados de contenido, preparar specs de handoff, heurísticas de Nielsen, microcopy</p>
+    </a>
+
+    <a href="s08a.html" class="menu-item">
+      <div class="tag">Clase 08</div>
+      <h3>Calidad básica de producto</h3>
+      <p>Accesibilidad práctica (WCAG, contraste, foco), performance desde diseño, capacidades del dispositivo, privacidad, diseño con IA</p>
+    </a>
+
+    <a href="s09a.html" class="menu-item">
+      <div class="tag">Clase 09</div>
+      <h3>Contenido y plataformas</h3>
+      <p>Ecosistema de plataformas (builders, e-commerce, CMS headless), contenido como sistema, dashboards, analítica y medición</p>
+    </a>
+
+    <a href="s10a.html" class="menu-item">
+      <div class="tag">Clase 10</div>
+      <h3>De idea a release</h3>
+      <p>Cierre de alcance, criterios de éxito SMART, publicación e iteración, mantenimiento del sistema, presentación y defensa de decisiones</p>
+    </a>
+  </div>
+
+  <div class="footer">
+    <p>Presiona <kbd>D</kbd> para modo oscuro · Click en cualquier clase para comenzar</p>
+  </div>
+</section>
+
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1280, height: 720, margin: 0, minScale: 0.2, maxScale: 2.0,
+    hash: false, history: false, controls: false, progress: false,
+    transition: 'none', backgroundTransition: 'none',
+    center: false, viewDistance: 3, mobileViewDistance: 2,
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'd' || e.key === 'D') {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      var reveal = document.querySelector('.reveal');
+      reveal.classList.toggle('dark-mode');
+      document.body.style.backgroundColor = reveal.classList.contains('dark-mode') ? '#181410' : '#fafafa';
+    }
+  });
+
+  lucide.createIcons();
+</script>
+</body>
+</html>
