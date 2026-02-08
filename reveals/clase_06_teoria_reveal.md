@@ -55,7 +55,7 @@ Decisión estratégica, no limitación
 ---
 
 ## Principio
-Lo que necesitás hoy, no lo que podrías necesitar algún día
+Lo que necesitas hoy, no lo que podrías necesitar algún día
 
 Note:
 Un sistema que nadie usa porque es demasiado complejo es peor que no tener sistema.

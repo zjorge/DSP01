@@ -179,7 +179,7 @@ Al salir del campo, no al enviar
 Específicos · Debajo del campo · Con ícono
 
 Note:
-"Este campo es obligatorio" < "Ingresá tu email" < "El formato debe ser nombre@dominio.com"
+"Este campo es obligatorio" < "Ingresa tu email" < "El formato debe ser nombre@dominio.com"
 
 ---
 

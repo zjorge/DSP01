@@ -185,12 +185,12 @@ Note:
 ---
 
 ## Específico
-"Ingresá un email válido (nombre@dominio.com)"
+"Ingresa un email válido (nombre@dominio.com)"
 
 ---
 
 ## Empático en errores
-"No encontramos resultados. Probá con otros términos."
+"No encontramos resultados. Prueba con otros términos."
 
 ---
 

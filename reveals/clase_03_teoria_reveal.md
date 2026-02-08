@@ -112,7 +112,7 @@ Miller. Mejor 5 claros que 12 confusos.
 Máximo 3 niveles de profundidad
 
 Note:
-Si necesitás más, la estructura está mal. El usuario no debería hacer más de 3 clics para llegar a contenido importante.
+Si necesitas más, la estructura está mal. El usuario no debería hacer más de 3 clics para llegar a contenido importante.
 
 ---
 

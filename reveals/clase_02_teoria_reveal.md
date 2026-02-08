@@ -85,7 +85,7 @@ Nunca saltar de h1 a h4. Un h1 por página. Los headings crean un outline navega
 Nunca saltar niveles
 
 Note:
-Si saltás de h2 a h4, el lector de pantalla pierde la estructura. Es como un libro sin capítulos.
+Si saltas de h2 a h4, el lector de pantalla pierde la estructura. Es como un libro sin capítulos.
 
 ---
 
@@ -295,7 +295,7 @@ No por dispositivo. No "iPhone" ni "iPad". Donde tu contenido se rompe → ahí 
 ~480 · ~768 · ~1024 · ~1280
 
 Note:
-Son referencias, no reglas. Siempre validar con tu contenido. A veces necesitás uno a 600px porque tu sidebar no cabe.
+Son referencias, no reglas. Siempre validar con tu contenido. A veces necesitas uno a 600px porque tu sidebar no cabe.
 
 ---
 
@@ -391,7 +391,7 @@ JSON es cómo el frontend y el backend se hablan. Claves claras, tipos conocidos
 ```
 
 Note:
-Esto es lo que el frontend recibe del backend. Si sabés que "name" puede tener 100 caracteres, diseñás para 100 caracteres.
+Esto es lo que el frontend recibe del backend. Si sabes que "name" puede tener 100 caracteres, diseñas para 100 caracteres.
 
 ---
 
@@ -428,7 +428,7 @@ Diseño de voz: el usuario dice algo (intent), el sistema confirma, ejecuta o pi
 Confirmación · Error · Fallback
 
 Note:
-"¿Querés agendar para el martes a las 3?" → Confirmación explícita. Si no entiende → "No entendí, ¿podés repetir?" Si falla → "Podés hacerlo desde la app."
+"¿Quieres agendar para el martes a las 3?" → Confirmación explícita. Si no entiende → "No entendí, ¿puedes repetir?" Si falla → "Puedes hacerlo desde la app."
 
 ---
 

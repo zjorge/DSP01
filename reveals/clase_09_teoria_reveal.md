@@ -149,7 +149,7 @@ Tipos · Campos · Fuentes · Responsables · Frecuencia
 ---
 
 ## Si el título puede tener 200 caracteres
-Diseñá para 200 caracteres
+Diseña para 200 caracteres
 
 ---
 

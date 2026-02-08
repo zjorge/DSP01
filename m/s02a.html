@@ -68,8 +68,8 @@
   <aside class="notes">
     HTML no es "programar". Es definir qué ES cada cosa en la página.
     Un título es un h1, no un div con font-size grande. Una lista es un ul, no divs apilados.
-    Cuando usás la etiqueta correcta, el browser, los lectores de pantalla y Google entienden tu contenido.
-    Cuando usás divs para todo, nadie entiende nada — excepto visualmente.
+    Cuando usas la etiqueta correcta, el browser, los lectores de pantalla y Google entienden tu contenido.
+    Cuando usas divs para todo, nadie entiende nada — excepto visualmente.
   </aside>
 </section>
 
@@ -114,7 +114,7 @@
     section: grupo temático con heading propio. Ej: "Productos destacados", "Testimonios", "FAQ".
     article: contenido independiente que tiene sentido por sí solo. Ej: un post de blog, una card de producto, un comentario.
     aside: contenido relacionado pero secundario. Ej: sidebar, "artículos relacionados", tips.
-    Regla: si podés ponerle un heading, probablemente es un section. Si tiene sentido fuera de contexto, es un article.
+    Regla: si puedes ponerle un heading, probablemente es un section. Si tiene sentido fuera de contexto, es un article.
   </aside>
 </section>
 
@@ -124,7 +124,7 @@
   <aside class="notes">
     Solo un main por página. Es el contenido principal — lo que cambia entre páginas.
     El header y footer suelen ser iguales en todas las páginas. El main es lo que varía.
-    En Figma: cuando diseñás, pensá en qué parte de tu layout es el "main". Eso define la estructura.
+    En Figma: cuando diseñas, piensa en qué parte de tu layout es el "main". Eso define la estructura.
   </aside>
 </section>
 
@@ -156,7 +156,7 @@
   <aside class="notes">
     Error común: usar h3 porque "se ve del tamaño que quiero". El heading define jerarquía, no tamaño visual.
     El tamaño se controla con CSS. La jerarquía se define con el número del heading.
-    Si necesitás un texto grande que no es un heading, usá un párrafo con clase. No abusés de los headings.
+    Si necesitas un texto grande que no es un heading, usa un párrafo con clase. No abuses de los headings.
   </aside>
 </section>
 
@@ -196,10 +196,10 @@
     <li class="fragment fade-up">dl · fieldset · legend</li>
   </ul>
   <aside class="notes">
-    Antes de crear una clase CSS para "texto en negrita", usá strong. Antes de hacer un div con borde para una cita, usá blockquote.
+    Antes de crear una clase CSS para "texto en negrita", usa strong. Antes de hacer un div con borde para una cita, usa blockquote.
     Los elementos nativos tienen semántica incorporada. Un lector de pantalla sabe que strong es importante, que ul es una lista, que blockquote es una cita.
     fieldset y legend agrupan campos relacionados en un formulario. Ej: "Dirección de envío" como legend, con campos de calle, ciudad, código postal dentro del fieldset.
-    Regla: si HTML ya tiene un elemento para eso, usalo. No reinventes la rueda con divs y clases.
+    Regla: si HTML ya tiene un elemento para eso, úsalo. No reinventes la rueda con divs y clases.
   </aside>
 </section>
 
@@ -220,7 +220,7 @@
   <p class="lead">No es "estilos" — es un sistema de reglas</p>
   <aside class="notes">
     CSS no es una lista de propiedades que memorizás. Es un modelo mental de cómo fluye el contenido en la página.
-    Si entendés el modelo, podés predecir cómo se va a comportar tu diseño sin probarlo.
+    Si entendés el modelo, puedes predecir cómo se va a comportar tu diseño sin probarlo.
     Vamos a ver 4 capas: Caja, Flujo, Flex y Grid. Cada una construye sobre la anterior.
   </aside>
 </section>
@@ -246,9 +246,9 @@
     </div>
   </div>
   <aside class="notes">
-    Estas 4 capas son todo lo que necesitás para entender CSS como diseñador.
+    Estas 4 capas son todo lo que necesitas para entender CSS como diseñador.
     Caja: cómo se dimensiona cada elemento. Flujo: cómo se apilan. Flex: cómo se alinean en una dirección. Grid: cómo se organizan en dos dimensiones.
-    Si dominás estas 4 capas, podés diseñar cualquier layout y saber si es implementable.
+    Si dominas estas 4 capas, puedes diseñar cualquier layout y saber si es implementable.
   </aside>
 </section>
 
@@ -287,7 +287,7 @@
   <aside class="notes">
     Sin border-box: width 200px + padding 20px = 240px reales. Rompe layouts.
     Con border-box: width 200px incluye padding y border = 200px reales. Predecible.
-    Todo framework moderno lo usa por defecto. Si no lo tenés, agregalo como primera regla CSS.
+    Todo framework moderno lo usa por defecto. Si no lo tienes, agrégalo como primera regla CSS.
   </aside>
 </section>
 
@@ -357,7 +357,7 @@
     Navbar: logo a la izquierda, links al centro o derecha. justify-content: space-between.
     Cards en fila: 3 cards con gap, wrap para que bajen en móvil.
     Barras de acción: botones agrupados, alineados a la derecha. justify-content: flex-end, gap: 8px.
-    Flex es para componentes. Si necesitás organizar la página completa, usá Grid.
+    Flex es para componentes. Si necesitas organizar la página completa, usa Grid.
   </aside>
 </section>
 
@@ -396,7 +396,7 @@
     Flex: una dimensión. Ideal para componentes (navbar, grupo de botones, fila de cards).
     Grid: dos dimensiones. Ideal para layouts (página completa, rejilla de productos, dashboard).
     Se pueden combinar: Grid para el layout de la página, Flex para los componentes dentro de cada celda.
-    Analogía: Grid es el plano del edificio (dónde van las habitaciones). Flex es cómo organizás los muebles dentro de cada habitación.
+    Analogía: Grid es el plano del edificio (dónde van las habitaciones). Flex es cómo organizas los muebles dentro de cada habitación.
   </aside>
 </section>
 
@@ -419,7 +419,7 @@
   <aside class="notes">
     Escala de 4px: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96.
     Escala de 8px: 8, 16, 24, 32, 48, 64, 96.
-    Elegí una y usala para todo: padding, margin, gap, border-radius.
+    Elige una y úsala para todo: padding, margin, gap, border-radius.
     Si todo usa múltiplos de 4, el diseño se siente coherente sin esfuerzo consciente.
     En Figma: configurar nudge a 4px (Preferences → Nudge amount).
   </aside>
@@ -433,7 +433,7 @@
     No inventar tamaños. Definir una escala y usarla.
     12px: caption, labels pequeños. 14px: texto secundario, metadata. 16px: body (mínimo para móvil).
     18px: body grande, subtítulos. 24px: títulos de sección. 32px: títulos de página. 48px: hero.
-    Cada step tiene un propósito. Si no sabés para qué es un tamaño, probablemente no lo necesitás.
+    Cada step tiene un propósito. Si no sabes para qué es un tamaño, probablemente no lo necesitas.
   </aside>
 </section>
 
@@ -487,7 +487,7 @@
   <h2>Definidos por contenido</h2>
   <aside class="notes">
     No por dispositivo. No "iPhone 15" ni "iPad Pro". Los dispositivos cambian cada año — tu contenido no.
-    Método: abrí tu diseño, achicá la ventana lentamente. Donde el contenido se rompe → ahí va un breakpoint.
+    Método: abre tu diseño, achica la ventana lentamente. Donde el contenido se rompe → ahí va un breakpoint.
     Los breakpoints son decisiones de diseño, no números mágicos.
   </aside>
 </section>
@@ -514,7 +514,7 @@
   </div>
   <aside class="notes">
     Estos son puntos de referencia, no reglas absolutas. Siempre validar con tu contenido.
-    A veces necesitás un breakpoint a 600px porque tu sidebar no cabe. O a 900px porque tu grid de 3 columnas se aprieta.
+    A veces necesitas un breakpoint a 600px porque tu sidebar no cabe. O a 900px porque tu grid de 3 columnas se aprieta.
     Lo importante: documentar cada breakpoint con qué cambia. "A 768px: grid pasa de 3 a 2 columnas, sidebar se oculta."
   </aside>
 </section>
@@ -527,7 +527,7 @@
     Mobile-first: empezar diseñando para la pantalla más pequeña. Esto te obliga a decidir qué es esencial.
     Después expandir para tablet y desktop — agregar columnas, mostrar más contenido, aprovechar el espacio.
     La alternativa (desktop-first) tiende a generar diseños que se "recortan" mal en móvil.
-    Si funciona bien en 375px, en desktop solo tenés que expandir — no recortar.
+    Si funciona bien en 375px, en desktop solo tienes que expandir — no recortar.
   </aside>
 </section>
 
@@ -554,7 +554,7 @@
     Imágenes: 50-70% del peso de una página. WebP reduce 30-50% vs PNG/JPEG. AVIF aún más.
     srcset: servir diferentes tamaños según el viewport. No servir una imagen de 2000px para un contenedor de 300px.
     Lazy loading: imágenes fuera del viewport se cargan cuando el usuario hace scroll. Reduce tiempo de carga inicial.
-    Fuentes: cada peso = ~20-50KB. Si usás Montserrat en 6 pesos = ~180KB solo en fuentes. Elegí 2-3 pesos máximo.
+    Fuentes: cada peso = ~20-50KB. Si usas Montserrat en 6 pesos = ~180KB solo en fuentes. Elige 2-3 pesos máximo.
     font-display: swap → muestra texto con fuente del sistema mientras carga la custom. Evita texto invisible.
   </aside>
 </section>
@@ -575,7 +575,7 @@
   <h2>No vamos a programar</h2>
   <p class="lead">Vamos a entender</p>
   <aside class="notes">
-    No necesitás saber programar en JavaScript. Pero sí necesitás entender 4 conceptos para comunicarte con desarrollo y tomar mejores decisiones de diseño.
+    No necesitas saber programar en JavaScript. Pero sí necesitas entender 4 conceptos para comunicarte con desarrollo y tomar mejores decisiones de diseño.
     Eventos: qué hace el usuario. Estados: qué muestra el sistema. Validación: cómo se previenen errores. JSON: cómo se comunican frontend y backend.
   </aside>
 </section>
@@ -595,7 +595,7 @@
     change: el usuario cambia un select, un checkbox, un radio. Se dispara al confirmar el cambio.
     submit: el usuario envía un formulario. Es donde se valida todo antes de enviar al servidor.
     focus/blur: el usuario entra o sale de un campo. Útil para mostrar/ocultar ayuda contextual.
-    Para el diseñador: cada evento es un momento donde algo puede cambiar en la interfaz. Diseñá qué pasa en cada uno.
+    Para el diseñador: cada evento es un momento donde algo puede cambiar en la interfaz. Diseña qué pasa en cada uno.
   </aside>
 </section>
 
@@ -612,7 +612,7 @@
     isLoading = true → mostrar skeleton o spinner. isLoading = false → mostrar contenido.
     hasError = true → mostrar mensaje de error. hasError = false → ocultar error.
     isSuccess = true → mostrar confirmación.
-    Para el diseñador: cada estado necesita un diseño. Si solo diseñás el estado "todo bien", estás diseñando la mitad.
+    Para el diseñador: cada estado necesita un diseño. Si solo diseñas el estado "todo bien", estás diseñando la mitad.
   </aside>
 </section>
 
@@ -640,8 +640,8 @@
   <aside class="notes">
     JSON es el formato en que el frontend y el backend se comunican.
     Es básicamente un objeto con claves y valores. El frontend pide datos, el backend responde en JSON.
-    Para el diseñador: si sabés qué datos existen en el JSON, sabés qué podés mostrar en la interfaz.
-    Si el JSON tiene "name" con máximo 100 caracteres, diseñás para 100 caracteres — no para "Juan".
+    Para el diseñador: si sabes qué datos existen en el JSON, sabes qué puedes mostrar en la interfaz.
+    Si el JSON tiene "name" con máximo 100 caracteres, diseñas para 100 caracteres — no para "Juan".
   </aside>
 </section>
 
@@ -655,11 +655,11 @@
 }</code></pre>
   <aside class="notes">
     Esto es lo que el frontend recibe del backend cuando pide los datos de un usuario.
-    name: string, puede ser largo. Diseñá para el caso largo.
+    name: string, puede ser largo. Diseña para el caso largo.
     email: string, formato predecible.
-    plan: string con valores fijos ("free", "pro", "enterprise"). Diseñá para cada valor.
-    avatar: puede ser null (no tiene foto). Diseñá el fallback (iniciales, ícono genérico).
-    Cada campo del JSON es una decisión de diseño. Si un campo puede ser null, necesitás un empty state.
+    plan: string con valores fijos ("free", "pro", "enterprise"). Diseña para cada valor.
+    avatar: puede ser null (no tiene foto). Diseña el fallback (iniciales, ícono genérico).
+    Cada campo del JSON es una decisión de diseño. Si un campo puede ser null, necesitas un empty state.
   </aside>
 </section>
 
@@ -700,9 +700,9 @@
   </ul>
   <aside class="notes">
     Diseño de voz: el usuario dice algo (intent), el sistema interpreta, confirma y ejecuta.
-    Intent simple: "Agendá una cita para el martes a las 3." Claro, específico, accionable.
+    Intent simple: "Agenda una cita para el martes a las 3." Claro, específico, accionable.
     Confirmación: "Voy a agendar una cita el martes 15 a las 3pm. ¿Confirmo?" Nunca ejecutar sin confirmar.
-    Error: "No entendí. ¿Podés repetir?" Si sigue fallando: "Podés hacerlo desde la app." Siempre fallback a interfaz visual.
+    Error: "No entendí. ¿Puedes repetir?" Si sigue fallando: "Puedes hacerlo desde la app." Siempre fallback a interfaz visual.
     Regla: los diálogos de voz deben ser breves. Si el sistema habla más de 15 segundos, el usuario se pierde.
   </aside>
 </section>
