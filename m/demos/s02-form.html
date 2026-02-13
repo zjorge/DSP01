@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Montserrat', -apple-system, sans-serif; color: #1d1d1f; background: #fff; padding: 16px; }
+  h2 { font-size: 14px; font-weight: 700; margin-bottom: 12px; }
+  form { max-width: 280px; }
+  .field { margin-bottom: 12px; }
+  label { display: block; font-size: 10px; font-weight: 600; margin-bottom: 3px; color: #1d1d1f; }
+  input, select { width: 100%; padding: 6px 8px; font-size: 11px; border: 1px solid #d2d2d7; border-radius: 6px; font-family: inherit; background: #f5f5f7; }
+  input:focus, select:focus { outline: none; border-color: #0071e3; box-shadow: 0 0 0 2px rgba(0,113,227,0.15); }
+  .error-msg { font-size: 9px; color: #e84d3d; margin-top: 2px; }
+  .field-error input { border-color: #e84d3d; }
+  button { background: #1d1d1f; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-size: 11px; font-weight: 600; font-family: inherit; cursor: pointer; margin-top: 4px; }
+  button:hover { background: #0071e3; }
+
+  /* Label badges */
+  label::after { font-size: 7px; font-weight: 700; padding: 1px 4px; border-radius: 2px; margin-left: 4px; vertical-align: middle; }
+  .req label::after { content: 'required'; background: #e84d3d; color: #fff; }
+  .type-badge label::after { content: attr(data-type); background: #0071e3; color: #fff; }
+</style>
+</head>
+<body>
+  <h2>Crear cuenta</h2>
+  <form novalidate>
+    <div class="field req">
+      <label for="name">Nombre completo</label>
+      <input type="text" id="name" required placeholder="Ana López">
+    </div>
+    <div class="field req type-badge">
+      <label for="email" data-type="type=email">Correo electrónico</label>
+      <input type="email" id="email" required placeholder="ana@mail.com">
+    </div>
+    <div class="field field-error">
+      <label for="phone">Teléfono</label>
+      <input type="tel" id="phone" value="abc123">
+      <div class="error-msg">Ingresa un número válido</div>
+    </div>
+    <button type="submit">Registrarse</button>
+  </form>
+</body>
+</html>

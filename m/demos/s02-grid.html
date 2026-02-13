@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Montserrat', -apple-system, sans-serif; color: #1d1d1f; background: #fff; padding: 12px; }
+
+  h2 { font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+
+  .grid-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 8px;
+  }
+
+  .grid-item {
+    background: #f5f5f7;
+    border: 1px solid #d2d2d7;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+  }
+  .grid-item .thumb {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #d2d2d7 0%, #e8e8ed 100%);
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  .grid-item h3 { font-size: 9px; font-weight: 600; }
+  .grid-item p { font-size: 8px; color: #86868b; }
+
+  .code-label {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 8px;
+    font-weight: 600;
+    color: #0071e3;
+    background: #e8f0fe;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  .fr-visual {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .fr-visual > div {
+    background: #1d1d1f;
+    color: #fff;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .fr-label {
+    font-size: 8px;
+    color: #86868b;
+    margin-top: 6px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <span class="code-label">grid-template-columns: repeat(auto-fit, minmax(80px, 1fr))</span>
+  <div class="grid-demo">
+    <div class="grid-item"><div class="thumb"></div><h3>Item 1</h3><p>$29</p></div>
+    <div class="grid-item"><div class="thumb"></div><h3>Item 2</h3><p>$49</p></div>
+    <div class="grid-item"><div class="thumb"></div><h3>Item 3</h3><p>$39</p></div>
+    <div class="grid-item"><div class="thumb"></div><h3>Item 4</h3><p>$59</p></div>
+    <div class="grid-item"><div class="thumb"></div><h3>Item 5</h3><p>$19</p></div>
+    <div class="grid-item"><div class="thumb"></div><h3>Item 6</h3><p>$69</p></div>
+  </div>
+
+  <div class="fr-visual">
+    <div>1fr</div>
+    <div>2fr</div>
+  </div>
+  <p class="fr-label">grid-template-columns: 1fr 2fr</p>
+</body>
+</html>

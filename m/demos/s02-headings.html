@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Montserrat', -apple-system, sans-serif; color: #1d1d1f; background: #fff; padding: 16px; }
+  h1 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+  h2 { font-size: 15px; font-weight: 700; margin-top: 12px; margin-bottom: 4px; color: #1d1d1f; }
+  h3 { font-size: 12px; font-weight: 600; margin-top: 8px; margin-bottom: 2px; color: #444; }
+  p { font-size: 10px; color: #86868b; line-height: 1.5; margin-bottom: 4px; }
+
+  h1, h2, h3 { position: relative; padding-left: 48px; }
+  h1::before { content: 'h1'; position: absolute; left: 0; top: 50%; transform: translateY(-50%); background: #1d1d1f; color: #fff; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 3px; }
+  h2::before { content: 'h2'; position: absolute; left: 0; top: 50%; transform: translateY(-50%); background: #0071e3; color: #fff; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 3px; }
+  h3::before { content: 'h3'; position: absolute; left: 0; top: 50%; transform: translateY(-50%); background: #86868b; color: #fff; font-size: 9px; font-weight: 700; padding: 1px 6px; border-radius: 3px; }
+
+  .indent-2 { padding-left: 68px; }
+  .indent-2::before { left: 20px; }
+  .indent-3 { padding-left: 88px; }
+  .indent-3::before { left: 40px; }
+
+  .outline { border-left: 2px solid #d2d2d7; margin-left: 14px; padding-left: 0; }
+</style>
+</head>
+<body>
+  <div class="outline">
+    <h1>Zapatillas de Running</h1>
+    <p>Página de categoría principal</p>
+    <h2>Más vendidas</h2>
+    <h3 class="indent-3">Nike Air Zoom</h3>
+    <h3 class="indent-3">Adidas Ultraboost</h3>
+    <h2>Nuevos lanzamientos</h2>
+    <h3 class="indent-3">New Balance Fresh Foam</h3>
+    <h2>Por precio</h2>
+    <h3 class="indent-3">Menos de $100</h3>
+    <h3 class="indent-3">$100 – $200</h3>
+  </div>
+</body>
+</html>

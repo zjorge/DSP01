@@ -10,10 +10,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css" id="theme">
 
   <!-- Custom Isthmus theme -->
-  <link rel="stylesheet" href="../css/theme-isthmus.css">
+  <link rel="stylesheet" href="../css/theme-isthmus.css?v=3">
+
+  <!-- Highlight.js (syntax highlighting) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
 
   <!-- Lucide icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+
 </head>
 <body>
 
@@ -102,6 +106,55 @@
   </aside>
 </section>
 
+<section class="code-slide" data-transition="fade">
+  <h3 class="uppercase">Landmarks · Código</h3>
+  <div class="code-demo">
+    <div class="code-panel">
+      <div class="panel-label">HTML</div>
+      <pre><code class="html" data-trim data-noescape>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;body&gt;
+
+  &lt;header&gt;
+    &lt;span class="logo"&gt;Mi Sitio&lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;nav&gt;
+    &lt;a href="#"&gt;Inicio&lt;/a&gt;
+    &lt;a href="#"&gt;Productos&lt;/a&gt;
+    &lt;a href="#"&gt;Nosotros&lt;/a&gt;
+  &lt;/nav&gt;
+
+  &lt;main&gt;
+    &lt;h1&gt;Bienvenidos&lt;/h1&gt;
+    &lt;p&gt;Contenido principal...&lt;/p&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;© 2025 Mi Sitio&lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+      </code></pre>
+    </div>
+    <div class="preview-panel">
+      <div class="browser-bar">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="url">misitio.com</span>
+      </div>
+      <iframe class="full-iframe" src="demos/s02-landmarks.html" loading="lazy"></iframe>
+    </div>
+  </div>
+  <aside class="notes">
+    Aquí vemos la estructura HTML básica con los 4 landmarks principales.
+    A la izquierda el código tal como se escribe en el editor. A la derecha, cómo se ve en el navegador.
+    Cada etiqueta semántica tiene un propósito: header para identidad, nav para navegación, main para contenido principal, footer para información secundaria.
+    [Señalar las etiquetas en el código y su correspondencia visual en el preview.]
+  </aside>
+</section>
+
 <section data-transition="fade">
   <h3 class="uppercase">Landmarks</h3>
   <h2>Dentro del main</h2>
@@ -160,6 +213,44 @@
   </aside>
 </section>
 
+<section class="code-slide" data-transition="fade">
+  <h3 class="uppercase">Headings · Código</h3>
+  <div class="code-demo">
+    <div class="code-panel">
+      <div class="panel-label">HTML</div>
+      <pre><code class="html" data-trim data-noescape>
+&lt;h1&gt;Zapatillas de Running&lt;/h1&gt;
+
+&lt;h2&gt;Más vendidas&lt;/h2&gt;
+  &lt;h3&gt;Nike Air Zoom&lt;/h3&gt;
+  &lt;h3&gt;Adidas Ultraboost&lt;/h3&gt;
+
+&lt;h2&gt;Nuevos lanzamientos&lt;/h2&gt;
+  &lt;h3&gt;New Balance Fresh Foam&lt;/h3&gt;
+
+&lt;h2&gt;Por precio&lt;/h2&gt;
+  &lt;h3&gt;Menos de $100&lt;/h3&gt;
+  &lt;h3&gt;$100 – $200&lt;/h3&gt;
+      </code></pre>
+    </div>
+    <div class="preview-panel">
+      <div class="browser-bar">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="url">tienda.com/running</span>
+      </div>
+      <iframe class="full-iframe" src="demos/s02-headings.html" loading="lazy"></iframe>
+    </div>
+  </div>
+  <aside class="notes">
+    A la izquierda, la jerarquía de headings tal como se escribe. A la derecha, cómo el navegador los interpreta visualmente.
+    Noten las etiquetas h1, h2, h3 — crean un outline lógico, como el índice de un libro.
+    El h1 es el título de la página. Los h2 son secciones. Los h3 son items dentro de cada sección.
+    [Señalar que el tamaño visual viene del CSS, no del número de heading.]
+  </aside>
+</section>
+
 <!-- Formularios -->
 <section data-transition="fade">
   <i data-lucide="text-cursor-input" class="icon-hero"></i>
@@ -184,6 +275,50 @@
     Label visible: cada input necesita un label visible y asociado programáticamente. El placeholder NO es un label — desaparece al escribir y no todos los lectores de pantalla lo leen.
     Input type: email muestra @ en el teclado móvil. tel muestra números. date muestra selector nativo. number muestra flechas. Usar el type correcto mejora la experiencia sin escribir una línea de JS.
     Errores: mensaje de texto debajo del campo (no solo borde rojo). Asociado con aria-describedby para que el lector de pantalla lo anuncie. Nunca depender solo de color.
+  </aside>
+</section>
+
+<section class="code-slide" data-transition="fade">
+  <h3 class="uppercase">Formularios · Código</h3>
+  <div class="code-demo">
+    <div class="code-panel">
+      <div class="panel-label">HTML</div>
+      <pre><code class="html" data-trim data-noescape>
+&lt;form&gt;
+  &lt;label for="name"&gt;Nombre&lt;/label&gt;
+  &lt;input type="text" id="name"
+         required&gt;
+
+  &lt;label for="email"&gt;Correo&lt;/label&gt;
+  &lt;input type="email" id="email"
+         required&gt;
+
+  &lt;label for="phone"&gt;Teléfono&lt;/label&gt;
+  &lt;input type="tel" id="phone"&gt;
+  &lt;span class="error"&gt;
+    Ingresa un número válido
+  &lt;/span&gt;
+
+  &lt;button type="submit"&gt;
+    Registrarse
+  &lt;/button&gt;
+&lt;/form&gt;
+      </code></pre>
+    </div>
+    <div class="preview-panel">
+      <div class="browser-bar">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="url">app.com/registro</span>
+      </div>
+      <iframe class="full-iframe" src="demos/s02-form.html" loading="lazy"></iframe>
+    </div>
+  </div>
+  <aside class="notes">
+    A la izquierda, un formulario con las 3 reglas aplicadas: label visible, type correcto, error asociado.
+    Noten: cada input tiene su label con for/id. El type="email" activa validación nativa. El error está debajo del campo, no solo un borde rojo.
+    [Señalar el badge "required" y "type=email" en el preview. Mostrar el campo con error.]
   </aside>
 </section>
 
@@ -291,6 +426,54 @@
   </aside>
 </section>
 
+<section class="code-slide" data-transition="fade">
+  <h3 class="uppercase">Box Model · Código</h3>
+  <div class="code-demo">
+    <div class="code-panel">
+      <div class="panel-label">CSS</div>
+      <pre><code class="css" data-trim data-noescape>
+/* Reset universal */
+* {
+  box-sizing: border-box;
+}
+
+.card {
+  width: 200px;
+
+  /* contenido */
+  padding: 20px;
+
+  /* borde */
+  border: 3px solid #1d1d1f;
+
+  /* espacio externo */
+  margin: 20px;
+}
+
+/* Con border-box:
+   200px = contenido + padding + border
+   Sin border-box:
+   200px + 40px + 6px = 246px */
+      </code></pre>
+    </div>
+    <div class="preview-panel">
+      <div class="browser-bar">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="url">DevTools · Box Model</span>
+      </div>
+      <iframe class="full-iframe" src="demos/s02-boxmodel.html" loading="lazy"></iframe>
+    </div>
+  </div>
+  <aside class="notes">
+    A la izquierda, el CSS que define las capas de la caja. A la derecha, la visualización tipo DevTools.
+    Amarillo = margin, negro = border, azul = padding, blanco = contenido.
+    Con border-box, el width declarado incluye padding y border. Sin él, se suman y rompen layouts.
+    [Señalar cada capa en el diagrama y su correspondencia en el código.]
+  </aside>
+</section>
+
 <!-- Flujo -->
 <section data-transition="fade">
   <h3 class="uppercase">02 · Flujo</h3>
@@ -361,6 +544,51 @@
   </aside>
 </section>
 
+<section class="code-slide" data-transition="fade">
+  <h3 class="uppercase">Flex · Código</h3>
+  <div class="code-demo">
+    <div class="code-panel">
+      <div class="panel-label">CSS</div>
+      <pre><code class="css" data-trim data-noescape>
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+}
+
+/* Cards en fila */
+.cards {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  min-width: 80px;
+}
+      </code></pre>
+    </div>
+    <div class="preview-panel">
+      <div class="browser-bar">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="url">tienda.com</span>
+      </div>
+      <iframe class="full-iframe" src="demos/s02-flex.html" loading="lazy"></iframe>
+    </div>
+  </div>
+  <aside class="notes">
+    Dos usos clásicos de Flexbox en una sola vista.
+    Arriba: navbar con justify-content: space-between — logo a la izquierda, links a la derecha.
+    Abajo: cards en fila con gap y flex-wrap — si no caben, bajan a la siguiente línea.
+    [Señalar las anotaciones azules en el preview que muestran qué propiedad CSS se aplica.]
+  </aside>
+</section>
+
 <!-- Grid -->
 <section data-transition="fade">
   <h3 class="uppercase">04 · Grid</h3>
@@ -386,6 +614,45 @@
     minmax: minmax(250px, 1fr) = mínimo 250px, máximo lo que sobre. Combinado con auto-fit, crea grids responsivas sin media queries.
     gap: espacio entre celdas. Igual que en Flex.
     Ejemplo mágico: grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)). Esto crea una grilla que se adapta sola al ancho disponible.
+  </aside>
+</section>
+
+<section class="code-slide" data-transition="fade">
+  <h3 class="uppercase">Grid · Código</h3>
+  <div class="code-demo">
+    <div class="code-panel">
+      <div class="panel-label">CSS</div>
+      <pre><code class="css" data-trim data-noescape>
+/* Grilla auto-responsiva */
+.productos {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(80px, 1fr));
+  gap: 8px;
+}
+
+/* Proporciones con fr */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 8px;
+}
+      </code></pre>
+    </div>
+    <div class="preview-panel">
+      <div class="browser-bar">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="url">tienda.com/catalogo</span>
+      </div>
+      <iframe class="full-iframe" src="demos/s02-grid.html" loading="lazy"></iframe>
+    </div>
+  </div>
+  <aside class="notes">
+    Arriba: la grilla mágica con auto-fit y minmax. Los items se reorganizan solos según el espacio disponible — sin media queries.
+    Abajo: proporciones con fr. 1fr + 2fr = la segunda columna es el doble de ancha que la primera.
+    [Señalar que el preview muestra ambos ejemplos: la grilla de productos y las proporciones 1fr/2fr.]
   </aside>
 </section>
 
@@ -496,19 +763,19 @@
   <h3 class="uppercase">Referencias</h3>
   <div class="cols" style="text-align:center;">
     <div class="fragment fade-up" data-fragment-index="1">
-      <span class="big-number">480</span>
+      <span class="mid-number">480</span>
       <p class="small muted">móvil</p>
     </div>
     <div class="fragment fade-up" data-fragment-index="2">
-      <span class="big-number">768</span>
+      <span class="mid-number">768</span>
       <p class="small muted">tablet</p>
     </div>
     <div class="fragment fade-up" data-fragment-index="3">
-      <span class="big-number">1024</span>
+      <span class="mid-number">1024</span>
       <p class="small muted">desktop</p>
     </div>
     <div class="fragment fade-up" data-fragment-index="4">
-      <span class="big-number">1280</span>
+      <span class="mid-number">1280</span>
       <p class="small muted">wide</p>
     </div>
   </div>
@@ -784,6 +1051,7 @@
 <!-- Reveal.js core + plugins -->
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
 <script>
   Reveal.initialize({
     // Presentation
@@ -820,7 +1088,7 @@
     showNotes: false,
 
     // Plugins
-    plugins: [ RevealNotes ],
+    plugins: [ RevealNotes, RevealHighlight ],
 
     // View
     viewDistance: 3,
@@ -857,6 +1125,99 @@
     updateSemiOut();
     lucide.createIcons();
   });
+
+  /* ── Typewriter effect for code blocks ────── */
+  (function() {
+    var twTimers = [];
+
+    function clearTypewriter() {
+      twTimers.forEach(function(id) { clearTimeout(id); });
+      twTimers = [];
+    }
+
+    function initTypewriter(slide) {
+      clearTypewriter();
+      var codeEl = slide.querySelector('.code-demo pre code');
+      if (!codeEl) return;
+
+      // Store the fully highlighted HTML on first visit
+      if (!codeEl.dataset.twFull) {
+        codeEl.dataset.twFull = codeEl.innerHTML;
+      }
+      var fullHTML = codeEl.dataset.twFull;
+
+      // Extract plain text to count visible chars
+      var tmp = document.createElement('span');
+      tmp.innerHTML = fullHTML;
+      var plainText = tmp.textContent || '';
+      var totalChars = plainText.length;
+      if (totalChars === 0) return;
+
+      // Speed: ~14ms per char, min 1.2s, max 4s total
+      var totalTime = Math.min(4000, Math.max(1200, totalChars * 14));
+      var charDelay = totalTime / totalChars;
+
+      // Build an array of "safe cut points" in the HTML
+      // We reveal by plain-text char count, but always output complete HTML tags
+      var cuts = [];
+      var textIdx = 0;
+      var inTag = false;
+      for (var i = 0; i < fullHTML.length; i++) {
+        if (fullHTML[i] === '<') { inTag = true; continue; }
+        if (fullHTML[i] === '>') { inTag = false; continue; }
+        if (!inTag) {
+          // This position in fullHTML corresponds to a visible char
+          // Find the end of this char (could be an HTML entity like &lt;)
+          cuts.push(textIdx);
+          textIdx++;
+        }
+      }
+
+      // Simpler approach: reveal by slicing plain text and re-wrapping
+      codeEl.textContent = '';
+      codeEl.classList.add('tw-typing');
+
+      var revealed = 0;
+      function typeNext() {
+        revealed++;
+        if (revealed >= totalChars) {
+          codeEl.innerHTML = fullHTML;
+          codeEl.classList.remove('tw-typing');
+          return;
+        }
+        // Show revealed chars as plain text (fast, no flicker)
+        codeEl.textContent = plainText.substring(0, revealed);
+        twTimers.push(setTimeout(typeNext, charDelay));
+      }
+      twTimers.push(setTimeout(typeNext, 200));
+    }
+
+    function restoreCode(slide) {
+      clearTypewriter();
+      var codeEl = slide.querySelector('.code-demo pre code');
+      if (codeEl && codeEl.dataset.twFull) {
+        codeEl.innerHTML = codeEl.dataset.twFull;
+        codeEl.classList.remove('tw-typing');
+      }
+    }
+
+    Reveal.on('slidechanged', function(event) {
+      // Restore previous slide if it was a code slide
+      if (event.previousSlide && event.previousSlide.classList.contains('code-slide')) {
+        restoreCode(event.previousSlide);
+      }
+      // Animate new slide
+      if (event.currentSlide.classList.contains('code-slide')) {
+        setTimeout(function() { initTypewriter(event.currentSlide); }, 100);
+      }
+    });
+
+    Reveal.on('ready', function(event) {
+      if (event.currentSlide && event.currentSlide.classList.contains('code-slide')) {
+        setTimeout(function() { initTypewriter(event.currentSlide); }, 400);
+      }
+    });
+  })();
 
   /* ── Dark mode toggle (press "D") ────────── */
   document.addEventListener('keydown', function(e) {

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Montserrat', -apple-system, sans-serif; background: #fff; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 12px; }
+
+  .box-demo {
+    position: relative;
+    /* Margin layer */
+    background: #fef3c7;
+    padding: 20px;
+    border-radius: 4px;
+  }
+  .box-demo::before {
+    content: 'margin';
+    position: absolute; top: 4px; left: 6px;
+    font-size: 8px; font-weight: 600; color: #92400e; opacity: 0.7;
+  }
+
+  .border-layer {
+    background: #1d1d1f;
+    padding: 3px;
+    border-radius: 4px;
+    position: relative;
+  }
+  .border-layer::before {
+    content: 'border';
+    position: absolute; top: 50%; right: -40px; transform: translateY(-50%);
+    font-size: 8px; font-weight: 600; color: #fff;
+    background: #1d1d1f; padding: 1px 5px; border-radius: 3px;
+  }
+
+  .padding-layer {
+    background: #dbeafe;
+    padding: 20px;
+    border-radius: 2px;
+    position: relative;
+  }
+  .padding-layer::before {
+    content: 'padding';
+    position: absolute; top: 4px; left: 6px;
+    font-size: 8px; font-weight: 600; color: #1e40af; opacity: 0.7;
+  }
+
+  .content {
+    background: #fff;
+    padding: 16px 24px;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1d1d1f;
+    min-width: 120px;
+  }
+
+  .legend {
+    position: absolute;
+    bottom: -36px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    font-size: 8px;
+    font-weight: 600;
+  }
+  .legend span { display: flex; align-items: center; gap: 3px; }
+  .legend .dot { width: 8px; height: 8px; border-radius: 2px; }
+  .dot-margin { background: #fef3c7; border: 1px solid #fcd34d; }
+  .dot-border { background: #1d1d1f; }
+  .dot-padding { background: #dbeafe; border: 1px solid #93c5fd; }
+  .dot-content { background: #fff; border: 1px solid #d2d2d7; }
+
+  .wrapper { position: relative; }
+</style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="box-demo">
+      <div class="border-layer">
+        <div class="padding-layer">
+          <div class="content">contenido</div>
+        </div>
+      </div>
+    </div>
+    <div class="legend">
+      <span><div class="dot dot-margin"></div>margin</span>
+      <span><div class="dot dot-border"></div>border</span>
+      <span><div class="dot dot-padding"></div>padding</span>
+      <span><div class="dot dot-content"></div>contenido</span>
+    </div>
+  </div>
+</body>
+</html>
